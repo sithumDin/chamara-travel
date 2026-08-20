@@ -3,7 +3,7 @@ import type { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "reac
 import { cn } from "@/lib/utils";
 
 const variantClasses = {
-  primary: "bg-ink text-paper hover:bg-ink-soft",
+  primary: "bg-ink text-white hover:bg-ink-soft",
   white: "bg-white text-ink hover:bg-white/90",
   outline: "bg-transparent text-ink border border-ink/20 hover:border-ink/60",
   "outline-white": "bg-transparent text-white border border-white/40 hover:border-white",

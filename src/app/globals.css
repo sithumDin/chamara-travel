@@ -3,15 +3,20 @@
 @theme inline {
   --font-sans: var(--font-jakarta);
 
-  /* Warm monochrome palette matched to the supplied UI reference */
-  --color-ink: #17170f;
-  --color-ink-soft: #3a3a30;
-  --color-paper: #fdfdfb;
-  --color-surface: #f3f3ee;
-  --color-surface-dark: #201f18;
-  --color-border: #e7e7e0;
-  --color-muted: #6b6b60;
-  --color-muted-light: #9a9a8d;
+  /* Sri Lanka brand palette — deep ocean, tea/palm greens, sand, clay */
+  --color-ink: #0c445a; /* deep ocean — headings, primary buttons, dark surfaces */
+  --color-ink-soft: #0a3648; /* darker ocean — hover states, body copy */
+  --color-paper: #ffffff; /* white — page background */
+  --color-surface: #ffffff; /* white — card backgrounds */
+  --color-surface-dark: #082f3e; /* darkest ocean — dark decorative surfaces */
+  --color-border: #e7e0d1; /* sand border — the only thing separating white cards from the white page */
+  --color-muted: #5c7078; /* ocean-grey — secondary text */
+  --color-muted-light: #93a3a6; /* lighter ocean-grey */
+
+  /* Accent trio, used deliberately for brand moments (badges, icons, highlights) */
+  --color-accent: #1d9e75; /* palm green */
+  --color-accent-deep: #0f6e56; /* tea green */
+  --color-clay: #d85a30; /* clay / terracotta */
 }
 
 :root {

@@ -56,7 +56,7 @@ export default function ReviewsPage() {
                 href={siteConfig.tripAdvisor.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper hover:bg-ink-soft"
+                className="mt-2 inline-flex items-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-white hover:bg-ink-soft"
               >
                 Read All Reviews on TripAdvisor
               </a>

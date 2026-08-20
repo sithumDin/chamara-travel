@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 const strip = [
   { caption: "Ancient Wonders", seed: "lk-about-culture", alt: "Ancient stupa framed by jungle at sunrise" },
@@ -17,10 +18,13 @@ export function AboutTeaser() {
       <Container>
         <div className="flex flex-col items-center gap-6 text-center">
           <Eyebrow>About Sri Lanka</Eyebrow>
-          <h2 className="max-w-3xl text-balance text-3xl font-medium leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
-            An island of ancient kingdoms, wild coastlines and misty tea country —{" "}
-            <span className="text-muted">small enough to cross in a day, rich enough to fill a lifetime.</span>
-          </h2>
+          <TypewriterHeading
+            className="max-w-3xl text-balance text-3xl font-medium leading-tight tracking-tight sm:text-4xl lg:text-[2.75rem]"
+            segments={[
+              { text: "An island of ancient kingdoms, wild coastlines and misty tea country — ", className: "text-ink" },
+              { text: "small enough to cross in a day, rich enough to fill a lifetime.", className: "text-muted" },
+            ]}
+          />
           <Button href="/about-sri-lanka" variant="outline" size="md">
             Explore Sri Lanka
           </Button>

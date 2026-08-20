@@ -56,6 +56,7 @@ export const siteConfig = {
     { title: "Safari Tours", description: "Guided jeep safaris through Sri Lanka's national parks." },
     { title: "Whale Watching Tours", description: "Boat trips from the south coast to spot blue and sperm whales in season." },
     { title: "City Tours", description: "Guided tours through Colombo, Kandy, Galle and other cities." },
+    { title: "Custom Tours", description: "A fully bespoke itinerary built around your interests, pace and travel dates." },
   ],
 
   // Feature flags — toggle sections on/off without touching component code

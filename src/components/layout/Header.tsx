@@ -32,8 +32,8 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 w-full transition-colors duration-300",
-          isSolid ? "border-b border-border bg-paper/95 backdrop-blur" : "bg-transparent"
+          "fixed inset-x-0 top-0 z-50 w-full transition-colors duration-300",
+          isSolid ? "border-b border-border bg-paper/95 backdrop-blur" : "bg-white/10 backdrop-blur-sm"
         )}
       >
         <Container className="flex h-20 items-center justify-between">
@@ -74,7 +74,7 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
             aria-label="Open menu"
             className={cn(
               "rounded-full p-2.5 transition-colors lg:hidden",
-              isSolid ? "text-ink hover:bg-surface" : "text-white hover:bg-white/10"
+              isSolid ? "text-ink hover:bg-ink/5" : "text-white hover:bg-white/10"
             )}
           >
             <Menu className="size-6" aria-hidden="true" />

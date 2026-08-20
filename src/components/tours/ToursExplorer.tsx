@@ -49,7 +49,7 @@ function FilterPill<T extends string>({
       aria-pressed={active}
       className={cn(
         "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
-        active ? "border-ink bg-ink text-paper" : "border-border bg-paper text-ink-soft hover:border-ink/40"
+        active ? "border-ink bg-ink text-white" : "border-border bg-paper text-ink-soft hover:border-ink/40"
       )}
     >
       {label}

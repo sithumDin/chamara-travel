@@ -81,7 +81,7 @@ export default async function TourDetailPage({
             <TourGallery images={tour.images} title={tour.title} />
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-4 rounded-2xl bg-surface p-6 sm:p-8">
+          <div className="mt-10 grid grid-cols-3 gap-4 rounded-2xl border border-border bg-surface p-6 sm:p-8">
             <div className="flex flex-col items-center gap-2 text-center">
               <Clock className="size-5 text-ink" aria-hidden="true" />
               <p className="text-sm font-medium text-ink">{tour.durationLabel}</p>
@@ -191,7 +191,7 @@ export default async function TourDetailPage({
                 </div>
                 <a
                   href="#inquiry"
-                  className="mt-6 flex items-center justify-center rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-paper hover:bg-ink-soft"
+                  className="mt-6 flex items-center justify-center rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-white hover:bg-ink-soft"
                 >
                   Inquire About This Tour
                 </a>

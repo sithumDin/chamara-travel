@@ -28,7 +28,7 @@ export function GalleryExplorer({ images }: { images: GalleryImage[] }) {
             className={cn(
               "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
               category === cat.value
-                ? "border-ink bg-ink text-paper"
+                ? "border-ink bg-ink text-white"
                 : "border-border bg-paper text-ink-soft hover:border-ink/40"
             )}
           >

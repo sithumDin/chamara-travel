@@ -87,15 +87,15 @@ export default function MyExperiencePage() {
                 </div>
 
                 <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
-                  <div className="rounded-2xl bg-surface p-5">
+                  <div className="rounded-2xl border border-border bg-surface p-5">
                     <p className="text-2xl font-medium text-ink">10+</p>
                     <p className="mt-1 text-xs text-muted">Years Guiding</p>
                   </div>
-                  <div className="rounded-2xl bg-surface p-5">
+                  <div className="rounded-2xl border border-border bg-surface p-5">
                     <p className="text-2xl font-medium text-ink">500+</p>
                     <p className="mt-1 text-xs text-muted">Tours Completed</p>
                   </div>
-                  <div className="rounded-2xl bg-surface p-5">
+                  <div className="rounded-2xl border border-border bg-surface p-5">
                     <p className="text-2xl font-medium text-ink">3</p>
                     <p className="mt-1 text-xs text-muted">Languages Spoken</p>
                   </div>

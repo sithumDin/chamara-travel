@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Users, Backpack, Globe, Star } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const icons = { users: Users, backpack: Backpack, globe: Globe, star: Star } as const;
 
 // Splits "500+" into a numeric part (500) and a suffix ("+"); "5.0" into
 // (5.0, "") with 1 decimal place preserved for the animated display.
@@ -52,24 +56,42 @@ function useCountUp(value: string, durationMs = 1500) {
   return { ref, text: parsed ? `${display}${parsed.suffix}` : value };
 }
 
+const toneClasses = {
+  ink: { badge: "bg-ink/10", icon: "text-ink", value: "text-ink", line: "bg-ink" },
+  accent: { badge: "bg-accent/10", icon: "text-accent-deep", value: "text-accent-deep", line: "bg-accent" },
+  clay: { badge: "bg-clay/10", icon: "text-clay", value: "text-clay", line: "bg-clay" },
+} as const;
+
 export function StatCard({
   label,
   value,
   description,
+  icon,
+  tone = "accent",
 }: {
   label: string;
   value: string;
   description: string;
+  icon: keyof typeof icons;
+  tone?: keyof typeof toneClasses;
 }) {
   const { ref, text } = useCountUp(value);
+  const colors = toneClasses[tone];
+  const Icon = icons[icon];
 
   return (
-    <div className="rounded-2xl bg-surface p-6 sm:p-7">
-      <p className="eyebrow text-muted">{label}</p>
-      <p ref={ref} className="mt-4 text-4xl font-medium tracking-tight text-ink sm:text-5xl">
+    <div className="flex flex-col items-center rounded-2xl border border-border bg-paper p-6 text-center sm:p-7">
+      <span className={cn("inline-flex size-16 items-center justify-center rounded-full", colors.badge)}>
+        <Icon className={cn("size-7", colors.icon)} aria-hidden="true" />
+      </span>
+
+      <p ref={ref} className={cn("mt-5 text-4xl font-semibold tracking-tight sm:text-5xl", colors.value)}>
         {text}
       </p>
-      <p className="mt-3 text-sm leading-relaxed text-muted">{description}</p>
+      <span className={cn("mt-3 h-0.5 w-8 rounded-full", colors.line)} aria-hidden="true" />
+
+      <p className="eyebrow mt-4 text-ink">{label}</p>
+      <p className="mt-2 text-sm leading-relaxed text-muted">{description}</p>
     </div>
   );
 }

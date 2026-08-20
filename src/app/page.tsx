@@ -31,11 +31,11 @@ export default function HomePage() {
       <Header transparent />
       <main>
         <Hero />
-        <TrustBar />
         <DestinationsCarousel />
+        <TrustBar />
+        <FeaturedTours />
         <Services />
         <WhyChamara />
-        <FeaturedTours />
         <AboutTeaser />
         <GalleryPreview />
         <ReviewsSection />

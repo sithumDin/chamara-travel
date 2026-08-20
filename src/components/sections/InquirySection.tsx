@@ -16,10 +16,10 @@ export function InquirySection({ defaultTour }: { defaultTour?: string }) {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div className="flex flex-col gap-4">
-            <div className="rounded-2xl bg-surface p-6">
+            <div className="rounded-2xl border border-border bg-surface p-6">
               <div className="flex items-center gap-3">
-                <span className="inline-flex size-10 items-center justify-center rounded-full bg-paper">
-                  <Phone className="size-4.5 text-ink" aria-hidden="true" />
+                <span className="inline-flex size-10 items-center justify-center rounded-full bg-accent/10">
+                  <Phone className="size-4.5 text-accent-deep" aria-hidden="true" />
                 </span>
                 <div>
                   <p className="text-xs text-muted">Call or WhatsApp</p>
@@ -30,10 +30,10 @@ export function InquirySection({ defaultTour }: { defaultTour?: string }) {
               </div>
             </div>
 
-            <div className="rounded-2xl bg-surface p-6">
+            <div className="rounded-2xl border border-border bg-surface p-6">
               <div className="flex items-center gap-3">
-                <span className="inline-flex size-10 items-center justify-center rounded-full bg-paper">
-                  <Mail className="size-4.5 text-ink" aria-hidden="true" />
+                <span className="inline-flex size-10 items-center justify-center rounded-full bg-clay/10">
+                  <Mail className="size-4.5 text-clay" aria-hidden="true" />
                 </span>
                 <div>
                   <p className="text-xs text-muted">Email</p>
@@ -44,9 +44,9 @@ export function InquirySection({ defaultTour }: { defaultTour?: string }) {
               </div>
             </div>
 
-            <div className="rounded-2xl bg-surface p-6">
+            <div className="rounded-2xl border border-border bg-surface p-6">
               <div className="flex items-center gap-3">
-                <span className="inline-flex size-10 items-center justify-center rounded-full bg-paper">
+                <span className="inline-flex size-10 items-center justify-center rounded-full bg-ink/10">
                   <Clock className="size-4.5 text-ink" aria-hidden="true" />
                 </span>
                 <div>
@@ -60,7 +60,7 @@ export function InquirySection({ defaultTour }: { defaultTour?: string }) {
               href={whatsappLink("Hi! I'd like to know more about a Sri Lanka tour.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-2xl bg-ink px-6 py-4 text-sm font-medium text-paper hover:bg-ink-soft"
+              className="flex items-center justify-center gap-2 rounded-2xl bg-ink px-6 py-4 text-sm font-medium text-white hover:bg-ink-soft"
             >
               <MessageCircle className="size-4.5" aria-hidden="true" />
               Chat on WhatsApp

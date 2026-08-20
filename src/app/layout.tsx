@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const ga4Id = siteConfig.tracking.ga4Id;
 
   return (
-    <html lang="en" className={jakarta.variable}>
+    <html lang="en" className={jakarta.variable} data-scroll-behavior="smooth">
       <head>
         <JsonLd data={travelAgencySchema()} />
         <JsonLd data={localBusinessSchema()} />

@@ -82,7 +82,7 @@ export function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
           type="button"
           onClick={() => scrollByCard(-1)}
           aria-label="Previous review"
-          className="rounded-full border border-border p-2.5 text-ink hover:bg-surface"
+          className="rounded-full border border-border p-2.5 text-ink hover:bg-ink/5"
         >
           <ChevronLeft className="size-5" aria-hidden="true" />
         </button>
@@ -90,7 +90,7 @@ export function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
           type="button"
           onClick={() => scrollByCard(1)}
           aria-label="Next review"
-          className="rounded-full border border-border p-2.5 text-ink hover:bg-surface"
+          className="rounded-full border border-border p-2.5 text-ink hover:bg-ink/5"
         >
           <ChevronRight className="size-5" aria-hidden="true" />
         </button>

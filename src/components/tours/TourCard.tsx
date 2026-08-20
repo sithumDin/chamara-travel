@@ -30,7 +30,7 @@ export function TourCard({ tour, priority = false }: { tour: Tour; priority?: bo
 
       <div className="mt-4 flex items-start justify-between gap-3">
         <h3 className="text-lg font-medium text-ink">{tour.title}</h3>
-        <p className="shrink-0 whitespace-nowrap text-lg font-medium text-ink">
+        <p className="shrink-0 whitespace-nowrap text-lg font-medium text-clay">
           from {formatUsd(tour.fromPriceUsd)}
         </p>
       </div>

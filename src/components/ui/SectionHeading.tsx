@@ -4,7 +4,7 @@ export function Eyebrow({ children, className }: { children: string; className?:
   return (
     <span
       className={cn(
-        "eyebrow inline-flex items-center rounded-full border border-border bg-surface px-3.5 py-1.5 text-muted",
+        "eyebrow inline-flex items-center rounded-full border border-accent/25 bg-accent/10 px-3.5 py-1.5 text-accent-deep",
         className
       )}
     >
