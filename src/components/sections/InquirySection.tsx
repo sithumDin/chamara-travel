@@ -1,6 +1,7 @@
 import { Phone, Mail, MessageCircle, Clock } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { siteConfig, whatsappLink } from "@/data/site-config";
 
@@ -15,7 +16,7 @@ export function InquirySection({ defaultTour }: { defaultTour?: string }) {
         />
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div className="flex flex-col gap-4">
+          <Reveal className="flex flex-col gap-4">
             <div className="rounded-2xl border border-border bg-surface p-6">
               <div className="flex items-center gap-3">
                 <span className="inline-flex size-10 items-center justify-center rounded-full bg-accent/10">
@@ -65,11 +66,11 @@ export function InquirySection({ defaultTour }: { defaultTour?: string }) {
               <MessageCircle className="size-4.5" aria-hidden="true" />
               Chat on WhatsApp
             </a>
-          </div>
+          </Reveal>
 
-          <div className="rounded-3xl border border-border bg-paper p-6 sm:p-8">
+          <Reveal delay={120} className="rounded-3xl border border-border bg-paper p-6 sm:p-8">
             <InquiryForm defaultTour={defaultTour} />
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

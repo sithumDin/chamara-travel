@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Compass } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
@@ -25,7 +26,8 @@ export function Hero() {
           <Button href="/tours" variant="white" size="lg">
             View Tour Packages
           </Button>
-          <Button href="#inquiry" variant="outline-white" size="lg">
+          <Button href="#inquiry" variant="accent" size="lg">
+            <Compass className="size-4.5" aria-hidden="true" />
             Plan My Trip
           </Button>
         </div>

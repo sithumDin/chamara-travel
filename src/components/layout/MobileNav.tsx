@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { X } from "lucide-react";
+import { X, Compass } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks, siteConfig } from "@/data/site-config";
 import { Button } from "@/components/ui/Button";
@@ -56,7 +56,8 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
           </nav>
 
           <div className="flex flex-col gap-4 px-5 sm:px-8">
-            <Button href="/contact" variant="white" size="lg" onClick={onClose}>
+            <Button href="/contact" variant="accent" size="lg" onClick={onClose}>
+              <Compass className="size-4.5" aria-hidden="true" />
               Plan My Trip
             </Button>
             <p className="text-sm text-white/60">

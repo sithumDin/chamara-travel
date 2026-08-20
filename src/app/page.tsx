@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
+import { SriLankaStatement } from "@/components/sections/SriLankaStatement";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { DestinationsCarousel } from "@/components/sections/DestinationsCarousel";
-import { Services } from "@/components/sections/Services";
-import { WhyChamara } from "@/components/sections/WhyChamara";
+import { ServiceHighlights } from "@/components/sections/ServiceHighlights";
 import { FeaturedTours } from "@/components/sections/FeaturedTours";
-import { AboutTeaser } from "@/components/sections/AboutTeaser";
 import { GalleryPreview } from "@/components/sections/GalleryPreview";
 import { ReviewsSection } from "@/components/reviews/ReviewsSection";
 import { InquirySection } from "@/components/sections/InquirySection";
@@ -34,9 +33,8 @@ export default function HomePage() {
         <DestinationsCarousel />
         <TrustBar />
         <FeaturedTours />
-        <Services />
-        <WhyChamara />
-        <AboutTeaser />
+        <SriLankaStatement />
+        <ServiceHighlights />
         <GalleryPreview />
         <ReviewsSection />
         <InquirySection />

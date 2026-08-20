@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, Compass } from "lucide-react";
 import { navLinks } from "@/data/site-config";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -63,7 +63,8 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Button href="/contact" variant={isSolid ? "primary" : "white"} size="md">
+            <Button href="/contact" variant="accent" size="md">
+              <Compass className="size-4" aria-hidden="true" />
               Plan My Trip
             </Button>
           </div>

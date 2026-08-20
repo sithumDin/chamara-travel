@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { galleryImages } from "@/data/gallery";
 
 export function GalleryPreview() {
@@ -18,18 +19,19 @@ export function GalleryPreview() {
 
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
           {preview.map((image, index) => (
-            <div
-              key={image.id}
-              className={`relative overflow-hidden rounded-2xl ${index < 2 ? "aspect-[3/4] lg:col-span-1" : "aspect-square"}`}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
-                className="object-cover"
-              />
-            </div>
+            <Reveal key={image.id} delay={(index % 6) * 80}>
+              <div
+                className={`relative overflow-hidden rounded-2xl ${index < 2 ? "aspect-[3/4] lg:col-span-1" : "aspect-square"}`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
           ))}
         </div>
 

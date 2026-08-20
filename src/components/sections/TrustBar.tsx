@@ -29,7 +29,9 @@ export function TrustBar() {
 
           <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
             {siteConfig.trustStats.map((stat, index) => (
-              <StatCard key={stat.label} {...stat} icon={icons[index % icons.length]} tone={tones[index % tones.length]} />
+              <Reveal key={stat.label} delay={index * 100} className="h-full">
+                <StatCard {...stat} icon={icons[index % icons.length]} tone={tones[index % tones.length]} />
+              </Reveal>
             ))}
           </div>
         </Container>

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function Eyebrow({ children, className }: { children: string; className?: string }) {
   return (
@@ -29,7 +30,7 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div
+    <Reveal
       className={cn(
         "flex flex-col gap-4",
         align === "center" ? "items-center text-center" : "items-start text-left",
@@ -56,6 +57,6 @@ export function SectionHeading({
           {description}
         </p>
       ) : null}
-    </div>
+    </Reveal>
   );
 }

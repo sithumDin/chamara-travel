@@ -7,6 +7,8 @@ const variantClasses = {
   white: "bg-white text-ink hover:bg-white/90",
   outline: "bg-transparent text-ink border border-ink/20 hover:border-ink/60",
   "outline-white": "bg-transparent text-white border border-white/40 hover:border-white",
+  accent:
+    "bg-accent text-white shadow-lg shadow-accent/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-deep hover:shadow-xl hover:shadow-accent/40",
 } as const;
 
 const sizeClasses = {
