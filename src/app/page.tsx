@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
+import { DestinationsCarousel } from "@/components/sections/DestinationsCarousel";
 import { Services } from "@/components/sections/Services";
 import { WhyChamara } from "@/components/sections/WhyChamara";
 import { FeaturedTours } from "@/components/sections/FeaturedTours";
@@ -31,6 +32,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <TrustBar />
+        <DestinationsCarousel />
         <Services />
         <WhyChamara />
         <FeaturedTours />

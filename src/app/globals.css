@@ -58,3 +58,21 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Slow, continuous left-scrolling marquee for the destinations carousel */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-x {
+  animation: marquee-x 50s linear infinite;
+}
+
+.animate-marquee-x:hover {
+  animation-play-state: paused;
+}
