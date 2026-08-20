@@ -51,6 +51,41 @@ export const galleryImages: GalleryImage[] = [
   photo("g-guests-2", "guests", "Family enjoying a boat safari together", "gal-guests-2", 1200, 1500),
   photo("g-guests-3", "guests", "Couple watching the sunset on the beach", "gal-guests-3"),
   photo("g-guests-4", "guests", "Guests with Chamara beside the tour vehicle", "gal-guests-4", 1200, 900),
+
+  photo("g-beach-5", "beaches", "Mirissa beach panorama at sunset", "gal-beach-5", 1200, 900),
+  photo("g-beach-6", "beaches", "Surfers catching a wave off the south coast", "gal-beach-6", 1200, 1500),
+  photo("g-beach-7", "beaches", "Catamaran fishing boats lined up on the shore", "gal-beach-7", 1200, 900),
+  photo("g-beach-8", "beaches", "Coconut palm grove framing the ocean", "gal-beach-8", 1200, 1500),
+  photo("g-beach-9", "beaches", "Snorkeling over a coral reef off the coast", "gal-beach-9", 1200, 900),
+  photo("g-beach-10", "beaches", "Galle Fort lighthouse overlooking the coastline", "gal-beach-10", 1200, 1500),
+
+  photo("g-wildlife-5", "wildlife", "Sri Lankan elephant bathing in a river", "gal-wild-5", 1200, 900),
+  photo("g-wildlife-6", "wildlife", "Toque macaque monkey in the rainforest canopy", "gal-wild-6", 1200, 1500),
+  photo("g-wildlife-7", "wildlife", "Blue whale surfacing off Mirissa", "gal-wild-7", 1200, 900),
+  photo("g-wildlife-8", "wildlife", "Spotted deer grazing in Wilpattu National Park", "gal-wild-8", 1200, 1500),
+  photo("g-wildlife-9", "wildlife", "Hornbill perched on a branch in the jungle", "gal-wild-9", 1200, 900),
+  photo("g-wildlife-10", "wildlife", "Sea turtle swimming near a coral reef", "gal-wild-10", 1200, 1500),
+
+  photo("g-culture-5", "culture", "Temple of the Tooth in Kandy at dusk", "gal-culture-5", 1200, 900),
+  photo("g-culture-6", "culture", "Batik artisan at work on traditional fabric", "gal-culture-6", 1200, 1500),
+  photo("g-culture-7", "culture", "Colorful market stalls in Colombo", "gal-culture-7", 1200, 900),
+  photo("g-culture-8", "culture", "Buddhist monks walking near a stupa", "gal-culture-8", 1200, 1500),
+  photo("g-culture-9", "culture", "Traditional mask carving workshop", "gal-culture-9", 1200, 900),
+  photo("g-culture-10", "culture", "Galle Fort ramparts at sunset", "gal-culture-10", 1200, 1500),
+
+  photo("g-hills-5", "hill-country", "Tea pluckers working the highland slopes", "gal-hills-5", 1200, 900),
+  photo("g-hills-6", "hill-country", "World's End viewpoint at Horton Plains", "gal-hills-6", 1200, 1500),
+  photo("g-hills-7", "hill-country", "Colonial architecture in Nuwara Eliya", "gal-hills-7", 1200, 900),
+  photo("g-hills-8", "hill-country", "Misty mountain road through the highlands", "gal-hills-8", 1200, 1500),
+  photo("g-hills-9", "hill-country", "Ravana Falls cascading down the rocks", "gal-hills-9", 1200, 900),
+  photo("g-hills-10", "hill-country", "Strawberry fields in the hill country", "gal-hills-10", 1200, 1500),
+
+  photo("g-guests-5", "guests", "Guests trekking through tea plantations", "gal-guests-5", 1200, 900),
+  photo("g-guests-6", "guests", "Family posing at a waterfall", "gal-guests-6", 1200, 1500),
+  photo("g-guests-7", "guests", "Guests enjoying a jeep safari ride", "gal-guests-7", 1200, 900),
+  photo("g-guests-8", "guests", "Couple exploring ancient ruins together", "gal-guests-8", 1200, 1500),
+  photo("g-guests-9", "guests", "Guests sampling local Sri Lankan street food", "gal-guests-9", 1200, 900),
+  photo("g-guests-10", "guests", "Group photo with driver-guide beside the tour vehicle", "gal-guests-10", 1200, 1500),
 ];
 
 export const galleryCategories: { value: GalleryImage["category"] | "all"; label: string }[] = [

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Compass } from "lucide-react";
+import { Compass, Star } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
@@ -38,11 +38,9 @@ export function Hero() {
           rel="noopener noreferrer"
           className="mt-10 inline-flex items-center gap-3 rounded-full bg-white/10 py-2 pl-2 pr-4 backdrop-blur-sm transition-colors hover:bg-white/15"
         >
-          <div className="flex items-center gap-1 rounded-full bg-white px-2 py-1.5">
+          <div className="flex items-center gap-0.5 rounded-full bg-white px-2 py-1.5">
             {Array.from({ length: 5 }).map((_, i) => (
-              <span key={i} className="flex size-3.5 items-center justify-center rounded-full bg-[#34E0A1]">
-                <span className="size-1.5 rounded-full bg-white" />
-              </span>
+              <Star key={i} className="size-3.5 fill-[#FFB800] text-[#FFB800]" aria-hidden="true" />
             ))}
           </div>
           <div className="leading-tight">
