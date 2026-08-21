@@ -5,8 +5,11 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { galleryImages } from "@/data/gallery";
 
+// 3 rows at the 6-column desktop layout.
+const PREVIEW_COUNT = 18;
+
 export function GalleryPreview() {
-  const preview = galleryImages.slice(0, 6);
+  const preview = galleryImages.filter((img) => img.category === "guests").slice(0, PREVIEW_COUNT);
 
   return (
     <section className="py-16 sm:py-24">
@@ -21,7 +24,7 @@ export function GalleryPreview() {
           {preview.map((image, index) => (
             <Reveal key={image.id} delay={(index % 6) * 80}>
               <div
-                className={`relative overflow-hidden rounded-2xl ${index < 2 ? "aspect-[3/4] lg:col-span-1" : "aspect-square"}`}
+                className={`relative overflow-hidden rounded-2xl ${index % 6 < 2 ? "aspect-[3/4] lg:col-span-1" : "aspect-square"}`}
               >
                 <Image
                   src={image.src}

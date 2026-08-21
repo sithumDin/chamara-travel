@@ -54,28 +54,38 @@ const reasons = [
   },
 ];
 
-// Cycled across row icons so the two lists read as varied rather than one
-// flat color repeated down the column.
-const iconTones = ["text-accent-deep", "text-clay", "text-ink"];
+// Cycled across cards so the grids read as varied rather than one flat
+// color repeated down the list.
+const badgeTones = [
+  { bg: "bg-accent/10", icon: "text-accent-deep" },
+  { bg: "bg-clay/10", icon: "text-clay" },
+  { bg: "bg-ink/10", icon: "text-ink" },
+];
 
-function IconRow({
+function IconCard({
   icon: Icon,
   title,
   description,
   tone,
+  compact,
 }: {
   icon: typeof Plane;
   title: string;
   description: string;
-  tone: string;
+  tone: (typeof badgeTones)[number];
+  compact?: boolean;
 }) {
   return (
-    <div className="flex items-start gap-4 py-5">
-      <Icon className={`mt-0.5 size-5 shrink-0 ${tone}`} aria-hidden="true" />
-      <div>
-        <h4 className="text-[15px] font-semibold tracking-tight text-ink">{title}</h4>
-        <p className="mt-1 text-sm leading-relaxed text-muted">{description}</p>
-      </div>
+    <div className="rounded-2xl border border-border bg-surface p-5">
+      <span className={`inline-flex size-10 items-center justify-center rounded-full ${tone.bg}`}>
+        <Icon className={`size-4.5 ${tone.icon}`} aria-hidden="true" />
+      </span>
+      <h4 className={`font-semibold tracking-tight text-ink ${compact ? "mt-3 text-sm" : "mt-4 text-[15px]"}`}>
+        {title}
+      </h4>
+      <p className={`text-muted ${compact ? "mt-1 text-xs leading-relaxed" : "mt-1.5 text-sm leading-relaxed"}`}>
+        {description}
+      </p>
     </div>
   );
 }
@@ -90,32 +100,33 @@ export function ServiceHighlights() {
           description="Not a call center, not a franchise — one licensed driver-guide, one comfortable vehicle, and a full range of transport and touring options built entirely around you."
         />
 
-        <div className="mt-16 grid gap-x-16 gap-y-14 lg:grid-cols-2">
+        <div className="mt-16">
           <Reveal>
             <h3 className="eyebrow text-accent-deep">What We Offer</h3>
-            <div className="mt-6 divide-y divide-border">
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
               {siteConfig.services.map((service, index) => (
-                <IconRow
+                <IconCard
                   key={service.title}
                   icon={serviceIcons[index % serviceIcons.length]}
                   title={service.title}
                   description={service.description}
-                  tone={iconTones[index % iconTones.length]}
+                  tone={badgeTones[index % badgeTones.length]}
+                  compact
                 />
               ))}
             </div>
           </Reveal>
 
-          <Reveal delay={120}>
+          <Reveal delay={120} className="mt-14">
             <h3 className="eyebrow text-clay">Why Travel With Chamara</h3>
-            <div className="mt-6 divide-y divide-border">
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {reasons.map((reason, index) => (
-                <IconRow
+                <IconCard
                   key={reason.title}
                   icon={reason.icon}
                   title={reason.title}
                   description={reason.description}
-                  tone={iconTones[index % iconTones.length]}
+                  tone={badgeTones[index % badgeTones.length]}
                 />
               ))}
             </div>

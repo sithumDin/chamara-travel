@@ -25,9 +25,9 @@ export const tours: Tour[] = [
     description:
       "Perfect for a stopover between flights or your first day in the country. We'll cruise through Colombo's colonial-era streets, busy markets, temples, and waterfront in air-conditioned comfort, with as many photo stops as you like.",
     images: [
-      img("lk-colombo-1", "Colombo skyline at sunset"),
-      img("lk-colombo-2", "Gangaramaya Temple in Colombo"),
-      img("lk-colombo-3", "Galle Face Green promenade"),
+      { src: "https://images.pexels.com/photos/30129034/pexels-photo-30129034.jpeg?cs=srgb&fm=jpg", alt: "Colombo skyline at twilight reflected on the lake" },
+      { src: "https://images.pexels.com/photos/19759365/pexels-photo-19759365.jpeg?cs=srgb&fm=jpg", alt: "Buddha statues at Gangaramaya Temple in Colombo" },
+      { src: "https://images.pexels.com/photos/20712001/pexels-photo-20712001.jpeg?cs=srgb&fm=jpg", alt: "Galle Face Green promenade on the Colombo seafront" },
       img("lk-colombo-4", "Pettah market street in Colombo"),
     ],
     durationDays: 1,
@@ -67,10 +67,10 @@ export const tours: Tour[] = [
     description:
       "A jam-packed cultural day trip to two of Sri Lanka's most iconic UNESCO World Heritage Sites — the Sigiriya rock fortress and the Dambulla cave temple complex, with its ancient Buddhist murals and statues.",
     images: [
-      img("lk-sigiriya-1", "Sigiriya rock fortress rising above the jungle"),
-      img("lk-sigiriya-2", "View from the top of Sigiriya rock"),
-      img("lk-dambulla-1", "Golden Buddha statue at Dambulla cave temple"),
-      img("lk-dambulla-2", "Interior murals of Dambulla cave temple"),
+      { src: "/gallery/037-man-sigiriya-rock-viewpoint.jpg", alt: "Sigiriya rock fortress viewed from the approach path" },
+      { src: "/gallery/111-friends-sigiriya-rock-viewpoint-selfie.jpg", alt: "Friends taking in the view from Sigiriya rock fortress" },
+      { src: "https://images.unsplash.com/photo-1764697902732-9d8f476e174d?fm=jpg&q=80&w=1600&auto=format&fit=crop", alt: "Ancient stone Buddha statues carved into a cave temple wall" },
+      { src: "https://images.pexels.com/photos/29503153/pexels-photo-29503153.jpeg?cs=srgb&fm=jpg", alt: "Interior of an ancient Buddhist cave temple with statues" },
     ],
     durationDays: 1,
     durationLabel: "1 Day",
@@ -110,10 +110,10 @@ export const tours: Tour[] = [
     description:
       "Trace over two thousand years of history through Sri Lanka's Cultural Triangle. Wander sacred cities, climb rock fortresses, cycle through ancient ruins, and see wild elephants along the way.",
     images: [
-      img("lk-triangle-1", "Ancient stupa in Anuradhapura"),
-      img("lk-triangle-2", "Ruins of the royal palace in Polonnaruwa"),
-      img("lk-triangle-3", "Sigiriya rock fortress from the gardens"),
-      img("lk-triangle-4", "Elephants at Minneriya National Park"),
+      { src: "https://images.pexels.com/photos/10638034/pexels-photo-10638034.jpeg?cs=srgb&fm=jpg", alt: "The Ruwanwelisaya stupa in Anuradhapura framed by tree branches" },
+      { src: "/gallery/055-family-polonnaruwa-ruins-palace.jpg", alt: "Family exploring the royal palace ruins in Polonnaruwa" },
+      { src: "/gallery/080-group-sigiriya-rock-fortress-lawn.jpg", alt: "Sigiriya rock fortress viewed from the gardens" },
+      { src: "/gallery/144-elephant-herd-river-bathing.jpg", alt: "Wild elephants bathing in a river during a safari" },
       img("lk-triangle-5", "Moonstone carving at an ancient temple entrance"),
     ],
     durationDays: 4,
@@ -153,10 +153,10 @@ export const tours: Tour[] = [
     description:
       "Yala National Park has one of the highest leopard densities in the world. This safari-focused escape gives you two full game drives plus a relaxed coastal stay, ideal for wildlife lovers and photographers.",
     images: [
-      img("lk-yala-1", "Leopard resting on a rock in Yala National Park"),
-      img("lk-yala-2", "Elephants crossing a dirt track in Yala"),
-      img("lk-yala-3", "Safari jeep on a game drive at sunrise"),
-      img("lk-yala-4", "Peacock displaying feathers in Yala National Park"),
+      { src: "/gallery/048-leopard-resting-tree-branch.jpg", alt: "Leopard resting on a tree branch in Yala National Park" },
+      { src: "https://images.pexels.com/photos/34647894/pexels-photo-34647894.jpeg?cs=srgb&fm=jpg", alt: "Wild elephant crossing a forest dirt track" },
+      { src: "/gallery/114-couple-safari-jeep-portrait.jpg", alt: "Guests on a safari jeep during a Yala game drive" },
+      { src: "https://images.pexels.com/photos/33668617/pexels-photo-33668617.jpeg?cs=srgb&fm=jpg", alt: "Peacock displaying its vibrant feathers" },
     ],
     durationDays: 3,
     durationLabel: "3 Days / 2 Nights",
@@ -194,10 +194,10 @@ export const tours: Tour[] = [
     description:
       "Escape to Sri Lanka's central highlands. Ride the famous blue train through tea country, walk between rows of hand-picked tea, and visit waterfalls, viewpoints and colonial hill towns.",
     images: [
-      img("lk-hills-1", "Tea plantation rows in Nuwara Eliya"),
-      img("lk-hills-2", "Nine Arches Bridge in Ella with a train crossing"),
-      img("lk-hills-3", "Misty mountains in the Sri Lankan hill country"),
-      img("lk-hills-4", "Waterfall in the central highlands of Sri Lanka"),
+      { src: "/gallery/050-tea-plantation-hills-rows.jpg", alt: "Rows of tea plantation across the hills of Nuwara Eliya" },
+      { src: "/gallery/nine-arches-bridge-ella.jpg", alt: "A blue train crossing the Nine Arches Bridge through the forest near Ella" },
+      { src: "/gallery/076-woman-mountain-ridge-viewpoint-rock.jpg", alt: "A traveller taking in the misty mountain ridge views of the hill country" },
+      { src: "/gallery/011-couple-waterfall-portrait.jpg", alt: "Couple portrait at a waterfall in the central highlands" },
     ],
     durationDays: 4,
     durationLabel: "4 Days / 3 Nights",
@@ -235,11 +235,11 @@ export const tours: Tour[] = [
     description:
       "A slow-paced coastal escape through Sri Lanka's southern beach belt — colonial Galle Fort, whale watching at Mirissa, stilt fishermen at Weligama, and long stretches of quiet sand.",
     images: [
-      img("lk-beach-1", "Palm-lined beach on the south coast of Sri Lanka"),
-      img("lk-beach-2", "Galle Fort ramparts at sunset"),
-      img("lk-beach-3", "Whale tail breaching off Mirissa"),
-      img("lk-beach-4", "Stilt fishermen at Weligama"),
-      img("lk-beach-5", "Turquoise water and fishing boats on the south coast"),
+      { src: "/gallery/118-empty-beach-rocks-palm-trees-coast.jpg", alt: "Palm-lined beach on the south coast of Sri Lanka" },
+      { src: "/gallery/016-woman-galle-fort-lighthouse.jpg", alt: "Exploring the Galle Fort lighthouse at sunset" },
+      { src: "https://images.pexels.com/photos/4609907/pexels-photo-4609907.jpeg?cs=srgb&fm=jpg", alt: "Humpback whale tail breaking the ocean surface" },
+      { src: "/gallery/015-couple-beach-stilt-fisherman.jpg", alt: "Couple beside a traditional stilt fisherman on the south coast" },
+      { src: "/gallery/128-rocky-cove-palm-trees-turquoise-waves.jpg", alt: "Turquoise water along a rocky cove on the south coast" },
     ],
     durationDays: 5,
     durationLabel: "5 Days / 4 Nights",
@@ -278,10 +278,10 @@ export const tours: Tour[] = [
     description:
       "Designed for couples — a relaxed, romantic pace through Kandy's hills, Ella's viewpoints, a private safari, and four unhurried nights on the south coast, with candlelit dinners arranged along the way.",
     images: [
-      img("lk-honeymoon-1", "Couple watching the sunset on a Sri Lankan beach"),
-      img("lk-honeymoon-2", "Private villa pool overlooking the ocean"),
-      img("lk-honeymoon-3", "Candlelit dinner set up on the beach"),
-      img("lk-honeymoon-4", "Couple walking through a tea plantation"),
+      { src: "https://images.pexels.com/photos/15164906/pexels-photo-15164906.jpeg?cs=srgb&fm=jpg", alt: "Couple sitting on the beach watching the sunset" },
+      { src: "https://images.pexels.com/photos/24807132/pexels-photo-24807132.jpeg?cs=srgb&fm=jpg", alt: "Private villa pool with a sea view" },
+      { src: "https://images.pexels.com/photos/5116976/pexels-photo-5116976.jpeg?cs=srgb&fm=jpg", alt: "Candlelit dinner table set up for a romantic evening" },
+      { src: "/gallery/013-guide-couple-tea-plantation-path.jpg", alt: "Couple walking through the tea plantation with their guide" },
     ],
     durationDays: 7,
     durationLabel: "7 Days / 6 Nights",
@@ -318,10 +318,10 @@ export const tours: Tour[] = [
     description:
       "For travellers who want their trip to get the heart rate up — white water rafting at Kitulgala, waterfall hikes and canyoning near Ella, ziplining through the hills, and a challenging sunrise climb.",
     images: [
-      img("lk-adventure-1", "White water rafting on the Kelani River"),
-      img("lk-adventure-2", "Hiker on a mountain trail in Sri Lanka"),
-      img("lk-adventure-3", "Zipline through the hill country forest"),
-      img("lk-adventure-4", "Canyoning down a waterfall near Ella"),
+      { src: "https://images.pexels.com/photos/31758766/pexels-photo-31758766.jpeg", alt: "White water rafting through river rapids" },
+      { src: "/gallery/051-couple-hiking-forest-path-horton-plains.jpg", alt: "Hiking the forest trail at Horton Plains" },
+      { src: "https://images.unsplash.com/photo-1648172846433-ca73f0ee522c?fm=jpg&q=80&w=1600&auto=format&fit=crop", alt: "Ziplining through the forest canopy" },
+      { src: "https://images.unsplash.com/photo-1724460747514-0d61659f0013?fm=jpg&q=80&w=1600&auto=format&fit=crop", alt: "Jumping into a waterfall pool while canyoning" },
     ],
     durationDays: 6,
     durationLabel: "6 Days / 5 Nights",
@@ -361,12 +361,12 @@ export const tours: Tour[] = [
     description:
       "The complete Sri Lanka experience. This flagship round-trip circles the island, covering the Cultural Triangle, hill country tea estates, a wildlife safari, and south coast beaches — everything, at a comfortable pace.",
     images: [
-      img("lk-roundtrip-1", "Aerial view of the Sri Lankan coastline"),
-      img("lk-roundtrip-2", "Sigiriya rock fortress"),
-      img("lk-roundtrip-3", "Tea plantations in the hill country"),
-      img("lk-roundtrip-4", "Leopard in Yala National Park"),
-      img("lk-roundtrip-5", "Beach sunset on the south coast"),
-      img("lk-roundtrip-6", "Nine Arches Bridge in Ella"),
+      { src: "https://images.pexels.com/photos/16508231/pexels-photo-16508231.jpeg?cs=srgb&fm=jpg", alt: "Aerial drone view of Tangalle beach on the Sri Lankan coastline" },
+      { src: "/gallery/022-family-flag-sigiriya-lake.jpg", alt: "Family at Sigiriya rock fortress" },
+      { src: "/gallery/059-woman-tea-plantation-picking-leaves.jpg", alt: "Picking tea leaves in the hill country plantations" },
+      { src: "/gallery/083-leopard-sleeping-tree-branch.jpg", alt: "Leopard resting in a tree in Yala National Park" },
+      { src: "/gallery/133-palm-trees-shipwreck-sunset-silhouette.jpg", alt: "Palm trees silhouetted against a south coast sunset" },
+      { src: "/gallery/nine-arches-bridge-ella.jpg", alt: "A blue train crossing the Nine Arches Bridge through the forest near Ella" },
     ],
     durationDays: 10,
     durationLabel: "10 Days / 9 Nights",

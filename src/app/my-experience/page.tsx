@@ -55,8 +55,8 @@ export default function MyExperiencePage() {
             <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl">
                 <Image
-                  src="https://picsum.photos/seed/lk-chamara-portrait/900/1125"
-                  alt="Portrait of Chamara, your driver-guide in Sri Lanka"
+                  src="/gallery/036-men-sri-lanka-flag-cars.jpg"
+                  alt="With the Sri Lanka flag beside the tour vehicles"
                   fill
                   sizes="(max-width: 1024px) 100vw, 480px"
                   className="object-cover"

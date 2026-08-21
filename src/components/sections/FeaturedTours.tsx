@@ -12,7 +12,7 @@ export function FeaturedTours() {
       <Container>
         <Reveal className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <h2 className="max-w-lg text-balance text-3xl font-medium leading-tight tracking-tight text-ink sm:text-4xl">
-            Leave the guesswork behind. Travel Sri Lanka with Chamara.
+            Leave the guesswork behind. Explore ready-made Sri Lanka tour packages.
           </h2>
           <Button href="/tours" variant="primary" size="md" className="hidden sm:inline-flex">
             View All Packages

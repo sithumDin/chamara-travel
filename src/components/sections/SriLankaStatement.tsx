@@ -55,7 +55,7 @@ export function SriLankaStatement() {
           <ScrollBrightenText
             text={STATEMENT}
             progress={progress}
-            className="text-balance text-3xl font-medium uppercase leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl"
+            className="text-balance text-3xl font-medium leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl"
           />
           <Button href="/about-sri-lanka" variant="outline-white" size="md">
             Explore Sri Lanka

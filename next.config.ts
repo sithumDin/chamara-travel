@@ -15,6 +15,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "picsum.photos" },
       { protocol: "https", hostname: "fastly.picsum.photos" },
+      // Free-license (Pexels License / Unsplash License: both free for
+      // commercial use, no attribution required) real photos used where
+      // we lack our own.
+      { protocol: "https", hostname: "images.pexels.com" },
+      { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
 };

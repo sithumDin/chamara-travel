@@ -104,7 +104,7 @@ export default function AboutSriLankaPage() {
         <PageHero
           eyebrow="About Sri Lanka"
           title="One island, every kind of landscape"
-          description="A small country with an outsized range of scenery, history and wildlife — here's what to expect."
+          description="We believe every trip should feel personal, not packaged. From ancient cities carved into rock to wild coastlines and misty tea country, each journey is built around the traveller, not a fixed itinerary."
           imageSrc="https://picsum.photos/seed/lk-about-hero/2000/1200"
           imageAlt="Aerial view of Sri Lanka's coastline meeting the hills"
         />

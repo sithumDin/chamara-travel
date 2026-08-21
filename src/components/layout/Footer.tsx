@@ -100,7 +100,11 @@ export function Footer() {
       <div className="border-t border-white/10">
         <Container className="flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/50 sm:flex-row">
           <p>
-            © {year} {siteConfig.businessName}. All rights reserved.
+            © {year} {siteConfig.businessName} | Designed &amp; Developed by{" "}
+            <a href="mailto:sithumdinujaya9@gmail.com" className="hover:text-white">
+              Sithum Dinujaya (Freelancer)
+            </a>
+            . All rights reserved.
           </p>
           <div className="flex items-center gap-5">
             <Link href="/privacy-policy" className="hover:text-white">

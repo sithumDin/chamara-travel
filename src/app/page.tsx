@@ -5,6 +5,7 @@ import { SriLankaStatement } from "@/components/sections/SriLankaStatement";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { DestinationsCarousel } from "@/components/sections/DestinationsCarousel";
 import { ServiceHighlights } from "@/components/sections/ServiceHighlights";
+import { FleetSection } from "@/components/sections/FleetSection";
 import { FeaturedTours } from "@/components/sections/FeaturedTours";
 import { GalleryPreview } from "@/components/sections/GalleryPreview";
 import { ReviewsSection } from "@/components/reviews/ReviewsSection";
@@ -35,6 +36,7 @@ export default function HomePage() {
         <FeaturedTours />
         <SriLankaStatement />
         <ServiceHighlights />
+        <FleetSection />
         <GalleryPreview />
         <ReviewsSection />
         <InquirySection />
