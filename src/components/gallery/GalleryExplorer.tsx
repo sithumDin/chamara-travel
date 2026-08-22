@@ -43,17 +43,19 @@ export function GalleryExplorer({ images }: { images: GalleryImage[] }) {
             key={image.id}
             type="button"
             onClick={() => setActiveIndex(index)}
-            className="relative mb-3 block w-full overflow-hidden rounded-2xl sm:mb-4"
+            className="group relative mb-3 block w-full origin-center transition-transform duration-300 ease-out hover:z-10 hover:scale-[1.08] sm:mb-4"
             style={{ aspectRatio: `${image.width} / ${image.height}` }}
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              loading="lazy"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-              className="object-cover transition-transform duration-500 hover:scale-105"
-            />
+            <div className="absolute inset-0 overflow-hidden rounded-2xl shadow-none transition-shadow duration-300 group-hover:shadow-xl">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                loading="lazy"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover"
+              />
+            </div>
           </button>
         ))}
       </div>

@@ -1,96 +1,58 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { CalendarDays, CloudSun, Backpack } from "lucide-react";
+import Link from "next/link";
+import { CalendarDays, CloudSun, Backpack, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { galleryImages } from "@/data/gallery";
+import { destinations } from "@/data/destinations";
+import { cn } from "@/lib/utils";
 
-// Best-of Sri Lanka destinations, mapped to real gallery photos.
-const destinationInfo = [
-  {
-    id: "g-073-couple-sigiriya-rock-fortress-view",
-    name: "Sigiriya Rock Fortress",
-    summary:
-      "Climb the ancient rock fortress rising from the jungle, past 5th-century frescoes, to a summit with sweeping views across the plains.",
-    bestTime: "Jan – Mar",
-    weather: "Hot & humid, 26–32°C",
-    essentials: "Sun hat, water, sturdy shoes for the climb",
-  },
-  {
-    id: "g-hills-nine-arches",
-    name: "Nine Arches Bridge, Ella",
-    summary:
-      "Watch the blue train wind across this colonial-era viaduct, framed by mist and jungle in the cool hills above Ella.",
-    bestTime: "Dec – Mar",
-    weather: "Mild & misty, 15–25°C",
-    essentials: "Light jacket, camera, check the train times",
-  },
-  {
-    id: "g-050-tea-plantation-hills-rows",
-    name: "Tea Country, Nuwara Eliya",
-    summary:
-      "Walk between endless rows of tea bushes across misty highland slopes, where the world's finest Ceylon tea is hand-picked daily.",
-    bestTime: "Jan – Mar",
-    weather: "Cool, 10–20°C, chilly nights",
-    essentials: "Warm layers, comfortable walking shoes",
-  },
-  {
-    id: "g-048-leopard-resting-tree-branch",
-    name: "Yala National Park",
-    summary:
-      "Track leopards, elephants and exotic birds on an open jeep safari through Sri Lanka's most rewarding wildlife national park.",
-    bestTime: "Feb – Jun",
-    weather: "Hot & dry, 27–33°C",
-    essentials: "Binoculars, neutral clothing, sun protection",
-  },
-  {
-    id: "g-118-empty-beach-rocks-palm-trees-coast",
-    name: "Southern Coast Beaches",
-    summary:
-      "Relax on palm-fringed golden sand, surf gentle swells, and watch fishing boats return each evening along the southern coastline.",
-    bestTime: "Nov – Apr",
-    weather: "Warm, 27–31°C",
-    essentials: "Sunscreen, swimwear, light clothing",
-  },
-  {
-    id: "g-055-family-polonnaruwa-ruins-palace",
-    name: "Polonnaruwa Ancient City",
-    summary:
-      "Cycle between 12th-century royal ruins, carved Buddha statues and ancient reservoirs across Sri Lanka's best-preserved medieval capital city.",
-    bestTime: "May – Sep",
-    weather: "Hot, 28–33°C",
-    essentials: "Modest dress, hat, rent a bike for the site",
-  },
-  {
-    id: "g-072-temple-tooth-relic-kandy",
-    name: "Temple of the Tooth, Kandy",
-    summary:
-      "Visit Kandy's sacred temple housing Buddha's tooth relic, where drummers and worshippers gather for evening rituals each day.",
-    bestTime: "Year-round",
-    weather: "Mild, 20–28°C",
-    essentials: "Shoulders/knees covered, shoes off inside",
-  },
-  {
-    id: "g-015-couple-beach-stilt-fisherman",
-    name: "Stilt Fishermen, South Coast",
-    summary:
-      "Watch fishermen balance on wooden poles above the surf, an iconic and dwindling tradition unique to Sri Lanka's south coast.",
-    bestTime: "Nov – Apr",
-    weather: "Warm, 27–31°C",
-    essentials: "Camera, sun protection, a small tip for photos",
-  },
-] as const;
-
-const destinations = destinationInfo.map((info) => ({
-  ...galleryImages.find((image) => image.id === info.id)!,
-  ...info,
-}));
-
-// Duplicated so the track can loop seamlessly at a -50% transform.
-const track = [...destinations, ...destinations];
+const IDLE_SPEED_PX = 0.35; // slow auto-drift when the cursor isn't near an edge
+const EDGE_SPEED_PX = 2.2; // faster nudge while hovering the left/right edge zone
+const EDGE_ZONE = 0.16; // fraction of the track width treated as an edge hover zone
+const STEP_PX = 420; // distance an arrow-button click scrolls
 
 export function DestinationsCarousel() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [direction, setDirection] = useState<"idle" | "left" | "right" | "paused">("idle");
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || direction === "paused") return;
+
+    let frame: number;
+    const step = () => {
+      const speed = direction === "left" || direction === "right" ? EDGE_SPEED_PX : IDLE_SPEED_PX;
+      const delta = direction === "left" ? -speed : speed;
+
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      let next = track.scrollLeft + delta;
+      if (next >= maxScroll) next = 0;
+      if (next < 0) next = maxScroll;
+      track.scrollLeft = next;
+
+      frame = requestAnimationFrame(step);
+    };
+    frame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frame);
+  }, [direction]);
+
+  const handleMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    const bounds = e.currentTarget.getBoundingClientRect();
+    const fraction = (e.clientX - bounds.left) / bounds.width;
+    if (fraction < EDGE_ZONE) setDirection("left");
+    else if (fraction > 1 - EDGE_ZONE) setDirection("right");
+    else setDirection("paused");
+  };
+
+  const scrollByStep = (dir: -1 | 1) => {
+    trackRef.current?.scrollBy({ left: dir * STEP_PX, behavior: "smooth" });
+  };
+
   return (
-    <section className="overflow-hidden py-16 sm:py-20">
+    <section className="py-16 sm:py-20">
       <Container>
         <SectionHeading
           eyebrow="Sri Lanka"
@@ -99,11 +61,16 @@ export function DestinationsCarousel() {
         />
       </Container>
 
-      <div className="mt-10 overflow-hidden">
-        <div className="animate-marquee-x flex w-max gap-4 sm:gap-6">
-          {track.map((destination, index) => (
+      <div className="relative mt-10">
+        <div
+          ref={trackRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={() => setDirection("idle")}
+          className="flex gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:gap-6 sm:px-6 [&::-webkit-scrollbar]:hidden"
+        >
+          {destinations.map((destination, index) => (
             <div
-              key={`${destination.id}-${index}`}
+              key={destination.id}
               className="group relative h-[340px] w-[80vw] shrink-0 overflow-hidden rounded-2xl sm:h-[440px] sm:w-[46vw] lg:h-[540px] lg:w-[32vw]"
             >
               <Image
@@ -146,10 +113,41 @@ export function DestinationsCarousel() {
                     </p>
                   </div>
                 </div>
+
+                <Link
+                  href="/about-sri-lanka"
+                  className="inline-flex w-fit items-center gap-1 text-xs font-medium text-white/90 underline-offset-4 hover:text-white hover:underline"
+                >
+                  Read more
+                  <ArrowRight className="size-3" aria-hidden="true" />
+                </Link>
               </div>
             </div>
           ))}
         </div>
+
+        <button
+          type="button"
+          aria-label="Scroll destinations left"
+          onClick={() => scrollByStep(-1)}
+          className={cn(
+            "absolute left-2 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full",
+            "size-10 bg-white/90 text-ink shadow-lg backdrop-blur transition-colors hover:bg-white sm:flex"
+          )}
+        >
+          <ChevronLeft className="size-5" aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          aria-label="Scroll destinations right"
+          onClick={() => scrollByStep(1)}
+          className={cn(
+            "absolute right-2 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full",
+            "size-10 bg-white/90 text-ink shadow-lg backdrop-blur transition-colors hover:bg-white sm:flex"
+          )}
+        >
+          <ChevronRight className="size-5" aria-hidden="true" />
+        </button>
       </div>
     </section>
   );

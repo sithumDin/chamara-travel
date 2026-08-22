@@ -1,14 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import type { TourImage } from "@/types";
 import { Lightbox } from "@/components/ui/Lightbox";
 import { cn } from "@/lib/utils";
 
+const AUTO_SLIDE_INTERVAL_MS = 4500;
+
 export function TourGallery({ images, title }: { images: TourImage[]; title: string }) {
   const [active, setActive] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [paused, setPaused] = useState(false);
 
   const galleryImages = images.map((img, i) => ({
     id: `${title}-${i}`,
@@ -19,21 +22,37 @@ export function TourGallery({ images, title }: { images: TourImage[]; title: str
     height: 1067,
   }));
 
+  useEffect(() => {
+    if (images.length <= 1 || lightboxOpen || paused) return;
+    const timer = setInterval(() => {
+      setActive((current) => (current + 1) % images.length);
+    }, AUTO_SLIDE_INTERVAL_MS);
+    return () => clearInterval(timer);
+  }, [images.length, lightboxOpen, paused]);
+
   return (
     <div>
       <button
         type="button"
         onClick={() => setLightboxOpen(true)}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
         className="relative block aspect-[16/10] w-full overflow-hidden rounded-3xl"
       >
-        <Image
-          src={images[active].src}
-          alt={images[active].alt}
-          fill
-          priority
-          sizes="(max-width: 1024px) 100vw, 1000px"
-          className="object-cover"
-        />
+        {images.map((img, index) => (
+          <Image
+            key={img.src}
+            src={img.src}
+            alt={img.alt}
+            fill
+            priority={index === 0}
+            sizes="(max-width: 1024px) 100vw, 1000px"
+            className={cn(
+              "object-cover transition-opacity duration-700 ease-in-out",
+              index === active ? "opacity-100" : "opacity-0"
+            )}
+          />
+        ))}
       </button>
 
       {images.length > 1 ? (
