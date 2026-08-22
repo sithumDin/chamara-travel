@@ -74,101 +74,113 @@ export function InquiryForm({ defaultTour }: { defaultTour?: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <FieldLabel htmlFor="fullName" required>
-            Full Name
-          </FieldLabel>
-          <TextInput id="fullName" hasError={!!errors.fullName} {...register("fullName")} autoComplete="name" />
-          <FieldError>{errors.fullName?.message}</FieldError>
+    <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-8">
+      <div className="space-y-5">
+        <p className="text-xs font-medium uppercase tracking-wide text-muted">Your Details</p>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <FieldLabel htmlFor="fullName" required>
+              Full Name
+            </FieldLabel>
+            <TextInput id="fullName" hasError={!!errors.fullName} {...register("fullName")} autoComplete="name" />
+            <FieldError>{errors.fullName?.message}</FieldError>
+          </div>
+          <div>
+            <FieldLabel htmlFor="email" required>
+              Email
+            </FieldLabel>
+            <TextInput id="email" type="email" hasError={!!errors.email} {...register("email")} autoComplete="email" />
+            <FieldError>{errors.email?.message}</FieldError>
+          </div>
         </div>
-        <div>
-          <FieldLabel htmlFor="email" required>
-            Email
-          </FieldLabel>
-          <TextInput id="email" type="email" hasError={!!errors.email} {...register("email")} autoComplete="email" />
-          <FieldError>{errors.email?.message}</FieldError>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <FieldLabel htmlFor="phone">Phone / WhatsApp</FieldLabel>
+            <TextInput id="phone" type="tel" placeholder="+1 555 123 4567" {...register("phone")} autoComplete="tel" />
+            <FieldError>{errors.phone?.message}</FieldError>
+          </div>
+          <div>
+            <FieldLabel htmlFor="country" required>
+              Country
+            </FieldLabel>
+            <Select id="country" hasError={!!errors.country} defaultValue="" {...register("country")}>
+              <option value="" disabled>
+                Select your country
+              </option>
+              {countries.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </Select>
+            <FieldError>{errors.country?.message}</FieldError>
+          </div>
         </div>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="space-y-5 border-t border-border pt-6">
+        <p className="text-xs font-medium uppercase tracking-wide text-muted">Trip Details</p>
+
         <div>
-          <FieldLabel htmlFor="phone">Phone / WhatsApp</FieldLabel>
-          <TextInput id="phone" type="tel" placeholder="+1 555 123 4567" {...register("phone")} autoComplete="tel" />
-          <FieldError>{errors.phone?.message}</FieldError>
-        </div>
-        <div>
-          <FieldLabel htmlFor="country" required>
-            Country
+          <FieldLabel htmlFor="interestedTour" required>
+            Interested Tour
           </FieldLabel>
-          <Select id="country" hasError={!!errors.country} defaultValue="" {...register("country")}>
+          <Select id="interestedTour" hasError={!!errors.interestedTour} defaultValue={defaultTour ?? ""} {...register("interestedTour")}>
             <option value="" disabled>
-              Select your country
+              Select a tour
             </option>
-            {countries.map((c) => (
-              <option key={c} value={c}>
-                {c}
+            {tours.map((t) => (
+              <option key={t.slug} value={t.title}>
+                {t.title}
               </option>
             ))}
+            <option value="Custom trip">Custom trip</option>
           </Select>
-          <FieldError>{errors.country?.message}</FieldError>
+          <FieldError>{errors.interestedTour?.message}</FieldError>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-4">
+          <div className="sm:col-span-2">
+            <FieldLabel htmlFor="arrivalDate">Arrival Date</FieldLabel>
+            <TextInput id="arrivalDate" type="date" {...register("arrivalDate")} />
+          </div>
+          <div>
+            <FieldLabel htmlFor="numberOfDays"># of Days</FieldLabel>
+            <TextInput id="numberOfDays" type="number" min={1} max={60} {...register("numberOfDays")} />
+          </div>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-4">
+          <div>
+            <FieldLabel htmlFor="adults" required>
+              Adults
+            </FieldLabel>
+            <TextInput id="adults" type="number" min={1} max={50} hasError={!!errors.adults} {...register("adults", { valueAsNumber: true })} />
+          </div>
+          <div>
+            <FieldLabel htmlFor="children">Children</FieldLabel>
+            <TextInput id="children" type="number" min={0} max={50} {...register("children", { valueAsNumber: true })} />
+          </div>
         </div>
       </div>
 
-      <div>
-        <FieldLabel htmlFor="interestedTour" required>
-          Interested Tour
-        </FieldLabel>
-        <Select id="interestedTour" hasError={!!errors.interestedTour} defaultValue={defaultTour ?? ""} {...register("interestedTour")}>
-          <option value="" disabled>
-            Select a tour
-          </option>
-          {tours.map((t) => (
-            <option key={t.slug} value={t.title}>
-              {t.title}
-            </option>
-          ))}
-          <option value="Custom trip">Custom trip</option>
-        </Select>
-        <FieldError>{errors.interestedTour?.message}</FieldError>
-      </div>
+      <div className="space-y-5 border-t border-border pt-6">
+        <p className="text-xs font-medium uppercase tracking-wide text-muted">Your Message</p>
 
-      <div className="grid gap-5 sm:grid-cols-4">
-        <div className="sm:col-span-2">
-          <FieldLabel htmlFor="arrivalDate">Arrival Date</FieldLabel>
-          <TextInput id="arrivalDate" type="date" {...register("arrivalDate")} />
-        </div>
         <div>
-          <FieldLabel htmlFor="numberOfDays"># of Days</FieldLabel>
-          <TextInput id="numberOfDays" type="number" min={1} max={60} {...register("numberOfDays")} />
-        </div>
-        <div>
-          <FieldLabel htmlFor="adults" required>
-            Adults
+          <FieldLabel htmlFor="message" required>
+            Tell us about your trip
           </FieldLabel>
-          <TextInput id="adults" type="number" min={1} max={50} hasError={!!errors.adults} {...register("adults", { valueAsNumber: true })} />
+          <TextArea
+            id="message"
+            hasError={!!errors.message}
+            placeholder="Dates you have in mind, places you'd love to see, pace you prefer, special occasions..."
+            {...register("message")}
+          />
+          <FieldError>{errors.message?.message}</FieldError>
         </div>
-      </div>
-
-      <div className="grid gap-5 sm:grid-cols-4">
-        <div>
-          <FieldLabel htmlFor="children">Children</FieldLabel>
-          <TextInput id="children" type="number" min={0} max={50} {...register("children", { valueAsNumber: true })} />
-        </div>
-      </div>
-
-      <div>
-        <FieldLabel htmlFor="message" required>
-          Tell us about your trip
-        </FieldLabel>
-        <TextArea
-          id="message"
-          hasError={!!errors.message}
-          placeholder="Dates you have in mind, places you'd love to see, pace you prefer, special occasions..."
-          {...register("message")}
-        />
-        <FieldError>{errors.message?.message}</FieldError>
       </div>
 
       {/* Honeypot — hidden from real visitors, bots often fill every field */}
@@ -177,42 +189,44 @@ export function InquiryForm({ defaultTour }: { defaultTour?: string }) {
         <input id="website" type="text" tabIndex={-1} autoComplete="off" {...register("honeypot")} />
       </div>
 
-      <div>
-        <label htmlFor="consent" className="flex items-start gap-3 text-sm text-ink-soft">
-          <input
-            id="consent"
-            type="checkbox"
-            className="mt-0.5 size-4 rounded border-border text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink"
-            {...register("consent")}
-          />
-          <span>
-            I agree to be contacted by {siteConfig.businessName} about my inquiry, in line with the{" "}
-            <a href="/privacy-policy" className="underline underline-offset-2">
-              Privacy Policy
-            </a>
-            .
-          </span>
-        </label>
-        <FieldError>{errors.consent?.message}</FieldError>
+      <div className="space-y-5 border-t border-border pt-6">
+        <div>
+          <label htmlFor="consent" className="flex items-start gap-3 text-sm text-ink-soft">
+            <input
+              id="consent"
+              type="checkbox"
+              className="mt-0.5 size-4 rounded border-border text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink"
+              {...register("consent")}
+            />
+            <span>
+              I agree to be contacted by {siteConfig.businessName} about my inquiry, in line with the{" "}
+              <a href="/privacy-policy" className="underline underline-offset-2">
+                Privacy Policy
+              </a>
+              .
+            </span>
+          </label>
+          <FieldError>{errors.consent?.message}</FieldError>
+        </div>
+
+        {status === "error" ? (
+          <p role="alert" className="flex items-center gap-2 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
+            <AlertCircle className="size-4 shrink-0" aria-hidden="true" />
+            {errorMessage}
+          </p>
+        ) : null}
+
+        <Button type="submit" variant="primary" size="lg" disabled={status === "loading"} className="w-full sm:w-auto">
+          {status === "loading" ? (
+            <>
+              <Loader2 className="size-4 animate-spin" aria-hidden="true" />
+              Sending...
+            </>
+          ) : (
+            "Send Inquiry"
+          )}
+        </Button>
       </div>
-
-      {status === "error" ? (
-        <p role="alert" className="flex items-center gap-2 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
-          <AlertCircle className="size-4 shrink-0" aria-hidden="true" />
-          {errorMessage}
-        </p>
-      ) : null}
-
-      <Button type="submit" variant="primary" size="lg" disabled={status === "loading"} className="w-full sm:w-auto">
-        {status === "loading" ? (
-          <>
-            <Loader2 className="size-4 animate-spin" aria-hidden="true" />
-            Sending...
-          </>
-        ) : (
-          "Send Inquiry"
-        )}
-      </Button>
     </form>
   );
 }

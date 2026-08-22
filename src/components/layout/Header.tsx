@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { Menu, Compass } from "lucide-react";
 import { navLinks } from "@/data/site-config";
 import { Button } from "@/components/ui/Button";
@@ -13,8 +15,14 @@ import { cn } from "@/lib/utils";
 // (white text, no background) and switches to a solid header once the user
 // scrolls past the hero. Pages without a dark hero should omit the prop.
 export function Header({ transparent = false }: { transparent?: boolean }) {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hovered, setHovered] = useState<string | null>(null);
+
+  function isActiveLink(href: string) {
+    return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+  }
 
   useEffect(() => {
     if (!transparent) return;
@@ -47,19 +55,45 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
             chamara<span className={isSolid ? "text-muted" : "text-white/60"}>.</span>
           </Link>
 
-          <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
-            {navLinks.slice(1).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-sm font-medium transition-colors",
-                  isSolid ? "text-ink-soft hover:text-ink" : "text-white/85 hover:text-white"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav
+            aria-label="Primary"
+            className="hidden items-center gap-8 lg:flex"
+            onMouseLeave={() => setHovered(null)}
+          >
+            {navLinks.slice(1).map((link) => {
+              const active = isActiveLink(link.href);
+              const highlighted = hovered ? hovered === link.href : active;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onMouseEnter={() => setHovered(link.href)}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "relative py-2 text-sm font-medium transition-colors",
+                    isSolid
+                      ? active
+                        ? "text-ink"
+                        : "text-ink-soft hover:text-ink"
+                      : active
+                        ? "text-white"
+                        : "text-white/85 hover:text-white"
+                  )}
+                >
+                  {link.label}
+                  {highlighted ? (
+                    <motion.span
+                      layoutId="nav-underline"
+                      transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                      className={cn(
+                        "absolute inset-x-0 -bottom-1 h-0.5 rounded-full",
+                        isSolid ? "bg-ink" : "bg-white"
+                      )}
+                    />
+                  ) : null}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">

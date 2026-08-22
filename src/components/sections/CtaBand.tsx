@@ -17,8 +17,8 @@ export function CtaBand({
     <section className="px-4 pb-4 sm:px-6 sm:pb-6">
       <div className="relative flex min-h-[60vh] items-center justify-center overflow-hidden rounded-3xl sm:min-h-[65vh]">
         <Image
-          src="https://picsum.photos/seed/lk-cta-villa-courtyard/1800/1200"
-          alt="A tropical courtyard with palm leaves framing a private villa interior"
+          src="/gallery/private-villa-pool-sea-view.jpg"
+          alt="A private villa infinity pool overlooking the coast at sunset"
           fill
           sizes="100vw"
           className="object-cover"

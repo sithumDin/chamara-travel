@@ -76,9 +76,11 @@ function IconCard({
   compact?: boolean;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-surface p-5">
-      <span className={`inline-flex size-10 items-center justify-center rounded-full ${tone.bg}`}>
-        <Icon className={`size-4.5 ${tone.icon}`} aria-hidden="true" />
+    <div className="group rounded-2xl border border-border bg-paper p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-transparent hover:shadow-lg">
+      <span
+        className={`inline-flex size-11 items-center justify-center rounded-xl transition-colors duration-200 ${tone.bg} group-hover:bg-ink`}
+      >
+        <Icon className={`size-5 transition-colors duration-200 ${tone.icon} group-hover:text-white`} aria-hidden="true" />
       </span>
       <h4 className={`font-semibold tracking-tight text-ink ${compact ? "mt-3 text-sm" : "mt-4 text-[15px]"}`}>
         {title}
@@ -92,7 +94,7 @@ function IconCard({
 
 export function ServiceHighlights() {
   return (
-    <section className="py-16 sm:py-24">
+    <section className="bg-border/15 py-16 sm:py-24">
       <Container>
         <SectionHeading
           eyebrow="Your Travel Partner"

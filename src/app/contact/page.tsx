@@ -32,8 +32,8 @@ export default function ContactPage() {
           eyebrow="Contact"
           title="Let's plan your trip"
           description="Reach out directly or send an inquiry below — we typically reply within 24 hours."
-          imageSrc="https://picsum.photos/seed/lk-contact-hero/2000/1200"
-          imageAlt="A private driver-guide vehicle parked beside a Sri Lankan coastal road"
+          imageSrc="/gallery/155-guide-couple-golden-hour-ridge-selfie.jpg"
+          imageAlt="Guide and guests taking a selfie on a ridge at golden hour"
         />
 
         <InquirySection />

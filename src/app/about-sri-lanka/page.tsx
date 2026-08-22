@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { FileCheck, Coins, Languages, Smartphone, ShieldCheck, Backpack, CalendarDays, CloudSun } from "lucide-react";
+import Link from "next/link";
+import { FileCheck, Coins, Languages, Smartphone, ShieldCheck, Backpack, CalendarDays, CloudSun, ArrowRight } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -131,7 +132,7 @@ export default function AboutSriLankaPage() {
           eyebrow="About Sri Lanka"
           title="One island, every kind of landscape"
           description="We believe every trip should feel personal, not packaged. From ancient cities carved into rock to wild coastlines and misty tea country, each journey is built around the traveller, not a fixed itinerary."
-          imageSrc="https://picsum.photos/seed/lk-about-hero/2000/1200"
+          imageSrc="/gallery/about-sri-lanka-hero-bg.jpg"
           imageAlt="Aerial view of Sri Lanka's coastline meeting the hills"
         />
 
@@ -168,18 +169,25 @@ export default function AboutSriLankaPage() {
 
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {destinations.map((destination) => (
-                <div key={destination.id} className="overflow-hidden rounded-2xl border border-border">
-                  <div className="relative aspect-[4/3] w-full">
+                <div
+                  key={destination.id}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-paper shadow-sm transition-shadow hover:shadow-lg"
+                >
+                  <Link href={`/destinations/${destination.slug}`} className="relative aspect-[4/3] w-full overflow-hidden">
                     <Image
                       src={destination.src}
                       alt={destination.alt}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-medium text-ink">{destination.name}</h3>
+                  </Link>
+                  <div className="flex flex-1 flex-col p-5">
+                    <h3 className="text-lg font-medium text-ink">
+                      <Link href={`/destinations/${destination.slug}`} className="hover:underline">
+                        {destination.name}
+                      </Link>
+                    </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted">{destination.summary}</p>
 
                     <div className="mt-4 space-y-1.5 text-sm text-muted">
@@ -202,6 +210,14 @@ export default function AboutSriLankaPage() {
                         </p>
                       </div>
                     </div>
+
+                    <Link
+                      href={`/destinations/${destination.slug}`}
+                      className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-ink hover:underline"
+                    >
+                      Read more
+                      <ArrowRight className="size-3.5" aria-hidden="true" />
+                    </Link>
                   </div>
                 </div>
               ))}

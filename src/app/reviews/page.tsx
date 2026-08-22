@@ -37,8 +37,8 @@ export default function ReviewsPage() {
           eyebrow="Reviews"
           title="What our guests are saying"
           description={`Rated ${rating} / 5 across TripAdvisor, Google and direct feedback.`}
-          imageSrc="https://picsum.photos/seed/lk-reviews-hero/2000/1200"
-          imageAlt="A traveller smiling on a Sri Lankan beach at sunset"
+          imageSrc="/gallery/153-women-waving-safari-jeep-roof.jpg"
+          imageAlt="Guests waving from the roof of a safari jeep"
         />
 
         <section className="py-16 sm:py-20">

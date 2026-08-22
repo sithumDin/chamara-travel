@@ -67,7 +67,7 @@ export const tours: Tour[] = [
     description:
       "A jam-packed cultural day trip to two of Sri Lanka's most iconic UNESCO World Heritage Sites — the Sigiriya rock fortress and the Dambulla cave temple complex, with its ancient Buddhist murals and statues.",
     images: [
-      { src: "/gallery/037-man-sigiriya-rock-viewpoint.jpg", alt: "Sigiriya rock fortress viewed from the approach path" },
+      { src: "/gallery/sigiriya-rock-sunset-viewpoint.jpg", alt: "Sigiriya rock fortress at sunset, viewed from Pidurangala Rock" },
       { src: "/gallery/111-friends-sigiriya-rock-viewpoint-selfie.jpg", alt: "Friends taking in the view from Sigiriya rock fortress" },
       { src: "/gallery/dambulla-cave-temple-buddha-statues.jpg", alt: "Ancient stone Buddha statues carved into a cave temple wall" },
       { src: "/gallery/dambulla-cave-temple-interior.jpg", alt: "Interior of an ancient Buddhist cave temple with statues" },

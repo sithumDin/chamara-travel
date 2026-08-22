@@ -30,8 +30,8 @@ export default function ToursPage() {
           eyebrow="Tour Packages"
           title="Find your Sri Lanka itinerary"
           description="From half-day city tours to two-week round trips — every package is private and fully customizable."
-          imageSrc="https://picsum.photos/seed/lk-tours-hero/2000/1200"
-          imageAlt="A scenic coastal road winding through Sri Lanka"
+          imageSrc="/gallery/tour-packages-hero-bg.jpg"
+          imageAlt="A convoy of tuk-tuks on the misty 16 Bends road through the Knuckles Range"
         />
         <section className="py-16 sm:py-20">
           <Container>

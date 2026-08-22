@@ -39,13 +39,14 @@ export function SriLankaStatement() {
     <section ref={wrapperRef} className="relative h-[220vh]">
       <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
         <Image
-          src="https://picsum.photos/seed/lk-fullbleed-statement/1920/1200"
+          src="/gallery/misty-tea-plantation-hillside.jpg"
           alt="Misty tea plantations rolling through Sri Lanka's central highlands"
           fill
           sizes="100vw"
           className="object-cover"
+          priority
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/60 to-black/75" />
 
         <div className="relative z-10 flex max-w-6xl flex-col items-center gap-8 px-5 text-center sm:px-8">
           <div className="flex items-center gap-2.5 text-white/80">

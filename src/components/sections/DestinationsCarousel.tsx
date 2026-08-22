@@ -78,17 +78,17 @@ export function DestinationsCarousel() {
                 alt={destination.alt}
                 fill
                 sizes="(max-width: 640px) 80vw, (max-width: 1024px) 46vw, 32vw"
-                className="object-cover transition-all duration-500 ease-out group-hover:scale-105 group-hover:blur-md"
+                className="object-cover transition-all duration-500 ease-out sm:group-hover:scale-105 sm:group-hover:blur-md"
                 priority={index < 3}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent transition-opacity duration-300 group-hover:opacity-0" />
-              <div className="absolute inset-0 bg-black/55 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 transition-opacity duration-300 sm:opacity-100 sm:group-hover:opacity-0" />
+              <div className="absolute inset-0 bg-black/55 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100" />
 
-              <p className="eyebrow absolute bottom-5 left-5 text-white transition-opacity duration-300 group-hover:opacity-0">
+              <p className="eyebrow absolute bottom-5 left-5 hidden text-white transition-opacity duration-300 sm:block sm:group-hover:opacity-0">
                 {destination.name}
               </p>
 
-              <div className="absolute inset-0 flex translate-y-2 flex-col justify-between p-6 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:p-7">
+              <div className="absolute inset-0 flex translate-y-0 flex-col justify-between p-6 opacity-100 transition-all duration-300 sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:p-7">
                 <p className="text-lg font-medium tracking-tight text-white sm:text-xl">{destination.name}</p>
 
                 <p className="text-sm leading-relaxed text-white/90 sm:text-base">{destination.summary}</p>
@@ -115,8 +115,8 @@ export function DestinationsCarousel() {
                 </div>
 
                 <Link
-                  href="/about-sri-lanka"
-                  className="inline-flex w-fit items-center gap-1 text-xs font-medium text-white/90 underline-offset-4 hover:text-white hover:underline"
+                  href={`/destinations/${destination.slug}`}
+                  className="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/15 px-3.5 py-2 text-xs font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/25 sm:bg-transparent sm:p-0 sm:hover:bg-transparent sm:hover:underline sm:underline-offset-4"
                 >
                   Read more
                   <ArrowRight className="size-3" aria-hidden="true" />

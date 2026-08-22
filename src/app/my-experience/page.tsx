@@ -46,8 +46,8 @@ export default function MyExperiencePage() {
           eyebrow="My Experience"
           title="Hi, I'm Chamara"
           description="A little about me, my vehicle, and how I've spent the last decade showing travellers Sri Lanka."
-          imageSrc="https://picsum.photos/seed/lk-experience-hero/2000/1200"
-          imageAlt="Chamara's tour vehicle parked at a scenic viewpoint in Sri Lanka"
+          imageSrc="/gallery/036-men-sri-lanka-flag-cars.jpg"
+          imageAlt="Chamara and guests beside the tour vehicles with the Sri Lanka flag"
         />
 
         <section className="py-16 sm:py-20">

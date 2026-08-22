@@ -30,8 +30,8 @@ export default function GalleryPage() {
           eyebrow="Gallery"
           title="Sri Lanka, frame by frame"
           description="Beaches, wildlife, ancient cities, misty hills, and the guests who've explored them with us."
-          imageSrc="https://picsum.photos/seed/lk-gallery-hero/2000/1200"
-          imageAlt="Collage-style view of the Sri Lankan coastline"
+          imageSrc="/gallery/aerial-drone-tangalle-beach.jpg"
+          imageAlt="Aerial drone view of Tangalle beach on Sri Lanka's south coast"
         />
         <section className="py-16 sm:py-20">
           <Container>

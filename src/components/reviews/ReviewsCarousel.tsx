@@ -15,7 +15,7 @@ const sourceLabel: Record<Review["source"], string> = {
 
 function reviewImage(review: Review) {
   const tour = review.tourSlug ? getTourBySlug(review.tourSlug) : undefined;
-  return tour?.images[0] ?? { src: `https://picsum.photos/seed/review-${review.id}/900/1100`, alt: "" };
+  return tour?.images[0] ?? { src: "/gallery/155-guide-couple-golden-hour-ridge-selfie.jpg", alt: "Guide and guests on tour in Sri Lanka" };
 }
 
 export function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
