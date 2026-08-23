@@ -5,12 +5,13 @@
 
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Languages, ShieldCheck, Car, Star } from "lucide-react";
+import { Languages, Car, Star } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { LicenseBadge } from "@/components/sections/LicenseBadge";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { reviews } from "@/data/reviews";
@@ -46,8 +47,8 @@ export default function MyExperiencePage() {
           eyebrow="My Experience"
           title="Hi, I'm Chamara"
           description="A little about me, my vehicle, and how I've spent the last decade showing travellers Sri Lanka."
-          imageSrc="/gallery/036-men-sri-lanka-flag-cars.jpg"
-          imageAlt="Chamara and guests beside the tour vehicles with the Sri Lanka flag"
+          imageSrc="/gallery/139-guide-guests-rocky-summit-sunset.jpg"
+          imageAlt="Chamara with guests at a rocky summit at sunset"
         />
 
         <section className="py-16 sm:py-20">
@@ -87,25 +88,22 @@ export default function MyExperiencePage() {
                 </div>
 
                 <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
-                  <div className="rounded-2xl border border-border bg-surface p-5">
-                    <p className="text-2xl font-medium text-ink">10+</p>
+                  <div className="rounded-2xl border border-accent/20 bg-accent/5 p-5">
+                    <p className="text-2xl font-semibold text-accent-deep">10+</p>
                     <p className="mt-1 text-xs text-muted">Years Guiding</p>
                   </div>
-                  <div className="rounded-2xl border border-border bg-surface p-5">
-                    <p className="text-2xl font-medium text-ink">500+</p>
+                  <div className="rounded-2xl border border-clay/20 bg-clay/5 p-5">
+                    <p className="text-2xl font-semibold text-clay">500+</p>
                     <p className="mt-1 text-xs text-muted">Tours Completed</p>
                   </div>
-                  <div className="rounded-2xl border border-border bg-surface p-5">
-                    <p className="text-2xl font-medium text-ink">3</p>
+                  <div className="rounded-2xl border border-ink/15 bg-ink/5 p-5">
+                    <p className="text-2xl font-semibold text-ink">3</p>
                     <p className="mt-1 text-xs text-muted">Languages Spoken</p>
                   </div>
                 </div>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-ink-soft">
-                    <ShieldCheck className="size-4" aria-hidden="true" />
-                    Government-Registered Driver &amp; Guide
-                  </span>
+                  <LicenseBadge />
                   <span className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-ink-soft">
                     <Languages className="size-4" aria-hidden="true" />
                     English, Sinhala, conversational German

@@ -10,6 +10,7 @@ import { destinations } from "@/data/destinations";
 import { cn } from "@/lib/utils";
 
 const IDLE_SPEED_PX = 0.35; // slow auto-drift when the cursor isn't near an edge
+const MOBILE_IDLE_SPEED_PX = 0.9; // faster auto-drift on touch devices, which have no hover/edge nudge
 const EDGE_SPEED_PX = 2.2; // faster nudge while hovering the left/right edge zone
 const EDGE_ZONE = 0.16; // fraction of the track width treated as an edge hover zone
 const STEP_PX = 420; // distance an arrow-button click scrolls
@@ -24,7 +25,9 @@ export function DestinationsCarousel() {
 
     let frame: number;
     const step = () => {
-      const speed = direction === "left" || direction === "right" ? EDGE_SPEED_PX : IDLE_SPEED_PX;
+      const isEdge = direction === "left" || direction === "right";
+      const isMobileViewport = window.innerWidth < 640;
+      const speed = isEdge ? EDGE_SPEED_PX : isMobileViewport ? MOBILE_IDLE_SPEED_PX : IDLE_SPEED_PX;
       const delta = direction === "left" ? -speed : speed;
 
       const maxScroll = track.scrollWidth - track.clientWidth;
@@ -66,6 +69,8 @@ export function DestinationsCarousel() {
           ref={trackRef}
           onMouseMove={handleMouseMove}
           onMouseLeave={() => setDirection("idle")}
+          onTouchStart={() => setDirection("paused")}
+          onTouchEnd={() => setDirection("idle")}
           className="flex gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:gap-6 sm:px-6 [&::-webkit-scrollbar]:hidden"
         >
           {destinations.map((destination, index) => (
@@ -81,19 +86,21 @@ export function DestinationsCarousel() {
                 className="object-cover transition-all duration-500 ease-out sm:group-hover:scale-105 sm:group-hover:blur-md"
                 priority={index < 3}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 transition-opacity duration-300 sm:opacity-100 sm:group-hover:opacity-0" />
-              <div className="absolute inset-0 bg-black/55 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent transition-opacity duration-300 sm:group-hover:opacity-0" />
+              <div className="absolute inset-0 bg-black/55 opacity-0 transition-opacity duration-300 sm:group-hover:opacity-100" />
 
               <p className="eyebrow absolute bottom-5 left-5 hidden text-white transition-opacity duration-300 sm:block sm:group-hover:opacity-0">
                 {destination.name}
               </p>
 
-              <div className="absolute inset-0 flex translate-y-0 flex-col justify-between p-6 opacity-100 transition-all duration-300 sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:p-7">
+              <div className="absolute inset-0 flex flex-col justify-end gap-2 p-5 transition-all duration-300 sm:translate-y-2 sm:justify-between sm:p-7 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
                 <p className="text-lg font-medium tracking-tight text-white sm:text-xl">{destination.name}</p>
 
-                <p className="text-sm leading-relaxed text-white/90 sm:text-base">{destination.summary}</p>
+                <p className="hidden text-sm leading-relaxed text-white/90 sm:block sm:text-base">
+                  {destination.summary}
+                </p>
 
-                <div className="space-y-2 text-sm text-white/85">
+                <div className="hidden space-y-2 text-sm text-white/85 sm:block">
                   <div className="flex items-start gap-2.5">
                     <CalendarDays className="mt-0.5 size-4 shrink-0 text-white/70" aria-hidden="true" />
                     <p>

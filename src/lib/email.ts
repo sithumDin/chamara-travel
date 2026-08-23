@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 import { siteConfig } from "@/data/site-config";
-import type { InquiryFormValues } from "./validation";
+import type { InquiryFormValues, ReviewFormValues } from "./validation";
 
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;
@@ -102,6 +102,74 @@ export async function sendInquiryEmails(data: InquiryFormValues) {
       to: data.email,
       subject: `We've received your inquiry — ${siteConfig.businessName}`,
       html: guestThankYouHtml(data),
+    }),
+  ]);
+}
+
+function reviewNotificationHtml(data: ReviewFormValues) {
+  const stars = "★".repeat(data.rating) + "☆".repeat(5 - data.rating);
+
+  return `
+  <div style="font-family:Arial,Helvetica,sans-serif;background:#f7f7f4;padding:32px;">
+    <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #ececE6;">
+      <div style="background:#171712;padding:24px 28px;">
+        <p style="margin:0;color:#ffffff;font-size:18px;font-weight:600;">New Website Review Submitted</p>
+        <p style="margin:4px 0 0;color:#c8c8c0;font-size:13px;">Review this before adding it to the live site</p>
+      </div>
+      <table style="width:100%;border-collapse:collapse;">
+        ${row("Name", escapeHtml(data.guestName))}
+        ${row("Email", `<a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a>`)}
+        ${row("Country", escapeHtml(data.country))}
+        ${row("Rating", `${stars} (${data.rating}/5)`)}
+        ${row("Tour", escapeHtml(data.tourSlug || "Not specified"))}
+      </table>
+      <div style="padding:16px 12px 24px;">
+        <p style="margin:0 0 6px;padding:0 12px;color:#6b6b64;font-size:13px;">Review Text</p>
+        <p style="margin:0;padding:12px;background:#f7f7f4;border-radius:12px;color:#171712;font-size:14px;line-height:1.6;white-space:pre-wrap;">${escapeHtml(
+          data.text
+        )}</p>
+      </div>
+    </div>
+  </div>`;
+}
+
+function reviewThankYouHtml(data: ReviewFormValues) {
+  return `
+  <div style="font-family:Arial,Helvetica,sans-serif;background:#f7f7f4;padding:32px;">
+    <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #ececE6;">
+      <div style="background:#171712;padding:32px 28px;">
+        <p style="margin:0;color:#ffffff;font-size:20px;font-weight:600;">Thank you, ${escapeHtml(
+          data.guestName.split(" ")[0] || data.guestName
+        )}!</p>
+      </div>
+      <div style="padding:28px;">
+        <p style="margin:0;color:#171712;font-size:15px;line-height:1.7;">
+          We've received your review and really appreciate you taking the time to share it. Our team will read it
+          over and add it to the site shortly.
+        </p>
+        <p style="margin:16px 0 0;color:#6b6b64;font-size:14px;">— ${escapeHtml(siteConfig.businessName)}</p>
+      </div>
+    </div>
+  </div>`;
+}
+
+export async function sendReviewEmails(data: ReviewFormValues) {
+  const resend = getResendClient();
+  const fromAddress = process.env.RESEND_FROM_EMAIL || `Chamara Tours <onboarding@resend.dev>`;
+
+  await Promise.all([
+    resend.emails.send({
+      from: fromAddress,
+      to: siteConfig.email,
+      replyTo: data.email,
+      subject: `New Review Submitted — ${data.guestName} (${data.rating}/5)`,
+      html: reviewNotificationHtml(data),
+    }),
+    resend.emails.send({
+      from: fromAddress,
+      to: data.email,
+      subject: `Thanks for your review — ${siteConfig.businessName}`,
+      html: reviewThankYouHtml(data),
     }),
   ]);
 }

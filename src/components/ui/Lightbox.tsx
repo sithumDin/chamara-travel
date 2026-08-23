@@ -48,7 +48,7 @@ export function Lightbox({
       role="dialog"
       aria-modal="true"
       aria-label="Image gallery viewer"
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/95 p-4 sm:p-8"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-4 backdrop-blur-2xl sm:p-8"
       onClick={onClose}
     >
       <button

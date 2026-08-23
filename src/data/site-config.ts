@@ -62,7 +62,7 @@ export const siteConfig = {
   // Feature flags — toggle sections on/off without touching component code
   features: {
     showTripAdvisorWidget: true,
-    showManualReviews: true,
+    showManualReviews: false,
     cookieConsentEnabled: true,
   },
 

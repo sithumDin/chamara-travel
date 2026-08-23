@@ -105,7 +105,7 @@ export function ServiceHighlights() {
         <div className="mt-16">
           <Reveal>
             <h3 className="eyebrow text-accent-deep">What We Offer</h3>
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+            <div className="mt-6 grid grid-cols-2 items-start gap-3 sm:grid-cols-4 sm:gap-4">
               {siteConfig.services.map((service, index) => (
                 <IconCard
                   key={service.title}
@@ -121,7 +121,7 @@ export function ServiceHighlights() {
 
           <Reveal delay={120} className="mt-14">
             <h3 className="eyebrow text-clay">Why Travel With Chamara</h3>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {reasons.map((reason, index) => (
                 <IconCard
                   key={reason.title}

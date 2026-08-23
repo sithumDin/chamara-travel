@@ -1,9 +1,15 @@
-import { Phone, Mail, MessageCircle, Clock, Star } from "lucide-react";
+import { Phone, Mail, MessageCircle, Clock, Star, ShieldCheck, Route, HandCoins } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { siteConfig, whatsappLink } from "@/data/site-config";
+
+const trustPoints = [
+  { icon: ShieldCheck, text: "Licensed, insured driver-guide — over a decade of experience" },
+  { icon: Route, text: "Every itinerary custom-built around your interests and pace" },
+  { icon: HandCoins, text: "Fair, transparent pricing — no hidden fees or add-ons" },
+];
 
 const contactRows = [
   {
@@ -66,6 +72,15 @@ export function InquirySection({ defaultTour }: { defaultTour?: string }) {
                     <p className="text-sm font-medium text-white">Within 24 hours</p>
                   </div>
                 </div>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                {trustPoints.map(({ icon: Icon, text }) => (
+                  <div key={text} className="flex items-start gap-3">
+                    <Icon className="mt-0.5 size-4.5 shrink-0 text-accent" aria-hidden="true" />
+                    <p className="text-sm leading-relaxed text-white/80">{text}</p>
+                  </div>
+                ))}
               </div>
 
               <a

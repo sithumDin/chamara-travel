@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Menu, Compass } from "lucide-react";
+import { Menu, Compass, ArrowLeft } from "lucide-react";
 import { navLinks } from "@/data/site-config";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -16,9 +16,20 @@ import { cn } from "@/lib/utils";
 // scrolls past the hero. Pages without a dark hero should omit the prop.
 export function Header({ transparent = false }: { transparent?: boolean }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
+
+  const showBack = pathname !== "/";
+
+  function handleBack() {
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      router.back();
+    } else {
+      router.push("/");
+    }
+  }
 
   function isActiveLink(href: string) {
     return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
@@ -45,15 +56,30 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
         )}
       >
         <Container className="flex h-20 items-center justify-between">
-          <Link
-            href="/"
-            className={cn(
-              "text-xl font-semibold tracking-tight transition-colors",
-              isSolid ? "text-ink" : "text-white"
-            )}
-          >
-            chamara<span className={isSolid ? "text-muted" : "text-white/60"}>.</span>
-          </Link>
+          <div className="flex items-center gap-1">
+            {showBack ? (
+              <button
+                type="button"
+                onClick={handleBack}
+                aria-label="Go back"
+                className={cn(
+                  "-ml-2 flex size-9 items-center justify-center rounded-full transition-colors",
+                  isSolid ? "text-ink hover:bg-ink/5" : "text-white hover:bg-white/10"
+                )}
+              >
+                <ArrowLeft className="size-5" aria-hidden="true" />
+              </button>
+            ) : null}
+            <Link
+              href="/"
+              className={cn(
+                "text-xl font-semibold tracking-tight transition-colors",
+                isSolid ? "text-ink" : "text-white"
+              )}
+            >
+              chamara<span className={isSolid ? "text-muted" : "text-white/60"}>.</span>
+            </Link>
+          </div>
 
           <nav
             aria-label="Primary"

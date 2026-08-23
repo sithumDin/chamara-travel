@@ -78,7 +78,7 @@ export function InquiryForm({ defaultTour }: { defaultTour?: string }) {
       <div className="space-y-5">
         <p className="text-xs font-medium uppercase tracking-wide text-muted">Your Details</p>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-4 sm:gap-5">
           <div>
             <FieldLabel htmlFor="fullName" required>
               Full Name
@@ -95,7 +95,7 @@ export function InquiryForm({ defaultTour }: { defaultTour?: string }) {
           </div>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-4 sm:gap-5">
           <div>
             <FieldLabel htmlFor="phone">Phone / WhatsApp</FieldLabel>
             <TextInput id="phone" type="tel" placeholder="+1 555 123 4567" {...register("phone")} autoComplete="tel" />
@@ -141,18 +141,18 @@ export function InquiryForm({ defaultTour }: { defaultTour?: string }) {
           <FieldError>{errors.interestedTour?.message}</FieldError>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-4">
-          <div className="sm:col-span-2">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
+          <div className="col-span-2">
             <FieldLabel htmlFor="arrivalDate">Arrival Date</FieldLabel>
             <TextInput id="arrivalDate" type="date" {...register("arrivalDate")} />
           </div>
-          <div>
+          <div className="col-span-2 sm:col-span-1">
             <FieldLabel htmlFor="numberOfDays"># of Days</FieldLabel>
             <TextInput id="numberOfDays" type="number" min={1} max={60} {...register("numberOfDays")} />
           </div>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
           <div>
             <FieldLabel htmlFor="adults" required>
               Adults

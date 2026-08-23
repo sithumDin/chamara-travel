@@ -113,6 +113,9 @@ export function Footer() {
             <Link href="/terms" className="hover:text-white">
               Terms
             </Link>
+            <Link href="/refund-policy" className="hover:text-white">
+              Refund Policy
+            </Link>
           </div>
         </Container>
       </div>

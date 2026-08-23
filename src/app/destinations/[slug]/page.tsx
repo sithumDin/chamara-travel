@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CalendarDays, CloudSun, Backpack, ArrowRight, ArrowLeft } from "lucide-react";
+import { CalendarDays, CloudSun, Backpack, ArrowRight, ArrowLeft, Sparkles } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionHeading";
@@ -98,17 +98,47 @@ export default async function DestinationDetailPage({
             </div>
           </div>
 
-          <div className="mt-14 max-w-3xl">
-            <h2 className="text-2xl font-medium tracking-tight text-ink">Overview</h2>
-            <p className="mt-4 text-pretty leading-relaxed text-muted">{destination.description}</p>
+          <div className="mt-14 grid gap-10 lg:grid-cols-[1.6fr_1fr]">
+            <div className="max-w-3xl">
+              <h2 className="text-2xl font-medium tracking-tight text-ink">Overview</h2>
+              <p className="mt-4 text-pretty leading-relaxed text-muted">{destination.description}</p>
 
-            <a
-              href="#inquiry"
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-white hover:bg-ink-soft"
-            >
-              Plan a Trip to {destination.name}
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </a>
+              {destination.history?.length ? (
+                <>
+                  <h2 className="mt-10 text-2xl font-medium tracking-tight text-ink">History &amp; Culture</h2>
+                  <div className="mt-4 space-y-4 text-pretty leading-relaxed text-muted">
+                    {destination.history.map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
+                    ))}
+                  </div>
+                </>
+              ) : null}
+
+              <a
+                href="#inquiry"
+                className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-white hover:bg-ink-soft"
+              >
+                Plan a Trip to {destination.name}
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </a>
+            </div>
+
+            {destination.funFacts?.length ? (
+              <aside className="h-fit rounded-2xl border border-accent/20 bg-accent/5 p-6">
+                <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-accent-deep">
+                  <Sparkles className="size-4" aria-hidden="true" />
+                  Did you know?
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {destination.funFacts.map((fact, index) => (
+                    <li key={index} className="flex gap-2.5 text-sm leading-relaxed text-ink-soft">
+                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                      {fact}
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+            ) : null}
           </div>
         </Container>
 

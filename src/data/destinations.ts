@@ -20,6 +20,16 @@ export const destinationInfo = [
     bestTime: "Jan – Mar",
     weather: "Hot & humid, 26–32°C",
     essentials: "Sun hat, water, sturdy shoes for the climb",
+    history: [
+      "Sigiriya's story begins in the 5th century CE, when King Kashyapa I seized the throne after deposing — and, according to the ancient Mahavamsa chronicle, killing — his father, King Dhatusena. Fearing revenge from his half-brother Moggallana, the rightful heir who had fled to India, Kashyapa abandoned the traditional capital of Anuradhapura and built an entirely new fortified city on and around this isolated granite outcrop.",
+      "For around eighteen years Sigiriya functioned as a self-contained royal citadel, complete with moats, ramparts, landscaped water gardens and a summit palace. When Moggallana finally returned with an army in 495 CE, Kashyapa rode out to meet him on the plains below rather than defend the fortress — his forces reportedly faltered, and he took his own life. Moggallana returned the capital to Anuradhapura, and Sigiriya was handed over to Buddhist monks, who used the surrounding caves as a monastery until around the 14th century before the site was gradually reclaimed by jungle.",
+      "Sigiriya was rediscovered by British surveyors in 1831 and has been under archaeological excavation since the late 19th century. It was inscribed as a UNESCO World Heritage Site in 1982, recognised as much for its ancient urban planning and hydraulic engineering as for its artwork and dramatic setting.",
+    ],
+    funFacts: [
+      "Of an estimated 500 frescoes that once covered a section of the rock face, only around 18–21 survive today.",
+      "The polished 'Mirror Wall' below the frescoes is covered in graffiti verses left by visitors as far back as the 8th century — some of the oldest surviving Sinhala poetry.",
+      "The giant carved lion's paws at the base of the final staircase are all that remain of a colossal lion statue whose head has never been found — Sigiriya, or 'lion rock', takes its name from it.",
+    ],
     images: [
       img("g-037-man-sigiriya-rock-viewpoint"),
       img("g-111-friends-sigiriya-rock-viewpoint-selfie"),
@@ -38,6 +48,16 @@ export const destinationInfo = [
     bestTime: "Dec – Mar",
     weather: "Mild & misty, 15–25°C",
     essentials: "Light jacket, camera, check the train times",
+    history: [
+      "The Nine Arches Bridge was built in 1921 as part of the British-era railway line linking Kandy to Badulla through Sri Lanka's hill country, a project that took British and local engineers years to complete through some of the island's steepest terrain.",
+      "Local tradition holds that construction stalled when the steel earmarked for the bridge was diverted to the war effort during the First World War, leaving the local contractor, P. K. Appuhamy, to redesign the structure using only stone, brick and cement. Whether or not the wartime shortage is the full story, the finished bridge — nine graceful arches rising around 24 metres above the valley floor — remains standing today without a single piece of structural steel, a point of pride in Sri Lankan railway engineering.",
+      "The line still carries daily passenger trains, and the bridge has become one of the most photographed pieces of railway infrastructure in Asia, especially when the blue-liveried train crosses it against the surrounding tea plantations and jungle.",
+    ],
+    funFacts: [
+      "The bridge spans roughly 91 metres and rises about 24 metres above the ravine below.",
+      "It was built without any steel reinforcement — a rarity for a viaduct of its size and age.",
+      "The Kandy–Badulla line it carries took the British over 15 years to build because of the terrain.",
+    ],
     images: [
       img("g-146-guide-boy-nine-arches-bridge"),
       img("g-167-family-nine-arches-bridge-viewpoint"),
@@ -56,6 +76,16 @@ export const destinationInfo = [
     bestTime: "Jan – Mar",
     weather: "Cool, 10–20°C, chilly nights",
     essentials: "Warm layers, comfortable walking shoes",
+    history: [
+      "Nuwara Eliya was founded by British colonists in the 1820s and 1830s as a hill station and sanatorium, prized for a climate cool enough to grow English vegetables and, briefly, coffee. When a devastating fungal blight wiped out Ceylon's coffee industry in the 1870s, planters — led by pioneers like James Taylor, who opened the island's first commercial tea estate at Loolecondera in 1867 — replanted the hillsides with tea instead.",
+      "The gamble paid off. By the early 20th century, Ceylon tea had become one of the world's most recognised brands, and the hill country around Nuwara Eliya, with its cool air and misty slopes, proved ideal for high-grown tea prized for its delicate flavour. Much of the picking and processing work was, and still is, done by Tamil communities whose ancestors were brought from South India as indentured labour during the colonial tea boom — a history that remains part of the region's social fabric today.",
+      "Nuwara Eliya's Tudor-style post office, racecourse and golf club, all built by British planters seeking a slice of home in the tropics, are why the town is still nicknamed 'Little England'.",
+    ],
+    funFacts: [
+      "Sri Lanka is one of the world's largest tea exporters, and Ceylon Tea's lion-logo certification mark guarantees the tea was grown and packed entirely on the island.",
+      "Nuwara Eliya sits at around 1,868 metres above sea level, making it one of the coolest inhabited towns in Sri Lanka.",
+      "Tea here is still hand-picked — only the top two leaves and a bud from each shoot are taken, exactly as it was over 150 years ago.",
+    ],
     images: [
       img("g-050-tea-plantation-hills-rows"),
       img("g-059-woman-tea-plantation-picking-leaves"),
@@ -74,6 +104,16 @@ export const destinationInfo = [
     bestTime: "Feb – Jun",
     weather: "Hot & dry, 27–33°C",
     essentials: "Binoculars, neutral clothing, sun protection",
+    history: [
+      "Yala was declared a wildlife sanctuary by the British colonial government in 1900 and upgraded to a national park in 1938, making it one of the oldest and best-established protected areas in Sri Lanka. It was originally set aside as a hunting ground for colonial and local elite before conservation took over as its primary purpose.",
+      "Long before it was a national park, the area held religious significance — the ruins of the Sithulpahuwa monastery within Yala's boundaries date back to the 2nd century BCE and are believed to have once housed thousands of Buddhist monks, drawn to its remote, meditative setting.",
+      "Today Yala is best known for having one of the highest densities of leopards recorded anywhere in the world, a distinction that has made it Sri Lanka's most visited national park and a benchmark destination for wildlife photographers.",
+    ],
+    funFacts: [
+      "Yala is split into five blocks; almost all safaris run in Block 1, which holds the highest concentration of wildlife.",
+      "The Sri Lankan leopard (Panthera pardus kotiya) is a subspecies found only on the island.",
+      "Beyond leopards, Yala shelters elephants, sloth bears, crocodiles and over 215 recorded bird species.",
+    ],
     images: [
       img("g-048-leopard-resting-tree-branch"),
       img("g-083-leopard-sleeping-tree-branch"),
@@ -92,6 +132,16 @@ export const destinationInfo = [
     bestTime: "Nov – Apr",
     weather: "Warm, 27–31°C",
     essentials: "Sunscreen, swimwear, light clothing",
+    history: [
+      "The southern coast's defining landmark, Galle Fort, was first built by the Portuguese in 1588 and then massively expanded by the Dutch after they took control in 1649, turning it into the finest surviving example of a European-built fortified city in Asia. The British held it after 1796, but largely preserved the Dutch layout — cobbled streets, a working lighthouse and colonial-era villas that still stand within the ramparts today.",
+      "Beyond the fort, the string of fishing and farming villages along this coast — Weligama, Mirissa, Tangalle, Dickwella — grew slowly around small-scale fishing and coconut cultivation for centuries before surfing and beach tourism arrived from the 1970s onward.",
+      "The region was hit hard by the 2004 Indian Ocean tsunami; the decades since have seen extensive rebuilding, and many communities along this stretch now depend heavily on the tourism that has returned.",
+    ],
+    funFacts: [
+      "Galle Fort was named a UNESCO World Heritage Site in 1988 for being the best-preserved example of a fortified city built by Europeans in South Asia.",
+      "Blue whales — the largest animal on Earth — pass close to Mirissa's coast between November and April, making it one of the most reliable whale-watching spots in the world.",
+      "Weligama's gentle, sandy-bottomed bay has made it one of Asia's most popular places to learn to surf.",
+    ],
     images: [
       img("g-golden-sand-beach-rocky-shoreline"),
       img("g-palm-fringed-turquoise-bay-coast"),
@@ -110,6 +160,16 @@ export const destinationInfo = [
     bestTime: "May – Sep",
     weather: "Hot, 28–33°C",
     essentials: "Modest dress, hat, rent a bike for the site",
+    history: [
+      "Polonnaruwa became Sri Lanka's second great ancient capital after repeated South Indian invasions made Anuradhapura difficult to defend, with kings ruling from here between roughly the 11th and 13th centuries. The city reached its peak under King Parakramabahu I (1153–1186), remembered as one of the island's greatest builders, and under King Nissanka Malla, who followed him.",
+      "Parakramabahu I is best known for a vast irrigation programme, crowned by the reservoir now called Parakrama Samudra — 'the Sea of Parakrama' — an engineering feat that still irrigates farmland today. He is credited with the philosophy, recorded in the island's chronicles, that not a single drop of rainwater should be allowed to reach the ocean without first being put to use for people.",
+      "Polonnaruwa's decline followed further invasions and the shift of political power elsewhere in the 13th century; the city was gradually abandoned and swallowed by jungle for centuries before it was excavated and restored, and it was inscribed as a UNESCO World Heritage Site in 1982.",
+    ],
+    funFacts: [
+      "The four Buddha statues at Gal Vihara were carved directly into a single granite outcrop in the 12th century and are considered the finest surviving example of ancient Sinhalese rock-carving.",
+      "Parakrama Samudra, the ancient reservoir built under Parakramabahu I, still irrigates rice paddies in the region more than 800 years later.",
+      "Because the ruins are spread across a flat, open site, cycling is the most popular way to explore Polonnaruwa.",
+    ],
     images: [
       img("g-polonnaruwa-ancient-staircase-moonstone"),
       img("g-polonnaruwa-vatadage-buddha-statue"),
@@ -127,6 +187,16 @@ export const destinationInfo = [
     bestTime: "Year-round",
     weather: "Mild, 20–28°C",
     essentials: "Shoulders/knees covered, shoes off inside",
+    history: [
+      "According to tradition, the tooth relic housed at Sri Dalada Maligawa was smuggled out of India in the 4th century CE, hidden in the hair of a princess named Hemamala, to protect it from destruction during political unrest in her homeland. It has been enshrined in Sri Lanka ever since, moving between capitals as the seat of power shifted, before settling in Kandy when the city became the last capital of the island's Sinhalese kings.",
+      "For centuries, possession of the tooth relic was considered central to the legitimacy of Sri Lankan kingship — ancient chronicles record the belief that whoever held the relic held the right to rule the island, and successive capitals built temples to house it as a symbol of sovereignty as much as of faith.",
+      "Kandy itself held out as the last independent Sinhalese kingdom until it fell to the British in 1815, ending over two thousand years of local monarchy on the island. The temple and the old royal palace complex around it were inscribed as part of the Sacred City of Kandy UNESCO World Heritage Site in 1988.",
+    ],
+    funFacts: [
+      "The relic chamber is rarely opened to public view — most visitors witness the ritual devotion around it rather than the tooth itself.",
+      "The Kandy Esala Perahera, held each July or August, is one of Asia's oldest and grandest Buddhist festivals, with decorated elephants parading through the streets in honour of the relic.",
+      "Puja rituals are held three times a day, accompanied by traditional Kandyan drumming that can be heard throughout the temple complex.",
+    ],
     images: [
       img("g-temple-tooth-relic-golden-buddha-shrine"),
       img("g-046-friends-temple-flower-offering-kandy"),
@@ -143,6 +213,16 @@ export const destinationInfo = [
     bestTime: "Nov – Apr",
     weather: "Warm, 27–31°C",
     essentials: "Camera, sun protection, a small tip for photos",
+    history: [
+      "Stilt fishing is a relatively recent tradition, generally traced back to the years during and after the Second World War, when food shortages and overcrowded fishing spots pushed local fishermen to improvise. Early fishermen are said to have used the wreckage of ships and downed aircraft as makeshift perches above the reef before purpose-built wooden poles took over.",
+      "Perched on a single crossbar driven into the seabed, a stilt fisherman casts into the surf from just above the waterline, reaching fish beyond the reef without competing with others for space on the rocks — a simple, distinctly local solution to a very practical problem.",
+      "The 2004 tsunami destroyed many of the original stilts and displaced fishing communities along this coast, and declining fish stocks since have made stilt fishing far less viable as a full-time livelihood. Today, most of the fishermen visitors photograph around Koggala and Ahangama are demonstrating the tradition for tips rather than fishing to sell their catch — a shift that keeps a fading practice visible, even as its original purpose has largely disappeared.",
+    ],
+    funFacts: [
+      "Genuine commercial stilt fishing has become rare — most scenes visitors see today are posed for photographs in exchange for a small tip.",
+      "The best light for photographs is early morning or late afternoon, when the low sun catches the surf and silhouettes the fishermen on their poles.",
+      "Each stilt, known locally as a 'petta', is typically shared by the same small group of fishermen, who take turns on it throughout the day.",
+    ],
     images: [
       img("g-015-couple-beach-stilt-fisherman"),
       img("g-020-family-stilt-fishing-posts-beach"),
@@ -161,6 +241,16 @@ export const destinationInfo = [
     bestTime: "Jan – Mar",
     weather: "Cold & misty, 5–15°C",
     essentials: "Warm jacket, start before 7am for clear views",
+    history: [
+      "Horton Plains takes its English name from Sir Robert Wilmot-Horton, the British governor of Ceylon in the 1830s, though the plateau had long been known to local communities before colonial surveyors mapped it. Its cool, wet, high-altitude climate made it unsuitable for the tea and coffee plantations that transformed much of the surrounding hill country, which is a large part of why its cloud forest and grassland have survived largely intact.",
+      "The plains sit at the heart of Sri Lanka's central highlands and form the watershed for three of the island's major rivers — the Mahaweli, Kelani and Walawe — making the ecosystem here critical to water supply far beyond the park itself. The area was declared a national park in 1988 and, together with the surrounding highlands, was inscribed as a UNESCO World Heritage Site in 2010 for its exceptional biodiversity and endemic species.",
+      "World's End itself, the sheer escarpment at the edge of the plateau, has long been a place of local legend as much as a hiking destination — a landscape that seems to end abruptly in mid-air, with the plains falling away toward the lowlands nearly a kilometre below.",
+    ],
+    funFacts: [
+      "The escarpment at World's End drops roughly 870 metres in a near-vertical cliff face.",
+      "Horton Plains is one of the few places in Sri Lanka cold enough for ground frost to form on clear mornings.",
+      "The plateau is the source of three of Sri Lanka's most important rivers, feeding water systems used across much of the island.",
+    ],
     images: [
       img("g-051-couple-hiking-forest-path-horton-plains"),
       img("g-129-couple-horton-plains-foggy-entrance-sign"),
@@ -179,6 +269,16 @@ export const destinationInfo = [
     bestTime: "Dec – Apr",
     weather: "Warm & humid, 27–31°C",
     essentials: "Sun hat, camera, insect repellent",
+    history: [
+      "The Madu Ganga estuary has supported fishing and small-scale agriculture for the surrounding villages for centuries, its maze of channels and roughly 64 islands forming one of the largest remaining mangrove ecosystems on Sri Lanka's coast. In recognition of its ecological importance, it was designated a Ramsar Wetland of International Importance in 2003.",
+      "Cinnamon has been grown and processed on the estuary's islands for generations, part of a trade that stretches back much further — Ceylon cinnamon was one of the main reasons European powers fought over control of Sri Lanka's coastline from the 16th century onward, and the spice is still grown and hand-processed here using largely traditional methods.",
+      "Kothduwa Rajamaha Vihara, a small Buddhist temple on one of the estuary's islands, has drawn pilgrims by boat for generations and remains a quiet counterpoint to the wildlife-watching that now brings most visitors to the Madu River.",
+    ],
+    funFacts: [
+      "The Madu River wetland supports more than 300 plant species and is an important habitat for numerous resident and migratory birds.",
+      "Sri Lanka was historically the world's main source of true cinnamon, and cinnamon peeling on Madu Ganga's Cinnamon Island is still done entirely by hand.",
+      "The estuary contains around 64 islands, ranging from small mangrove outcrops to islands large enough to farm and live on.",
+    ],
     images: [
       img("g-086-family-flag-lotus-flowers-boat"),
       img("g-147-women-madu-boat-safari-sign"),
@@ -197,6 +297,16 @@ export const destinationInfo = [
     bestTime: "Jan – Mar",
     weather: "Hot & humid, 26–32°C",
     essentials: "Head torch for the pre-dawn climb, sturdy shoes",
+    history: [
+      "Pidurangala's history is tied directly to Sigiriya's. According to the ancient chronicles, when King Kashyapa I built his fortress on Sigiriya rock in the 5th century, he relocated the Buddhist monks already living there to Pidurangala, funding the construction of a new monastery on this neighbouring outcrop as compensation for displacing them.",
+      "The monastery has been in periodic use ever since, and the cave temple partway up the rock, along with a large reclining Buddha statue rebuilt in brick after the original was damaged, still functions as an active place of worship today rather than purely a historical site.",
+      "Because it was a monastic site rather than a royal citadel, Pidurangala never received the same level of formal excavation and restoration as Sigiriya — the climb remains a rougher scramble over boulders, which is part of why it has stayed relatively uncrowded even as its more famous neighbour draws large crowds daily.",
+    ],
+    funFacts: [
+      "Pidurangala offers what Sigiriya itself cannot: a full, unobstructed view of the Lion Rock rising out of the jungle.",
+      "The reclining Buddha statue near the summit is around 12.5 metres long and was reconstructed in brick after the original was damaged.",
+      "Sunrise is the most popular time to climb, both for cooler temperatures and for the light on Sigiriya across the plain.",
+    ],
     images: [
       img("g-022-family-flag-sigiriya-lake"),
       img("g-woman-sigiriya-rock-garden-view"),
