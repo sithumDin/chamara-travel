@@ -11,7 +11,7 @@ export function ReviewsSection({ showViewAll = true }: { showViewAll?: boolean }
   const { rating, reviewCount } = siteConfig.tripAdvisor;
 
   return (
-    <section className="py-16 sm:py-24">
+    <section className="pt-16 pb-4 sm:pt-24 sm:pb-8">
       <Container>
         <SectionHeading
           eyebrow="Testimonials"

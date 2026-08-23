@@ -24,11 +24,7 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
   const showBack = pathname !== "/";
 
   function handleBack() {
-    if (typeof window !== "undefined" && window.history.length > 1) {
-      router.back();
-    } else {
-      router.push("/");
-    }
+    router.push("/");
   }
 
   function isActiveLink(href: string) {
@@ -61,7 +57,7 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
               <button
                 type="button"
                 onClick={handleBack}
-                aria-label="Go back"
+                aria-label="Go to home page"
                 className={cn(
                   "-ml-2 flex size-9 items-center justify-center rounded-full transition-colors",
                   isSolid ? "text-ink hover:bg-ink/5" : "text-white hover:bg-white/10"
