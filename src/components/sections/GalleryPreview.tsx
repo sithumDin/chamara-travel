@@ -13,7 +13,8 @@ import type { GalleryImage } from "@/types";
 
 const PREVIEW_COUNT = 18;
 
-type Tile = ({ kind: "image"; image: GalleryImage } | { kind: "instagram" }) & { order: number };
+type TileInput = { kind: "image"; image: GalleryImage } | { kind: "instagram" };
+type Tile = TileInput & { order: number };
 
 // Tracks the responsive column count in JS (rather than CSS `columns-*`) so
 // we can compute a real, balanced masonry layout below.
@@ -42,10 +43,10 @@ export function GalleryPreview() {
     const cols: Tile[][] = Array.from({ length: columnCount }, () => []);
     const heights = Array(columnCount).fill(0);
 
-    const pushTile = (tile: Omit<Tile, "order">, ratio: number, columnIndex?: number) => {
+    const pushTile = (tile: TileInput, ratio: number, columnIndex?: number) => {
       const target = columnIndex ?? heights.indexOf(Math.min(...heights));
       const order = cols[target].length;
-      cols[target].push({ ...tile, order } as Tile);
+      cols[target].push({ ...tile, order });
       heights[target] += ratio;
     };
 

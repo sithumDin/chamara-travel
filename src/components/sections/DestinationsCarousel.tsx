@@ -71,6 +71,7 @@ export function DestinationsCarousel() {
           onMouseLeave={() => setDirection("idle")}
           onTouchStart={() => setDirection("paused")}
           onTouchEnd={() => setDirection("idle")}
+          onTouchCancel={() => setDirection("idle")}
           className="flex gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:gap-6 sm:px-6 [&::-webkit-scrollbar]:hidden"
         >
           {destinations.map((destination, index) => (
