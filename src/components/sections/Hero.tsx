@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { Compass, Star } from "lucide-react";
+import { Compass, Star, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[85vh] items-end overflow-hidden sm:min-h-[92vh]">
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden">
       <Image
         src="/gallery/nine-arches-bridge-ella.jpg"
         alt="A blue train crossing the Nine Arches Bridge through the forest near Ella"
@@ -15,9 +15,9 @@ export function Hero() {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/65" />
 
-      <Container className="relative z-10 pb-16 pt-32 sm:pb-24">
+      <Container className="relative z-10 py-28 sm:py-32">
         <h1 className="max-w-2xl text-balance text-5xl font-medium leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
           Discover Sri Lanka, your way.
         </h1>
@@ -51,6 +51,17 @@ export function Hero() {
           </div>
         </a>
       </Container>
+
+      <a
+        href="#destinations"
+        aria-label="Scroll down to explore"
+        className="absolute inset-x-0 bottom-8 z-10 mx-auto flex w-fit flex-col items-center gap-2 text-white/85 transition-colors hover:text-white"
+      >
+        <span className="flex size-11 items-center justify-center rounded-full border border-white/50 motion-safe:animate-bounce">
+          <ChevronDown className="size-5" aria-hidden="true" />
+        </span>
+        <span className="text-xs font-semibold tracking-[0.22em]">SCROLL</span>
+      </a>
     </section>
   );
 }

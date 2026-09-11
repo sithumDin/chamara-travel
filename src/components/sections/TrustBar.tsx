@@ -8,7 +8,7 @@ const tones = ["ink", "accent", "accent", "clay"] as const;
 
 export function TrustBar() {
   return (
-    <section>
+    <section className="bg-surface">
       <div className="py-16 sm:py-20">
         <Container>
           <div className="flex flex-col items-center gap-4 text-center">

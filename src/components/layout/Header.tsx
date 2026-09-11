@@ -47,7 +47,7 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 w-full transition-colors duration-300",
+          "fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-[105rem] transition-colors duration-300",
           isSolid ? "border-b border-border bg-paper/95 backdrop-blur" : "bg-white/10 backdrop-blur-sm"
         )}
       >

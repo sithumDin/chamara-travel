@@ -9,6 +9,7 @@ import { Accordion } from "@/components/ui/Accordion";
 import { TourGallery } from "@/components/tours/TourGallery";
 import { TourCard } from "@/components/tours/TourCard";
 import { InquirySection } from "@/components/sections/InquirySection";
+import { Reveal } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { touristTripSchema, breadcrumbSchema } from "@/lib/schema";
 import { tours, getTourBySlug, relatedTours } from "@/data/tours";
@@ -81,7 +82,7 @@ export default async function TourDetailPage({
             <TourGallery images={tour.images} title={tour.title} />
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-4 rounded-2xl border border-border bg-surface p-6 sm:p-8">
+          <Reveal className="mt-10 grid grid-cols-3 gap-4 rounded-2xl border border-border bg-surface p-6 sm:p-8">
             <div className="flex flex-col items-center gap-2 text-center">
               <Clock className="size-5 text-ink" aria-hidden="true" />
               <p className="text-sm font-medium text-ink">{tour.durationLabel}</p>
@@ -97,43 +98,47 @@ export default async function TourDetailPage({
               <p className="text-sm font-medium text-ink">{difficultyLabel[tour.difficulty]}</p>
               <p className="text-xs text-muted">Difficulty</p>
             </div>
-          </div>
+          </Reveal>
 
           <div className="mt-14 grid gap-14 lg:grid-cols-[1.6fr_1fr]">
             <div className="min-w-0">
-              <h2 className="text-2xl font-medium tracking-tight text-ink">Overview</h2>
-              <p className="mt-4 text-pretty leading-relaxed text-muted">{tour.description}</p>
+              <Reveal>
+                <h2 className="text-2xl font-medium tracking-tight text-ink">Overview</h2>
+                <p className="mt-4 text-pretty leading-relaxed text-muted">{tour.description}</p>
 
-              <h2 className="mt-12 text-2xl font-medium tracking-tight text-ink">Highlights</h2>
-              <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
-                {tour.highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-2.5 text-sm text-ink-soft">
-                    <Check className="mt-0.5 size-4 shrink-0 text-ink" aria-hidden="true" />
-                    {h}
-                  </li>
-                ))}
-              </ul>
+                <h2 className="mt-12 text-2xl font-medium tracking-tight text-ink">Highlights</h2>
+                <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                  {tour.highlights.map((h) => (
+                    <li key={h} className="flex items-start gap-2.5 text-sm text-ink-soft">
+                      <Check className="mt-0.5 size-4 shrink-0 text-ink" aria-hidden="true" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
 
-              <h2 className="mt-12 text-2xl font-medium tracking-tight text-ink">Day-by-Day Itinerary</h2>
-              <Accordion
-                className="mt-4"
-                items={tour.itinerary.map((day) => ({
-                  id: String(day.day),
-                  trigger: `Day ${day.day} — ${day.title}`,
-                  content: (
-                    <div>
-                      <p>{day.description}</p>
-                      {day.overnightAt ? (
-                        <p className="mt-2 text-xs font-medium uppercase tracking-wide text-muted-light">
-                          Overnight: {day.overnightAt}
-                        </p>
-                      ) : null}
-                    </div>
-                  ),
-                }))}
-              />
+              <Reveal className="mt-12">
+                <h2 className="text-2xl font-medium tracking-tight text-ink">Day-by-Day Itinerary</h2>
+                <Accordion
+                  className="mt-4"
+                  items={tour.itinerary.map((day) => ({
+                    id: String(day.day),
+                    trigger: `Day ${day.day} — ${day.title}`,
+                    content: (
+                      <div>
+                        <p>{day.description}</p>
+                        {day.overnightAt ? (
+                          <p className="mt-2 text-xs font-medium uppercase tracking-wide text-muted-light">
+                            Overnight: {day.overnightAt}
+                          </p>
+                        ) : null}
+                      </div>
+                    ),
+                  }))}
+                />
+              </Reveal>
 
-              <div className="mt-12 grid gap-6 sm:grid-cols-2">
+              <Reveal className="mt-12 grid gap-6 sm:grid-cols-2">
                 <div>
                   <h3 className="text-lg font-medium text-ink">What&apos;s Included</h3>
                   <ul className="mt-3 space-y-2.5">
@@ -156,10 +161,10 @@ export default async function TourDetailPage({
                     ))}
                   </ul>
                 </div>
-              </div>
+              </Reveal>
 
               {tour.mapImage ? (
-                <div className="mt-12">
+                <Reveal className="mt-12">
                   <h2 className="text-2xl font-medium tracking-tight text-ink">Route Map</h2>
                   <div className="relative mt-4 aspect-[16/9] w-full overflow-hidden rounded-2xl">
                     <Image
@@ -170,7 +175,7 @@ export default async function TourDetailPage({
                       className="object-cover"
                     />
                   </div>
-                </div>
+                </Reveal>
               ) : null}
             </div>
 
@@ -205,8 +210,10 @@ export default async function TourDetailPage({
             <Container>
               <h2 className="text-2xl font-medium tracking-tight text-ink sm:text-3xl">You might also like</h2>
               <div className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-                {related.map((t) => (
-                  <TourCard key={t.slug} tour={t} />
+                {related.map((t, index) => (
+                  <Reveal key={t.slug} delay={(index % 3) * 80}>
+                    <TourCard tour={t} />
+                  </Reveal>
                 ))}
               </div>
             </Container>

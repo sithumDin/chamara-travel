@@ -5,6 +5,7 @@ import Image from "next/image";
 import type { GalleryImage } from "@/types";
 import { galleryCategories } from "@/data/gallery";
 import { Lightbox } from "@/components/ui/Lightbox";
+import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/utils";
 
 export function GalleryExplorer({ images }: { images: GalleryImage[] }) {
@@ -39,24 +40,25 @@ export function GalleryExplorer({ images }: { images: GalleryImage[] }) {
 
       <div className="mt-8 columns-2 gap-3 sm:columns-3 sm:gap-4 lg:columns-4">
         {filtered.map((image, index) => (
-          <button
-            key={image.id}
-            type="button"
-            onClick={() => setActiveIndex(index)}
-            className="group relative mb-3 block w-full origin-center transition-transform duration-300 ease-out hover:z-10 hover:scale-[1.08] sm:mb-4"
-            style={{ aspectRatio: `${image.width} / ${image.height}` }}
-          >
-            <div className="absolute inset-0 overflow-hidden rounded-2xl shadow-none transition-shadow duration-300 group-hover:shadow-xl">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                loading="lazy"
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover"
-              />
-            </div>
-          </button>
+          <Reveal key={image.id} delay={(index % 8) * 60} className="mb-3 block sm:mb-4">
+            <button
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              className="group relative block w-full origin-center transition-transform duration-300 ease-out hover:z-10 hover:scale-[1.08]"
+              style={{ aspectRatio: `${image.width} / ${image.height}` }}
+            >
+              <div className="absolute inset-0 overflow-hidden rounded-2xl shadow-none transition-shadow duration-300 group-hover:shadow-xl">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+            </button>
+          </Reveal>
         ))}
       </div>
 

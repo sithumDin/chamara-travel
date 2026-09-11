@@ -5,13 +5,14 @@
 
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Languages, Car, Star } from "lucide-react";
+import { Languages, Star } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { LicenseBadge } from "@/components/sections/LicenseBadge";
+import { Reveal } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { reviews } from "@/data/reviews";
@@ -53,7 +54,7 @@ export default function MyExperiencePage() {
 
         <section className="py-16 sm:py-20">
           <Container>
-            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <Reveal className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl">
                 <Image
                   src="/gallery/036-men-sri-lanka-flag-cars.jpg"
@@ -110,40 +111,7 @@ export default function MyExperiencePage() {
                   </span>
                 </div>
               </div>
-            </div>
-          </Container>
-        </section>
-
-        <section className="bg-surface py-16 sm:py-20">
-          <Container>
-            <SectionHeading eyebrow="The Fleet" title="A comfortable, well-maintained ride for any group size" align="left" />
-            <div className="mt-10 grid gap-6 lg:grid-cols-2">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
-                <Image
-                  src="https://picsum.photos/seed/lk-vehicle-exterior/1000/750"
-                  alt="One of our air-conditioned tour vehicles"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
-                <Image
-                  src="https://picsum.photos/seed/lk-vehicle-interior/1000/750"
-                  alt="Interior of one of our tour vehicles"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-            <div className="mt-6 flex items-center gap-3 rounded-2xl bg-paper p-5">
-              <Car className="size-5 shrink-0 text-ink" aria-hidden="true" />
-              <p className="text-sm text-ink-soft">
-                Cars, vans, SUVs and buses available depending on your group size — all air-conditioned,
-                seatbelt-equipped, regularly serviced and fully insured for private hire.
-              </p>
-            </div>
+            </Reveal>
           </Container>
         </section>
 
@@ -151,12 +119,12 @@ export default function MyExperiencePage() {
           <Container>
             <SectionHeading eyebrow="Milestones" title="A decade on the road" align="left" />
             <div className="mt-10 space-y-8 border-l border-border pl-6 sm:pl-8">
-              {milestones.map((m) => (
-                <div key={m.year} className="relative">
+              {milestones.map((m, index) => (
+                <Reveal key={m.year} delay={index * 80} className="relative">
                   <span className="absolute -left-[31px] top-1 size-2.5 rounded-full bg-ink sm:-left-[39px]" />
                   <p className="text-sm font-medium text-ink">{m.year}</p>
                   <p className="mt-1 text-pretty text-muted">{m.text}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </Container>
@@ -167,8 +135,8 @@ export default function MyExperiencePage() {
             <Container>
               <SectionHeading eyebrow="In Their Words" title="A few notes from past guests" align="left" />
               <div className="mt-10 grid gap-5 sm:grid-cols-3">
-                {guestQuotes.map((q) => (
-                  <div key={q.id} className="rounded-2xl bg-paper p-6">
+                {guestQuotes.map((q, index) => (
+                  <Reveal key={q.id} delay={index * 80} className="rounded-2xl bg-paper p-6">
                     <div className="flex items-center gap-0.5" aria-hidden="true">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <Star key={i} className={`size-3.5 ${i < q.rating ? "fill-ink text-ink" : "text-border"}`} />
@@ -178,7 +146,7 @@ export default function MyExperiencePage() {
                     <p className="mt-3 text-xs text-muted">
                       {q.guestName}, {q.country}
                     </p>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </Container>

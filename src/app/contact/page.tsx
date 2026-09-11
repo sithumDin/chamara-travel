@@ -4,7 +4,9 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { InquirySection } from "@/components/sections/InquirySection";
+import { ContactMapSection } from "@/components/sections/ContactMapSection";
 import { Accordion } from "@/components/ui/Accordion";
+import { Reveal } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqPageSchema, breadcrumbSchema } from "@/lib/schema";
 import { generalFaq } from "@/data/faq";
@@ -36,19 +38,23 @@ export default function ContactPage() {
           imageAlt="Guide and guests taking a selfie on a ridge at golden hour"
         />
 
-        <InquirySection />
+        <InquirySection title="Contact Us" />
+
+        <ContactMapSection />
 
         <section className="py-16 sm:py-24">
           <Container className="max-w-3xl">
             <SectionHeading eyebrow="FAQ" title="Frequently asked questions" />
-            <Accordion
-              className="mt-10"
-              items={generalFaq.map((item, index) => ({
-                id: String(index),
-                trigger: item.question,
-                content: item.answer,
-              }))}
-            />
+            <Reveal>
+              <Accordion
+                className="mt-10"
+                items={generalFaq.map((item, index) => ({
+                  id: String(index),
+                  trigger: item.question,
+                  content: item.answer,
+                }))}
+              />
+            </Reveal>
           </Container>
         </section>
       </main>

@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { Reveal } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { destinations } from "@/data/destinations";
@@ -146,13 +147,10 @@ export default function AboutSriLankaPage() {
             />
 
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {regions.map((region) => (
-                <RegionSlideshowCard
-                  key={region.title}
-                  title={region.title}
-                  text={region.text}
-                  images={region.images}
-                />
+              {regions.map((region, index) => (
+                <Reveal key={region.title} delay={(index % 3) * 80}>
+                  <RegionSlideshowCard title={region.title} text={region.text} images={region.images} />
+                </Reveal>
               ))}
             </div>
           </Container>
@@ -168,9 +166,10 @@ export default function AboutSriLankaPage() {
             />
 
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {destinations.map((destination) => (
-                <div
+              {destinations.map((destination, index) => (
+                <Reveal
                   key={destination.id}
+                  delay={(index % 3) * 80}
                   className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-paper shadow-sm transition-shadow hover:shadow-lg"
                 >
                   <Link href={`/destinations/${destination.slug}`} className="relative aspect-[4/3] w-full overflow-hidden">
@@ -219,7 +218,7 @@ export default function AboutSriLankaPage() {
                       <ArrowRight className="size-3.5" aria-hidden="true" />
                     </Link>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </Container>
@@ -228,7 +227,7 @@ export default function AboutSriLankaPage() {
         <section className="bg-surface py-16 sm:py-20">
           <Container>
             <SectionHeading eyebrow="Planning" title="Best time to visit" align="left" />
-            <div className="mt-8 overflow-x-auto rounded-2xl border border-border bg-paper">
+            <Reveal className="mt-8 overflow-x-auto rounded-2xl border border-border bg-paper">
               <table className="w-full min-w-[560px] text-left text-sm">
                 <thead>
                   <tr className="border-b border-border">
@@ -249,7 +248,7 @@ export default function AboutSriLankaPage() {
                   ))}
                 </tbody>
               </table>
-            </div>
+            </Reveal>
           </Container>
         </section>
 
@@ -257,12 +256,14 @@ export default function AboutSriLankaPage() {
           <Container>
             <SectionHeading eyebrow="Before You Go" title="Practical travel info" align="left" />
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {practicalInfo.map((item) => (
-                <Card key={item.title} className="flex flex-col gap-3">
-                  <item.icon className="size-5 text-ink" aria-hidden="true" />
-                  <h3 className="text-base font-medium text-ink">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-muted">{item.text}</p>
-                </Card>
+              {practicalInfo.map((item, index) => (
+                <Reveal key={item.title} delay={(index % 3) * 80}>
+                  <Card className="flex h-full flex-col gap-3">
+                    <item.icon className="size-5 text-ink" aria-hidden="true" />
+                    <h3 className="text-base font-medium text-ink">{item.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted">{item.text}</p>
+                  </Card>
+                </Reveal>
               ))}
             </div>
           </Container>

@@ -3,19 +3,23 @@ import { Star, MessageSquareHeart } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
+import { AboutIntro } from "@/components/sections/AboutIntro";
+import { TrustBar } from "@/components/sections/TrustBar";
+import { ServiceHighlights } from "@/components/sections/ServiceHighlights";
 import { ReviewsCarousel } from "@/components/reviews/ReviewsCarousel";
 import { TripAdvisorWidgetSlot } from "@/components/reviews/TripAdvisorWidgetSlot";
 import { ReviewForm } from "@/components/forms/ReviewForm";
 import { InquirySection } from "@/components/sections/InquirySection";
+import { Reveal } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { reviewsSchema, breadcrumbSchema } from "@/lib/schema";
 import { reviews } from "@/data/reviews";
 import { siteConfig } from "@/data/site-config";
 
 export const metadata: Metadata = {
-  title: "Guest Reviews",
+  title: "About Us & Guest Reviews",
   description:
-    "Read reviews from travellers who've explored Sri Lanka with Chamara — private, driver-guided tours rated by real guests.",
+    "Meet Sri Lanka Tours with Chamara — who we are, what we do, and why travellers choose us — plus reviews from guests who've explored Sri Lanka with us.",
   alternates: { canonical: "/reviews" },
 };
 
@@ -39,17 +43,27 @@ export default function ReviewsPage() {
       />
       <main>
         <PageHero
-          eyebrow="Reviews"
-          title="What our guests are saying"
-          description={`Rated ${rating} / 5 across TripAdvisor, Google and direct feedback.`}
+          eyebrow="About Us"
+          title="Who we are, and why travellers choose us"
+          description={`A private driver-guided tour service, rated ${rating} / 5 across TripAdvisor, Google and direct feedback.`}
           imageSrc="/gallery/153-women-waving-safari-jeep-roof.jpg"
           imageAlt="Guests waving from the roof of a safari jeep"
+        />
+
+        <AboutIntro />
+
+        <TrustBar />
+
+        <ServiceHighlights
+          eyebrow="Why Choose Us"
+          title="What makes a trip with us different"
+          description="Not a call center, not a franchise — one licensed driver-guide, one comfortable vehicle, and a full range of transport and touring options built entirely around you."
         />
 
         <section id="write-a-review" className="py-16 sm:py-20">
           <Container>
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
-              <div>
+              <Reveal>
                 <h2 className="text-2xl font-medium tracking-tight text-ink sm:text-3xl">Our Reviews</h2>
                 <p className="mt-3 text-pretty text-muted">Feedback shared directly with us by guests, right here on our site.</p>
 
@@ -74,9 +88,9 @@ export default function ReviewsPage() {
                     <ReviewForm />
                   </div>
                 </div>
-              </div>
+              </Reveal>
 
-              <div className="lg:border-l lg:border-border lg:pl-16">
+              <Reveal delay={100} className="lg:border-l lg:border-border lg:pl-16">
                 <h2 className="text-2xl font-medium tracking-tight text-ink sm:text-3xl">What travellers are saying</h2>
 
                 <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -104,7 +118,7 @@ export default function ReviewsPage() {
                     <TripAdvisorWidgetSlot />
                   </div>
                 ) : null}
-              </div>
+              </Reveal>
             </div>
           </Container>
         </section>

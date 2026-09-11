@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Tour, TourTheme } from "@/types";
 import { TourCard } from "@/components/tours/TourCard";
+import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/utils";
 
 type DurationFilter = "all" | "1-day" | "3-5-days" | "7-plus-days";
@@ -93,7 +94,9 @@ export function ToursExplorer({ tours }: { tours: Tour[] }) {
       {filtered.length > 0 ? (
         <div className="mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((tour, index) => (
-            <TourCard key={tour.slug} tour={tour} priority={index === 0} />
+            <Reveal key={tour.slug} delay={(index % 6) * 80}>
+              <TourCard tour={tour} priority={index === 0} />
+            </Reveal>
           ))}
         </div>
       ) : (

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
@@ -54,6 +54,12 @@ export const metadata: Metadata = {
   },
 };
 
+// Ties browser chrome (Arc space color, mobile Safari/Chrome UI) to the
+// site's deep-ocean brand color instead of a default/random tint.
+export const viewport: Viewport = {
+  themeColor: "#0c445a",
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const gtmId = siteConfig.tracking.gtmId;
   const ga4Id = siteConfig.tracking.ga4Id;
@@ -86,9 +92,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </noscript>
         ) : null}
 
-        {children}
+        <div className="page-frame">
+          {children}
+          <Footer />
+        </div>
 
-        <Footer />
         <WhatsAppButton />
         {siteConfig.features.cookieConsentEnabled ? <CookieConsent /> : null}
 

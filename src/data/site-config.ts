@@ -88,6 +88,6 @@ export const navLinks = [
   { href: "/about-sri-lanka", label: "About Sri Lanka" },
   { href: "/my-experience", label: "My Experience" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/reviews", label: "Reviews" },
+  { href: "/reviews", label: "About Us" },
   { href: "/contact", label: "Contact" },
 ] as const;

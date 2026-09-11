@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function CtaBand({
   title = "Ready to see Sri Lanka your way?",
@@ -26,13 +27,15 @@ export function CtaBand({
         <div className="absolute inset-0 bg-black/45" />
 
         <Container className="relative z-10 flex flex-col items-center gap-6 text-center">
-          <h2 className="max-w-xl text-balance text-4xl font-medium leading-tight tracking-tight text-white sm:text-5xl">
-            {title}
-          </h2>
-          <p className="max-w-md text-pretty text-white/85">{description}</p>
-          <Button href={ctaHref} variant="white" size="lg">
-            {ctaLabel}
-          </Button>
+          <Reveal className="flex flex-col items-center gap-6">
+            <h2 className="max-w-xl text-balance text-4xl font-medium leading-tight tracking-tight text-white sm:text-5xl">
+              {title}
+            </h2>
+            <p className="max-w-md text-pretty text-white/85">{description}</p>
+            <Button href={ctaHref} variant="white" size="lg">
+              {ctaLabel}
+            </Button>
+          </Reveal>
         </Container>
       </div>
     </section>

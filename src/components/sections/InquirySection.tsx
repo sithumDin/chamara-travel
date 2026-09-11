@@ -26,15 +26,17 @@ const contactRows = [
   },
 ];
 
-export function InquirySection({ defaultTour }: { defaultTour?: string }) {
+export function InquirySection({
+  defaultTour,
+  title = "Tell us about your trip",
+}: {
+  defaultTour?: string;
+  title?: string;
+}) {
   return (
     <section id="inquiry" className="scroll-mt-24 py-16 sm:py-24">
       <Container>
-        <SectionHeading
-          eyebrow="Plan My Trip"
-          title="Tell us about your trip"
-          description={siteConfig.responseTimePromise}
-        />
+        <SectionHeading eyebrow="Plan My Trip" title={title} description={siteConfig.responseTimePromise} />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:gap-8">
           <Reveal>

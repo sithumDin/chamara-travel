@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { TourGallery } from "@/components/tours/TourGallery";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { Reveal } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { destinations, getDestinationBySlug, relatedDestinations } from "@/data/destinations";
@@ -80,7 +81,7 @@ export default async function DestinationDetailPage({
             <TourGallery images={galleryImages} title={destination.name} />
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-4 rounded-2xl border border-border bg-surface p-6 sm:p-8">
+          <Reveal className="mt-10 grid grid-cols-3 gap-4 rounded-2xl border border-border bg-surface p-6 sm:p-8">
             <div className="flex flex-col items-center gap-2 text-center">
               <CalendarDays className="size-5 text-ink" aria-hidden="true" />
               <p className="text-sm font-medium text-ink">{destination.bestTime}</p>
@@ -96,10 +97,10 @@ export default async function DestinationDetailPage({
               <p className="text-sm font-medium text-ink">{destination.essentials}</p>
               <p className="text-xs text-muted">Bring</p>
             </div>
-          </div>
+          </Reveal>
 
           <div className="mt-14 grid gap-10 lg:grid-cols-[1.6fr_1fr]">
-            <div className="max-w-3xl">
+            <Reveal className="max-w-3xl">
               <h2 className="text-2xl font-medium tracking-tight text-ink">Overview</h2>
               <p className="mt-4 text-pretty leading-relaxed text-muted">{destination.description}</p>
 
@@ -121,23 +122,25 @@ export default async function DestinationDetailPage({
                 Plan a Trip to {destination.name}
                 <ArrowRight className="size-4" aria-hidden="true" />
               </a>
-            </div>
+            </Reveal>
 
             {destination.funFacts?.length ? (
-              <aside className="h-fit rounded-2xl border border-accent/20 bg-accent/5 p-6">
-                <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-accent-deep">
-                  <Sparkles className="size-4" aria-hidden="true" />
-                  Did you know?
-                </h3>
-                <ul className="mt-4 space-y-3">
-                  {destination.funFacts.map((fact, index) => (
-                    <li key={index} className="flex gap-2.5 text-sm leading-relaxed text-ink-soft">
-                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                      {fact}
-                    </li>
-                  ))}
-                </ul>
-              </aside>
+              <Reveal delay={100} className="h-fit">
+                <aside className="h-fit rounded-2xl border border-accent/20 bg-accent/5 p-6">
+                  <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-accent-deep">
+                    <Sparkles className="size-4" aria-hidden="true" />
+                    Did you know?
+                  </h3>
+                  <ul className="mt-4 space-y-3">
+                    {destination.funFacts.map((fact, index) => (
+                      <li key={index} className="flex gap-2.5 text-sm leading-relaxed text-ink-soft">
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                        {fact}
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
+              </Reveal>
             ) : null}
           </div>
         </Container>
@@ -147,26 +150,27 @@ export default async function DestinationDetailPage({
             <Container>
               <h2 className="text-2xl font-medium tracking-tight text-ink sm:text-3xl">More destinations</h2>
               <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {related.map((d) => (
-                  <Link
-                    key={d.slug}
-                    href={`/destinations/${d.slug}`}
-                    className="group overflow-hidden rounded-2xl border border-border transition-shadow hover:shadow-lg"
-                  >
-                    <div className="relative aspect-[4/3] w-full overflow-hidden">
-                      <Image
-                        src={d.src}
-                        alt={d.alt}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <h3 className="text-base font-medium text-ink">{d.name}</h3>
-                      <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-muted">{d.summary}</p>
-                    </div>
-                  </Link>
+                {related.map((d, index) => (
+                  <Reveal key={d.slug} delay={(index % 3) * 80}>
+                    <Link
+                      href={`/destinations/${d.slug}`}
+                      className="group block overflow-hidden rounded-2xl border border-border transition-shadow hover:shadow-lg"
+                    >
+                      <div className="relative aspect-[4/3] w-full overflow-hidden">
+                        <Image
+                          src={d.src}
+                          alt={d.alt}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="p-5">
+                        <h3 className="text-base font-medium text-ink">{d.name}</h3>
+                        <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-muted">{d.summary}</p>
+                      </div>
+                    </Link>
+                  </Reveal>
                 ))}
               </div>
             </Container>

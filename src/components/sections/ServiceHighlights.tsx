@@ -1,12 +1,4 @@
 import {
-  Plane,
-  Hotel,
-  Sun,
-  RotateCw,
-  PawPrint,
-  Waves,
-  Landmark,
-  Sparkles,
   BadgeCheck,
   Route,
   ShieldCheck,
@@ -17,9 +9,6 @@ import {
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { siteConfig } from "@/data/site-config";
-
-const serviceIcons = [Plane, Hotel, Sun, RotateCw, PawPrint, Waves, Landmark, Sparkles];
 
 const reasons = [
   {
@@ -54,81 +43,50 @@ const reasons = [
   },
 ];
 
-// Cycled across cards so the grids read as varied rather than one flat
-// color repeated down the list.
-const badgeTones = [
-  { bg: "bg-accent/10", icon: "text-accent-deep" },
-  { bg: "bg-clay/10", icon: "text-clay" },
-  { bg: "bg-ink/10", icon: "text-ink" },
-];
-
-function IconCard({
+function ReasonCard({
   icon: Icon,
   title,
   description,
-  tone,
-  compact,
 }: {
-  icon: typeof Plane;
+  icon: typeof BadgeCheck;
   title: string;
   description: string;
-  tone: (typeof badgeTones)[number];
-  compact?: boolean;
 }) {
   return (
-    <div className="group rounded-2xl border border-border bg-paper p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-transparent hover:shadow-lg">
-      <span
-        className={`inline-flex size-11 items-center justify-center rounded-xl transition-colors duration-200 ${tone.bg} group-hover:bg-ink`}
-      >
-        <Icon className={`size-5 transition-colors duration-200 ${tone.icon} group-hover:text-white`} aria-hidden="true" />
+    <div className="group rounded-2xl bg-accent-deep p-8 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
+      <span className="mx-auto inline-flex size-16 items-center justify-center rounded-full bg-white/10 transition-colors duration-200 group-hover:bg-white/15">
+        <Icon className="size-7 text-white" strokeWidth={1.5} aria-hidden="true" />
       </span>
-      <h4 className={`font-semibold tracking-tight text-ink ${compact ? "mt-3 text-sm" : "mt-4 text-[15px]"}`}>
-        {title}
-      </h4>
-      <p className={`text-muted ${compact ? "mt-1 text-xs leading-relaxed" : "mt-1.5 text-sm leading-relaxed"}`}>
-        {description}
-      </p>
+      <h4 className="mt-5 text-lg font-semibold text-white">{title}</h4>
+      <p className="mt-3 text-sm italic leading-relaxed text-white/70">{description}</p>
     </div>
   );
 }
 
-export function ServiceHighlights() {
+export function ServiceHighlights({
+  eyebrow = "Your Travel Partner",
+  title = "Everything you need, from someone who knows the roads",
+  description = "Not a call center, not a franchise — one licensed driver-guide, one comfortable vehicle, and a full range of transport and touring options built entirely around you.",
+}: {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+}) {
   return (
     <section className="bg-border/15 py-16 sm:py-24">
       <Container>
-        <SectionHeading
-          eyebrow="Your Travel Partner"
-          title="Everything you need, from someone who knows the roads"
-          description="Not a call center, not a franchise — one licensed driver-guide, one comfortable vehicle, and a full range of transport and touring options built entirely around you."
-        />
+        <SectionHeading eyebrow={eyebrow} title={title} description={description} />
 
         <div className="mt-16">
           <Reveal>
-            <h3 className="eyebrow text-accent-deep">What We Offer</h3>
-            <div className="mt-6 grid grid-cols-2 items-start gap-3 sm:grid-cols-4 sm:gap-4">
-              {siteConfig.services.map((service, index) => (
-                <IconCard
-                  key={service.title}
-                  icon={serviceIcons[index % serviceIcons.length]}
-                  title={service.title}
-                  description={service.description}
-                  tone={badgeTones[index % badgeTones.length]}
-                  compact
-                />
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal delay={120} className="mt-14">
             <h3 className="eyebrow text-clay">Why Travel With Chamara</h3>
             <div className="mt-6 grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {reasons.map((reason, index) => (
-                <IconCard
+              {reasons.map((reason) => (
+                <ReasonCard
                   key={reason.title}
                   icon={reason.icon}
                   title={reason.title}
                   description={reason.description}
-                  tone={badgeTones[index % badgeTones.length]}
                 />
               ))}
             </div>

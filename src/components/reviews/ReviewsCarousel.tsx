@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import type { Review } from "@/types";
 import { getTourBySlug } from "@/data/tours";
+import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/utils";
 
 const sourceLabel: Record<Review["source"], string> = {
@@ -30,7 +31,7 @@ export function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
   }
 
   return (
-    <div className="relative">
+    <Reveal className="relative">
       <div
         ref={scrollerRef}
         className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
@@ -95,6 +96,6 @@ export function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
           <ChevronRight className="size-5" aria-hidden="true" />
         </button>
       </div>
-    </div>
+    </Reveal>
   );
 }

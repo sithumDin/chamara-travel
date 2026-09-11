@@ -7,7 +7,7 @@
   --color-ink: #0c445a; /* deep ocean — headings, primary buttons, dark surfaces */
   --color-ink-soft: #0a3648; /* darker ocean — hover states, body copy */
   --color-paper: #ffffff; /* white — page background */
-  --color-surface: #ffffff; /* white — card backgrounds */
+  --color-surface: #f4f7f7; /* faint ocean tint — sets alternating sections apart from the white page */
   --color-surface-dark: #082f3e; /* darkest ocean — dark decorative surfaces */
   --color-border: #e7e0d1; /* sand border — the only thing separating white cards from the white page */
   --color-muted: #5c7078; /* ocean-grey — secondary text */
@@ -22,6 +22,10 @@
 :root {
   --background: var(--color-paper);
   --foreground: var(--color-ink);
+  /* Themed page frame — shows as side bands beside the content on wide screens */
+  --frame: var(--color-ink);
+  --frame-max: 100rem;
+  color-scheme: light;
 }
 
 * {
@@ -30,12 +34,22 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--frame);
 }
 
 body {
-  background: var(--background);
+  background: var(--frame);
   color: var(--foreground);
   font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Centered white frame that holds the whole site on a themed background */
+.page-frame {
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--frame-max);
+  min-height: 100dvh;
+  background: var(--color-paper);
 }
 
 /* Visible, accessible focus rings everywhere instead of the default outline */
