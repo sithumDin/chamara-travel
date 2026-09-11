@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Compass, Star, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -7,15 +6,20 @@ import { siteConfig } from "@/data/site-config";
 export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden">
-      <Image
-        src="/gallery/nine-arches-bridge-ella.jpg"
-        alt="A blue train crossing the Nine Arches Bridge through the forest near Ella"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster="/gallery/nine-arches-bridge-ella.jpg"
+        aria-label="Sri Lanka travel highlights"
+        className="absolute inset-0 size-full object-cover"
+      >
+        <source src="/videos/hero-background.mp4" type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/65" />
+      <div className="absolute inset-0 bg-black/35" />
 
       <Container className="relative z-10 py-28 sm:py-32">
         <h1 className="max-w-2xl text-balance text-5xl font-medium leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
