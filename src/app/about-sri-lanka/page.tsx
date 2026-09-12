@@ -1,7 +1,24 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { FileCheck, Coins, Languages, Smartphone, ShieldCheck, Backpack, CalendarDays, CloudSun, ArrowRight } from "lucide-react";
+import {
+  FileCheck,
+  Coins,
+  Languages,
+  Smartphone,
+  ShieldCheck,
+  Backpack,
+  CalendarDays,
+  CloudSun,
+  ArrowRight,
+  Waves,
+  Mountain,
+  PawPrint,
+  Landmark,
+  UtensilsCrossed,
+  PartyPopper,
+  Clock,
+} from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -21,9 +38,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about-sri-lanka" },
 };
 
+const driveTimesFromColombo = [
+  { place: "Galle & the South Coast", duration: "≈ 2.5 hrs" },
+  { place: "Kandy", duration: "≈ 3 hrs" },
+  { place: "Sigiriya & Dambulla", duration: "≈ 4 hrs" },
+  { place: "Ella & Nuwara Eliya", duration: "≈ 6 hrs" },
+  { place: "Yala National Park", duration: "≈ 5.5 hrs" },
+];
+
 const regions = [
   {
     title: "Beaches",
+    icon: Waves,
     text: "From the surf towns of the south coast to the quiet, palm-lined bays of the east, Sri Lanka's coastline shifts character with the monsoon — there's a calm beach somewhere on the island in every season.",
     images: [
       { src: "/gallery/golden-sand-beach-rocky-shoreline.jpg", alt: "Golden sand beach along a rocky shoreline" },
@@ -33,6 +59,7 @@ const regions = [
   },
   {
     title: "Hill Country",
+    icon: Mountain,
     text: "Rolling tea estates, misty ridgelines, waterfalls and the cool climate of Nuwara Eliya and Ella make the central highlands feel like an entirely different country.",
     images: [
       { src: "/gallery/misty-tea-plantation-hillside.jpg", alt: "Misty tea plantation hillside" },
@@ -42,6 +69,7 @@ const regions = [
   },
   {
     title: "Wildlife & Safari",
+    icon: PawPrint,
     text: "Yala, Udawalawe, Wilpattu and Minneriya put you eye to eye with leopards, elephant herds and prolific birdlife — some of the best wildlife viewing anywhere in Asia.",
     images: [
       { src: "/gallery/048-leopard-resting-tree-branch.jpg", alt: "Leopard resting on a tree branch" },
@@ -51,6 +79,7 @@ const regions = [
   },
   {
     title: "Ancient Cities & Culture",
+    icon: Landmark,
     text: "The Cultural Triangle's UNESCO sites — Sigiriya, Anuradhapura, Polonnaruwa and Kandy — trace over two thousand years of continuous Buddhist civilization.",
     images: [
       { src: "/gallery/073-couple-sigiriya-rock-fortress-view.jpg", alt: "Couple with a view of Sigiriya rock fortress" },
@@ -60,6 +89,7 @@ const regions = [
   },
   {
     title: "Food",
+    icon: UtensilsCrossed,
     text: "Rice and curry built around coconut, chilli and curry leaf, hoppers for breakfast, and some of the best cinnamon, tea and seafood in the world.",
     images: [
       { src: "/gallery/058-sri-lankan-curry-rice-spread.jpg", alt: "Sri Lankan curry and rice spread" },
@@ -69,6 +99,7 @@ const regions = [
   },
   {
     title: "Festivals",
+    icon: PartyPopper,
     text: "From the Kandy Esala Perahera's torchlit elephant procession to the island-wide Sinhala and Tamil New Year in April, festivals offer a window into daily Sri Lankan life.",
     images: [
       { src: "/gallery/046-friends-temple-flower-offering-kandy.jpg", alt: "Friends making a flower offering at a Kandy temple" },
@@ -146,10 +177,34 @@ export default function AboutSriLankaPage() {
               align="left"
             />
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Reveal className="mt-8 overflow-x-auto">
+              <div className="flex w-max min-w-full items-stretch gap-3 sm:w-full sm:flex-wrap">
+                {driveTimesFromColombo.map((route) => (
+                  <div
+                    key={route.place}
+                    className="flex shrink-0 items-center gap-3 rounded-xl border border-border bg-paper px-4 py-3"
+                  >
+                    <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent-deep">
+                      <Clock className="size-4" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="text-sm font-medium text-ink">{route.place}</p>
+                      <p className="text-xs text-muted">{route.duration} from Colombo</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {regions.map((region, index) => (
                 <Reveal key={region.title} delay={(index % 3) * 80}>
-                  <RegionSlideshowCard title={region.title} text={region.text} images={region.images} />
+                  <RegionSlideshowCard
+                    title={region.title}
+                    text={region.text}
+                    images={region.images}
+                    icon={<region.icon className="size-4" aria-hidden="true" />}
+                  />
                 </Reveal>
               ))}
             </div>

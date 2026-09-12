@@ -78,6 +78,31 @@ export const tours: Tour[] = [
       "Full-day private game drive",
     ],
     featured: true,
+    bestSeller: true,
+    pickupLocations: [
+      "Negombo",
+      "Waikkal",
+      "Colombo",
+      "Mount Lavinia",
+      "Anuradhapura",
+      "Polonnaruwa",
+      "Sigiriya",
+      "Habarana",
+      "Dambulla",
+      "Trincomalee",
+      "Kandy",
+    ],
+    additionalInfo: [
+      "Confirmation will be received at the time of booking.",
+      "Please be ready at the hotel lobby 15 minutes before the pick-up time.",
+      "Please bring a valid passport for entry to the national park.",
+      "Please wear comfortable attire suited to a safari.",
+      "Travel time may vary from that stated due to traffic and road conditions.",
+      "This experience requires good weather. If it's cancelled due to poor weather, you'll be offered a different date or a full refund.",
+      "This is a private tour/activity — only your group will participate.",
+    ],
+    cancellationPolicy:
+      "For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
   },
   {
     slug: "southern-sri-lanka-sightseeing-day-trip",
@@ -142,6 +167,16 @@ export const tours: Tour[] = [
       "Koggala stilt fishermen",
     ],
     featured: true,
+    bestSeller: true,
+    pickupLocations: ["Colombo", "Negombo"],
+    additionalInfo: [
+      "Confirmation will be received at the time of booking.",
+      "Tour duration includes travel time.",
+      "This is a private tour/activity — only your group will participate.",
+      "If your pick-up location isn't listed, send us a message and we'll confirm it.",
+    ],
+    cancellationPolicy:
+      "For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
   },
   {
     slug: "8-day-sri-lanka-private-tour",
@@ -205,6 +240,22 @@ export const tours: Tour[] = [
       "Galle Fort and the southern beaches",
     ],
     featured: true,
+    bestSeller: true,
+    pickupLocations: ["Bandaranaike International Airport", "Katunayake", "Colombo", "Negombo"],
+    additionalInfo: [
+      "Confirmation will be received at the time of booking.",
+      "This is a private tour/activity — only your group will participate.",
+      "Returns to the original departure point at the end of the trip.",
+    ],
+    accessibility: [
+      "Not wheelchair accessible",
+      "Pushchair accessible",
+      "Near public transportation",
+      "Infants must sit on laps",
+      "Infant seats available",
+      "Not recommended for travellers with serious heart or medical conditions",
+      "Travellers should have a moderate level of physical fitness",
+    ],
   },
   {
     slug: "yala-safari-private-day-trip",
@@ -260,6 +311,418 @@ export const tours: Tour[] = [
       "Pick-up from a wide range of south and hill-country towns",
     ],
     featured: true,
+    bestSeller: true,
+    pickupLocations: [
+      "Colombo",
+      "Mount Lavinia",
+      "Katunayake",
+      "Negombo",
+      "Waikkal",
+      "Galle",
+      "Unawatuna",
+      "Talpe",
+      "Koggala",
+      "Habaraduwa",
+      "Ahangama",
+      "Midigama",
+      "Weligama",
+      "Mirissa",
+      "Matara",
+      "Dikwella",
+      "Hiriketiya",
+      "Tangalle",
+      "Ranna",
+      "Hambantota",
+      "Udawalawe",
+      "Ella",
+      "Wellawaya",
+      "Arugam Bay",
+      "Yala",
+      "Kirinda",
+      "Tissamaharama",
+      "Weerawila",
+      "Kataragama",
+    ],
+    additionalInfo: [
+      "Confirmation will be received at the time of booking.",
+      "Choose a morning safari (pick-up between 3:30 AM and 5:30 AM) or an afternoon safari (pick-up between 8:30 AM and 12:00 PM).",
+      "This is a private tour with private transportation.",
+      "This is an all-inclusive package covering entrance fees, activity charges, transportation and taxes for the activities listed.",
+      "This experience requires good weather. If it's cancelled due to poor weather, you'll be offered a different date or a full refund.",
+      "This is a private tour/activity — only your group will participate.",
+    ],
+    accessibility: [
+      "Infant seats available",
+      "Not recommended for pregnant travellers",
+      "Not wheelchair accessible",
+      "Most travellers can participate",
+    ],
+    cancellationPolicy:
+      "For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
+  },
+  {
+    slug: "sigiriya-dambulla-cultural-triangle-day-tour",
+    title: "Sigiriya & Dambulla Cultural Triangle Day Tour",
+    summary:
+      "Climb the 5th-century Sigiriya rock fortress and explore the golden Dambulla cave temple in a single, unforgettable day.",
+    description:
+      "A full-day tour through the heart of Sri Lanka's Cultural Triangle. Climb Sigiriya, the ancient rock fortress rising 200 metres above the jungle, and see its famous frescoes and mirror wall along the way. In the afternoon, visit the Dambulla Cave Temple, a UNESCO World Heritage Site with over 150 Buddha statues and 2,000-year-old painted ceilings.",
+    images: [
+      { src: "/gallery/sigiriya-rock-sunset-viewpoint.jpg", alt: "Sigiriya rock fortress rising above the jungle at sunset" },
+      { src: "/gallery/005-couple-sigiriya-rock-fortress.jpg", alt: "Couple climbing the Sigiriya rock fortress" },
+      { src: "/gallery/woman-sigiriya-lion-staircase-view.jpg", alt: "Traveller at the Lion's Gate staircase on Sigiriya" },
+      { src: "/gallery/073-couple-sigiriya-rock-fortress-view.jpg", alt: "View from partway up the Sigiriya rock fortress" },
+      { src: "/gallery/043-toque-macaque-monkey-rock.jpg", alt: "Toque macaque monkey on the rock at Sigiriya" },
+      { src: "/gallery/dambulla-cave-temple-golden-buddha.jpg", alt: "Golden Buddha statue at the Dambulla cave temple" },
+      { src: "/gallery/dambulla-cave-temple-interior.jpg", alt: "Painted ceiling inside the Dambulla cave temple" },
+      { src: "/gallery/dambulla-cave-temple-seated-buddhas-row.jpg", alt: "Row of seated Buddha statues at Dambulla" },
+      { src: "/gallery/044-men-ancient-buddha-rock-carvings.jpg", alt: "Ancient Buddha rock carvings in the Cultural Triangle" },
+    ],
+    durationDays: 1,
+    durationLabel: "1 Day",
+    themes: ["culture"],
+    groupSize: "1 - 6 travellers",
+    difficulty: "moderate",
+    fromPriceUsd: 70, // price: placeholder
+    itinerary: [
+      {
+        day: 1,
+        title: "Sigiriya & Dambulla",
+        description:
+          "Early hotel pick-up and drive to Sigiriya. Climb the rock fortress via the Lion's Gate and ancient frescoes to the summit for panoramic views of the surrounding jungle and reservoirs. After lunch, continue to the Dambulla Cave Temple to see five caves containing over 150 Buddha statues and painted ceilings dating back over 2,000 years. Return transfer to your hotel in the evening.",
+      },
+    ],
+    included: [
+      "Hotel pick-up and drop-off",
+      "Private air-conditioned vehicle",
+      "English-speaking driver-guide",
+      "Bottled water",
+      "All government taxes",
+    ],
+    excluded: [
+      "Sigiriya rock fortress entrance fee",
+      "Dambulla cave temple entrance fee",
+      "Lunch",
+      "Gratuities",
+    ],
+    priceTiers: [
+      { groupSize: "1 traveller", pricePerPersonUsd: 70 }, // price: placeholder
+      { groupSize: "2 travellers", pricePerPersonUsd: 55 }, // price: placeholder
+      { groupSize: "3 - 4 travellers", pricePerPersonUsd: 45 }, // price: placeholder
+      { groupSize: "5 - 6 travellers", pricePerPersonUsd: 38 }, // price: placeholder
+    ],
+    mapImage: img("lk-map-sigiriya-dambulla", "Map of the Sigiriya and Dambulla day tour route"),
+    highlights: [
+      "Climb the 5th-century Sigiriya rock fortress",
+      "See the famous Sigiriya frescoes and mirror wall",
+      "UNESCO-listed Dambulla cave temple",
+      "Over 150 ancient Buddha statues",
+    ],
+    featured: true,
+  },
+  {
+    slug: "kandy-cultural-day-tour",
+    title: "Kandy Cultural Day Tour",
+    summary:
+      "The Temple of the Sacred Tooth Relic, the Royal Botanical Gardens and the hill capital of the last Sri Lankan kings.",
+    description:
+      "A full-day tour of Kandy, Sri Lanka's last royal capital and a UNESCO World Heritage city. Visit a spice garden en route, tour the Temple of the Sacred Tooth Relic, and stroll the Royal Botanical Gardens at Peradeniya, home to one of Asia's finest orchid collections and a giant Javan fig tree. Round off the day beside Kandy Lake in the shadow of the hills.",
+    images: [
+      { src: "/gallery/072-temple-tooth-relic-kandy.jpg", alt: "Temple of the Sacred Tooth Relic in Kandy" },
+      { src: "/gallery/temple-tooth-relic-golden-buddha-shrine.jpg", alt: "Golden Buddha shrine inside the Temple of the Sacred Tooth Relic" },
+      { src: "/gallery/046-friends-temple-flower-offering-kandy.jpg", alt: "Friends making a flower offering at a Kandy temple" },
+      { src: "/gallery/136-couple-lotus-flower-offering-temple-stall.jpg", alt: "Couple buying lotus flowers for a temple offering" },
+      { src: "/gallery/041-botanical-garden-lawn-palm-tree.jpg", alt: "Lawn and palm trees at the Peradeniya Botanical Gardens" },
+      { src: "/gallery/056-botanical-garden-palm-tree-avenue.jpg", alt: "Palm tree avenue in the Royal Botanical Gardens" },
+      { src: "/gallery/170-palm-tree-botanical-garden-lawn.jpg", alt: "Palm tree on the lawn at the botanical gardens" },
+    ],
+    durationDays: 1,
+    durationLabel: "1 Day",
+    themes: ["culture"],
+    groupSize: "1 - 6 travellers",
+    difficulty: "easy",
+    fromPriceUsd: 65, // price: placeholder
+    itinerary: [
+      {
+        day: 1,
+        title: "Kandy Highlights",
+        description:
+          "Hotel pick-up and drive towards Kandy, stopping at a spice garden to learn about Sri Lanka's spice trade. Visit the Temple of the Sacred Tooth Relic, one of Buddhism's most sacred sites, then continue to the Royal Botanical Gardens at Peradeniya. Time permitting, walk along Kandy Lake before the return transfer to your hotel.",
+      },
+    ],
+    included: [
+      "Hotel pick-up and drop-off",
+      "Private air-conditioned vehicle",
+      "English-speaking driver-guide",
+      "Spice garden visit",
+      "Bottled water",
+    ],
+    excluded: [
+      "Temple of the Sacred Tooth Relic entrance fee",
+      "Royal Botanical Gardens entrance fee",
+      "Lunch",
+      "Gratuities",
+    ],
+    priceTiers: [
+      { groupSize: "1 traveller", pricePerPersonUsd: 65 }, // price: placeholder
+      { groupSize: "2 travellers", pricePerPersonUsd: 50 }, // price: placeholder
+      { groupSize: "3 - 4 travellers", pricePerPersonUsd: 42 }, // price: placeholder
+      { groupSize: "5 - 6 travellers", pricePerPersonUsd: 35 }, // price: placeholder
+    ],
+    mapImage: img("lk-map-kandy", "Map of the Kandy cultural day tour route"),
+    highlights: [
+      "Temple of the Sacred Tooth Relic",
+      "Royal Botanical Gardens, Peradeniya",
+      "Local spice garden visit",
+      "Kandy Lake and the last royal capital",
+    ],
+    featured: true,
+  },
+  {
+    slug: "ella-nuwara-eliya-hill-country-tour",
+    title: "Ella & Nuwara Eliya Hill Country Tour",
+    summary:
+      "Two days in tea country — waterfalls, a working tea factory, the Nine Arches Bridge and Little Adam's Peak.",
+    description:
+      "A two-day loop through Sri Lanka's hill country. Explore Nuwara Eliya, the cool 'Little England' of tea estates and colonial architecture, with stops at a working tea factory and Ramboda Falls. Continue to Ella for its laid-back village charm, the iconic Nine Arches Bridge, and a walk up Little Adam's Peak for sweeping valley views.",
+    images: [
+      { src: "/gallery/050-tea-plantation-hills-rows.jpg", alt: "Rows of tea plantation across the hills near Nuwara Eliya" },
+      { src: "/gallery/misty-tea-plantation-hillside.jpg", alt: "Misty tea plantation hillside in the hill country" },
+      { src: "/gallery/edinburgh-tea-estate-misty-hillside.jpg", alt: "Edinburgh tea estate on a misty hillside" },
+      { src: "/gallery/089-couple-labookellie-tea-plantation-view.jpg", alt: "Couple overlooking the Labookellie tea plantation" },
+      { src: "/gallery/couple-ambewela-train-station-fog.jpg", alt: "Couple at the foggy Ambewela train station" },
+      { src: "/gallery/nine-arches-bridge-ella.jpg", alt: "A blue train crossing the Nine Arches Bridge near Ella" },
+      { src: "/gallery/woman-nine-arches-bridge-portrait.jpg", alt: "Traveller at the Nine Arches Bridge in Ella" },
+      { src: "/gallery/ella-train-station-foggy-morning.jpg", alt: "Ella train station on a foggy morning" },
+      { src: "/gallery/hill-country-wooden-benches-viewpoint.jpg", alt: "Wooden benches at a hill country viewpoint" },
+    ],
+    durationDays: 2,
+    durationLabel: "2 Days / 1 Night",
+    themes: ["hill-country"],
+    groupSize: "2 - 6 travellers",
+    difficulty: "moderate",
+    fromPriceUsd: 180, // price: placeholder
+    itinerary: [
+      {
+        day: 1,
+        title: "Kandy to Nuwara Eliya",
+        description:
+          "Scenic drive into tea country, stopping at Ramboda Falls and a working tea factory for a tour and tasting. Explore Nuwara Eliya's colonial-era town centre, Gregory Lake and Victoria Park before checking in for the night.",
+        overnightAt: "Nuwara Eliya",
+      },
+      {
+        day: 2,
+        title: "Nuwara Eliya to Ella",
+        description:
+          "Continue to Ella, stopping at viewpoints along the way. Walk to the Nine Arches Bridge and climb Little Adam's Peak for panoramic hill-country views before your return transfer.",
+      },
+    ],
+    included: [
+      "Private air-conditioned vehicle",
+      "English-speaking driver-guide throughout",
+      "1 night accommodation",
+      "Daily breakfast",
+      "Bottled water on board",
+    ],
+    excluded: [
+      "Lunch and dinner",
+      "Tea factory tour ticket",
+      "Gregory Lake and Victoria Park entrance fees",
+      "Personal expenses",
+      "Gratuities",
+    ],
+    priceTiers: [
+      { groupSize: "2 travellers", pricePerPersonUsd: 180 }, // price: placeholder
+      { groupSize: "3 - 4 travellers", pricePerPersonUsd: 150 }, // price: placeholder
+      { groupSize: "5 - 6 travellers", pricePerPersonUsd: 130 }, // price: placeholder
+    ],
+    mapImage: img("lk-map-ella-nuwaraeliya", "Map of the Ella and Nuwara Eliya hill country tour route"),
+    highlights: [
+      "Working tea factory tour and tasting",
+      "Ramboda Falls",
+      "Nine Arches Bridge, Ella",
+      "Little Adam's Peak hike",
+    ],
+    featured: true,
+  },
+  {
+    slug: "down-south-whale-watching-tour",
+    title: "Down South & Whale Watching Tour",
+    summary:
+      "The south coast at its best — golden beaches, stilt fishermen and an early-morning boat trip off Mirissa in search of blue whales and dolphins.",
+    description:
+      "Mirissa is one of the best places in the world to see blue whales and sperm whales in the wild, and the south coast around it is lined with some of Sri Lanka's finest beaches. Head out at sunrise on a licensed whale-watching boat for a 3 - 4 hour cruise along the continental shelf, with a real chance of spotting whales, dolphins and flying fish, then spend the rest of the day down south among palm-fringed bays and traditional stilt fishermen. Whale watching is best from November to April.",
+    images: [
+      { src: "/gallery/humpback-whale-tail-mirissa.jpg", alt: "Whale tail breaking the surface off Mirissa" },
+      { src: "/gallery/parrot-rock-island-sunset-mirissa.jpg", alt: "Parrot Rock island at sunset in Mirissa" },
+      { src: "/gallery/diving-boat-ocean-sunset-silhouette.jpg", alt: "Whale-watching boat silhouetted at sunset" },
+      { src: "/gallery/golden-beach-sunset-cruise-ship.jpg", alt: "Golden sunset over the ocean off the south coast" },
+      { src: "/gallery/aerial-drone-tangalle-beach.jpg", alt: "Aerial view of the south coast near Mirissa" },
+      { src: "/gallery/golden-sand-beach-rocky-shoreline.jpg", alt: "Golden sand beach along a rocky shoreline down south" },
+      { src: "/gallery/palm-fringed-turquoise-bay-coast.jpg", alt: "Palm-fringed turquoise bay on the south coast" },
+      { src: "/gallery/163-family-stilt-fisherman-rough-surf.jpg", alt: "Family beside a traditional stilt fisherman in the surf" },
+      { src: "/gallery/020-family-stilt-fishing-posts-beach.jpg", alt: "Family by the stilt fishing posts on the beach" },
+      { src: "/gallery/surfers-sunset-ocean-silhouette.jpg", alt: "Surfers silhouetted against the sunset down south" },
+    ],
+    durationDays: 1,
+    durationLabel: "Half Day (approx. 4 hours)",
+    themes: ["beach", "wildlife"],
+    groupSize: "1 - 6 travellers",
+    difficulty: "easy",
+    fromPriceUsd: 55, // price: placeholder
+    itinerary: [
+      {
+        day: 1,
+        title: "Mirissa Whale Watching Cruise",
+        description:
+          "Early hotel pick-up (around 05:30) and transfer to Mirissa harbour. Board a licensed whale-watching boat departing around 06:30 for a 3 - 4 hour cruise along the continental shelf, with an experienced crew tracking blue whales, sperm whales, and pods of spinner dolphins. Return transfer to your hotel afterwards.",
+      },
+    ],
+    included: [
+      "Hotel pick-up and drop-off",
+      "Whale-watching boat ticket",
+      "Life jackets and safety briefing",
+      "Light refreshments on board",
+    ],
+    excluded: ["Lunch", "Gratuities"],
+    priceTiers: [
+      { groupSize: "1 traveller", pricePerPersonUsd: 55 }, // price: placeholder
+      { groupSize: "2 travellers", pricePerPersonUsd: 50 }, // price: placeholder
+      { groupSize: "3 - 4 travellers", pricePerPersonUsd: 45 }, // price: placeholder
+      { groupSize: "5 - 6 travellers", pricePerPersonUsd: 40 }, // price: placeholder
+    ],
+    mapImage: img("lk-map-down-south-whales", "Map of the down south and Mirissa whale watching route"),
+    highlights: [
+      "Real chance of blue and sperm whale sightings",
+      "Spinner dolphin pods",
+      "Golden south coast beaches",
+      "Traditional stilt fishermen",
+    ],
+    featured: true,
+  },
+  {
+    slug: "minneriya-national-park-elephant-safari",
+    title: "Minneriya National Park Elephant Safari",
+    summary:
+      "A jeep safari at Minneriya National Park, famous for 'The Gathering' — one of Asia's largest wild elephant herds.",
+    description:
+      "Minneriya National Park is best known for 'The Gathering', when hundreds of wild elephants converge on the Minneriya reservoir during the dry season (typically August to October) — one of the great wildlife spectacles in Asia. Even outside peak season, resident herds, deer, water buffalo and abundant birdlife make for a rewarding jeep safari.",
+    images: [
+      { src: "/gallery/elephant-crossing-forest-track.jpg", alt: "Wild elephant crossing a forest track" },
+      { src: "/gallery/144-elephant-herd-river-bathing.jpg", alt: "Elephant herd bathing in the river at Minneriya" },
+      { src: "/gallery/men-bathing-elephants-river.jpg", alt: "Elephants bathing in the river near the park" },
+      { src: "/gallery/woman-photographing-wild-elephant-safari.jpg", alt: "Traveller photographing a wild elephant on safari" },
+      { src: "/gallery/079-family-elephant-under-tree.jpg", alt: "Family watching an elephant under a tree" },
+      { src: "/gallery/085-family-elephant-lakeside-tree.jpg", alt: "Elephant beside the lake at Minneriya National Park" },
+    ],
+    durationDays: 1,
+    durationLabel: "Half Day (approx. 3 - 4 hours)",
+    themes: ["wildlife"],
+    groupSize: "1 - 6 travellers",
+    difficulty: "easy",
+    fromPriceUsd: 75, // price: placeholder
+    itinerary: [
+      {
+        day: 1,
+        title: "Minneriya Jeep Safari",
+        description:
+          "Hotel pick-up (morning or afternoon safari available) and transfer to Minneriya National Park. Board a 4WD jeep for a 3 - 4 hour game drive around the Minneriya reservoir, home to large wild elephant herds, sambar deer, water buffalo and a wide variety of birdlife. Return transfer to your hotel after the safari.",
+      },
+    ],
+    included: [
+      "Hotel pick-up and drop-off",
+      "Safari jeep hire",
+      "Minneriya National Park entrance fees",
+      "Bottled water",
+    ],
+    excluded: ["Gratuities", "Lunch"],
+    priceTiers: [
+      { groupSize: "1 traveller", pricePerPersonUsd: 75 }, // price: placeholder
+      { groupSize: "2 travellers", pricePerPersonUsd: 60 }, // price: placeholder
+      { groupSize: "3 - 4 travellers", pricePerPersonUsd: 48 }, // price: placeholder
+      { groupSize: "5 - 6 travellers", pricePerPersonUsd: 40 }, // price: placeholder
+    ],
+    mapImage: img("lk-map-minneriya", "Map of the Minneriya National Park safari route"),
+    highlights: [
+      "\"The Gathering\" — one of Asia's largest wild elephant herds (Aug - Oct)",
+      "4WD jeep safari with an experienced tracker",
+      "Sambar deer, water buffalo and rich birdlife",
+      "Morning or afternoon safari available",
+    ],
+    featured: true,
+  },
+  {
+    slug: "sigiriya-dambulla-minneriya-safari-day-tour",
+    title: "Sigiriya, Dambulla & Minneriya Safari Day Tour",
+    summary:
+      "Climb Sigiriya, explore the Dambulla cave temple and finish with a Minneriya elephant safari — all in one private day.",
+    description:
+      "Sigiriya is a UNESCO-listed World Heritage Site and one of the best-preserved examples of ancient urban planning — hard to cover in a day without private transport. This private tour includes a personal vehicle and an English-speaking driver to share stories and history along the way, taking in the Sigiriya rock fortress, the Dambulla cave temple, and a Minneriya National Park safari in search of the largest known wild Asian elephant gathering in the world.",
+    images: [
+      { src: "/gallery/sigiriya-rock-sunset-viewpoint.jpg", alt: "Sigiriya rock fortress rising above the jungle at sunset" },
+      { src: "/gallery/037-man-sigiriya-rock-viewpoint.jpg", alt: "Traveller at the Sigiriya rock viewpoint" },
+      { src: "/gallery/080-group-sigiriya-rock-fortress-lawn.jpg", alt: "Group on the lawn at the base of Sigiriya rock fortress" },
+      { src: "/gallery/dambulla-cave-temple-golden-buddha.jpg", alt: "Golden Buddha statue at the Dambulla cave temple" },
+      { src: "/gallery/dambulla-cave-temple-seated-buddhas-row.jpg", alt: "Row of seated Buddha statues at Dambulla" },
+      { src: "/gallery/144-elephant-herd-river-bathing.jpg", alt: "Elephants gathering at the Minneriya reservoir" },
+      { src: "/gallery/woman-photographing-wild-elephant-safari.jpg", alt: "Traveller photographing a wild elephant on safari" },
+    ],
+    durationDays: 1,
+    durationLabel: "1 Day",
+    themes: ["culture", "wildlife"],
+    groupSize: "1 - 6 travellers",
+    difficulty: "moderate",
+    fromPriceUsd: 95, // price: placeholder
+    itinerary: [
+      {
+        day: 1,
+        title: "Sigiriya, Dambulla & Minneriya",
+        description:
+          "Hotel pick-up and transfer to Sigiriya, the nearly 200-metre ancient rock fortress in the Central Province (approx. 2 hours at the site). Continue to the Dambulla Cave Temple, the largest and best-preserved cave temple complex in Sri Lanka (approx. 1 hour). Finish with a Minneriya National Park safari, famed for hosting the largest known wild Asian elephant gathering in the world (approx. 2 hours), before the return transfer to your hotel.",
+      },
+    ],
+    included: [
+      "English-speaking driver",
+      "Hotel pick-up and drop-off",
+      "Transport by private vehicle",
+      "Bottled water",
+    ],
+    excluded: [
+      "Lunch, food and drinks",
+      "Safari jeep cost",
+      "Sigiriya Lion Rock entrance fee",
+      "Dambulla Cave Temple entrance fee",
+      "Minneriya National Park safari entrance fee",
+    ],
+    priceTiers: [
+      { groupSize: "1 traveller", pricePerPersonUsd: 95 }, // price: placeholder
+      { groupSize: "2 travellers", pricePerPersonUsd: 75 }, // price: placeholder
+      { groupSize: "3 - 4 travellers", pricePerPersonUsd: 60 }, // price: placeholder
+      { groupSize: "5 - 6 travellers", pricePerPersonUsd: 50 }, // price: placeholder
+    ],
+    mapImage: img("lk-map-sigiriya-dambulla-minneriya", "Map of the Sigiriya, Dambulla and Minneriya day tour route"),
+    highlights: [
+      "Climb the Sigiriya rock fortress",
+      "UNESCO-listed Dambulla cave temple",
+      "Minneriya safari — the world's largest wild elephant gathering",
+      "Private vehicle with an English-speaking driver",
+    ],
+    featured: false,
+    pickupLocations: ["Colombo", "Negombo", "Kandy"],
+    additionalInfo: [
+      "Confirmation will be received at the time of booking.",
+      "If your hotel isn't listed, send us your details and we'll confirm your pick-up.",
+      "Drop-off at your hotel or the airport.",
+      "Wheelchair not accessible.",
+      "Child rate applies only when sharing with 2 paying adults; children must be accompanied by an adult.",
+      "Dress code is formal for temple visits.",
+      "A current, valid passport is required on the day of travel.",
+      "This experience requires good weather. If it's cancelled due to poor weather, you'll be offered a different date or a full refund.",
+      "This experience requires a minimum number of travellers. If cancelled because the minimum isn't met, you'll be offered a different date/experience or a full refund.",
+      "This is a private tour/activity — only your group will participate.",
+    ],
+    cancellationPolicy:
+      "For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
   },
 ];
 

@@ -47,6 +47,11 @@ export interface Tour {
   mapImage?: TourImage;
   highlights: string[];
   featured?: boolean;
+  bestSeller?: boolean;
+  pickupLocations?: string[];
+  additionalInfo?: string[];
+  accessibility?: string[];
+  cancellationPolicy?: string;
 }
 
 export type ReviewSource = "tripadvisor" | "google" | "direct";

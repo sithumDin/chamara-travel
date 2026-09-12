@@ -3,6 +3,7 @@ import { Header } from "@/components/layout/Header";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { ToursExplorer } from "@/components/tours/ToursExplorer";
+import { TaxiTransfers } from "@/components/sections/TaxiTransfers";
 import { InquirySection } from "@/components/sections/InquirySection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -38,6 +39,7 @@ export default function ToursPage() {
             <ToursExplorer tours={tours} />
           </Container>
         </section>
+        <TaxiTransfers />
         <InquirySection />
       </main>
     </>

@@ -163,6 +163,51 @@ export default async function TourDetailPage({
                 </div>
               </Reveal>
 
+              {tour.pickupLocations && tour.pickupLocations.length > 0 ? (
+                <Reveal className="mt-12">
+                  <h2 className="text-2xl font-medium tracking-tight text-ink">Departure Details</h2>
+                  <p className="mt-3 text-sm text-muted">
+                    Traveller pickup is offered from the most centrally located hotels in:
+                  </p>
+                  <p className="mt-2 text-pretty text-sm text-ink-soft">
+                    {tour.pickupLocations.join(", ")}
+                  </p>
+                </Reveal>
+              ) : null}
+
+              {tour.additionalInfo && tour.additionalInfo.length > 0 ? (
+                <Reveal className="mt-12">
+                  <h2 className="text-2xl font-medium tracking-tight text-ink">Additional Information</h2>
+                  <ul className="mt-4 space-y-2.5">
+                    {tour.additionalInfo.map((item) => (
+                      <li key={item} className="text-sm text-ink-soft">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              ) : null}
+
+              {tour.accessibility && tour.accessibility.length > 0 ? (
+                <Reveal className="mt-12">
+                  <h2 className="text-2xl font-medium tracking-tight text-ink">Accessibility</h2>
+                  <ul className="mt-4 space-y-2.5">
+                    {tour.accessibility.map((item) => (
+                      <li key={item} className="text-sm text-ink-soft">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              ) : null}
+
+              {tour.cancellationPolicy ? (
+                <Reveal className="mt-12">
+                  <h2 className="text-2xl font-medium tracking-tight text-ink">Cancellation Policy</h2>
+                  <p className="mt-3 text-sm text-ink-soft">{tour.cancellationPolicy}</p>
+                </Reveal>
+              ) : null}
+
               {tour.mapImage ? (
                 <Reveal className="mt-12">
                   <h2 className="text-2xl font-medium tracking-tight text-ink">Route Map</h2>

@@ -12,11 +12,11 @@ export function Hero() {
         muted
         playsInline
         preload="auto"
-        poster="/gallery/nine-arches-bridge-ella.jpg"
-        aria-label="A blue train crossing a bridge through the forest, evoking the Nine Arches Bridge near Ella"
+        poster="/gallery/fishing-boats-beach-sunset.jpg"
+        aria-label="A traditional fishing boat on a Sri Lankan beach at sunset"
         className="absolute inset-0 size-full object-cover"
       >
-        <source src="/videos/hero-train-bridge.mp4" type="video/mp4" />
+        <source src="/videos/hero-sri-lanka-beach.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/65" />
       <div className="absolute inset-0 bg-black/35" />

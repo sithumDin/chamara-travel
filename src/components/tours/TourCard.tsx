@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Users, Gauge } from "lucide-react";
+import { Clock, Users, Gauge, Flame } from "lucide-react";
 import type { Tour } from "@/types";
 import { formatUsd } from "@/lib/utils";
 
@@ -28,6 +28,13 @@ export function TourCard({ tour, priority = false }: { tour: Tour; priority?: bo
           className="object-cover transition-all duration-500 ease-out group-hover:scale-105 group-hover:blur-md"
         />
         <div className="absolute inset-0 bg-black/55 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+        {tour.bestSeller ? (
+          <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-clay px-3 py-1.5 text-xs font-semibold text-white shadow-sm">
+            <Flame className="size-3.5" aria-hidden="true" />
+            Best Seller
+          </span>
+        ) : null}
 
         {relatedPhotos.length > 0 ? (
           <div className="absolute inset-0 flex translate-y-2 flex-col justify-end p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">

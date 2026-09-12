@@ -124,6 +124,7 @@ export const galleryImages: GalleryImage[] = [
   { id: "g-152-empty-golden-sand-beach-waves", category: "beaches", alt: "Empty golden sand beach with rolling waves", width: 1200, height: 1600, src: "/gallery/152-empty-golden-sand-beach-waves.jpg" },
   { id: "g-153-women-waving-safari-jeep-roof", category: "guests", alt: "Women waving from the roof of a safari jeep", width: 3024, height: 4032, src: "/gallery/153-women-waving-safari-jeep-roof.jpg" },
   { id: "g-154-family-welcome-sri-lanka-airport-sign", category: "guests", alt: "Family at the welcome to Sri Lanka airport sign", width: 719, height: 899, src: "/gallery/154-family-welcome-sri-lanka-airport-sign.jpg" },
+  { id: "g-guide-welcome-sign-airport-arrival", category: "guests", alt: "Guide holding a welcome sign for arriving guests at the airport", width: 900, height: 1600, src: "/gallery/guide-welcome-sign-airport-arrival.jpg" },
   { id: "g-155-guide-couple-golden-hour-ridge-selfie", category: "guests", alt: "Guide and couple taking a golden hour selfie on the ridge", width: 4032, height: 3024, src: "/gallery/155-guide-couple-golden-hour-ridge-selfie.jpg" },
   { id: "g-156-guide-guest-selfie-coastal-bluff", category: "guests", alt: "Guide and guest selfie on a coastal bluff", width: 1024, height: 768, src: "/gallery/156-guide-guest-selfie-coastal-bluff.jpg" },
   { id: "g-157-guide-guest-mountain-viewpoint", category: "guests", alt: "Guide and guest at a mountain viewpoint", width: 3024, height: 4032, src: "/gallery/157-guide-guest-mountain-viewpoint.jpg" },
