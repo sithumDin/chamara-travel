@@ -1,15 +1,20 @@
-import { Resend } from "resend";
 import { siteConfig } from "@/data/site-config";
 import type { InquiryFormValues, ReviewFormValues } from "./validation";
 
-function getResendClient() {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
+async function getGmailTransporter() {
+  const user = process.env.GMAIL_USER;
+  const pass = process.env.GMAIL_PASS;
+  if (!user || !pass) {
     throw new Error(
-      "RESEND_API_KEY is not set. Add it to .env.local (see .env.example) to enable inquiry emails."
+      "GMAIL_USER / GMAIL_PASS are not set. Add them to .env.local (see .env.example) to enable inquiry emails."
     );
   }
-  return new Resend(apiKey);
+  const nodemailerSpecifier = "nodemailer";
+  const { default: nodemailer } = await import(/* webpackIgnore: true */ nodemailerSpecifier);
+  return nodemailer.createTransport({
+    service: "gmail",
+    auth: { user, pass },
+  });
 }
 
 function escapeHtml(value: string) {
@@ -61,6 +66,10 @@ function businessNotificationHtml(data: InquiryFormValues) {
 }
 
 function guestThankYouHtml(data: InquiryFormValues) {
+  const travellers = `${data.adults} adult${data.adults === 1 ? "" : "s"}${
+    data.children ? `, ${data.children} child${data.children === 1 ? "" : "ren"}` : ""
+  }`;
+
   return `
   <div style="font-family:Arial,Helvetica,sans-serif;background:#f7f7f4;padding:32px;">
     <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #ececE6;">
@@ -75,29 +84,43 @@ function guestThankYouHtml(data: InquiryFormValues) {
             data.interestedTour
           )}</strong> and will get back to you within 24 hours with a tailored plan.
         </p>
-        <p style="margin:0 0 16px;color:#171712;font-size:15px;line-height:1.7;">
+        <p style="margin:0 0 20px;color:#171712;font-size:15px;line-height:1.7;">
           In the meantime, feel free to reach out directly on WhatsApp at
           <strong>${escapeHtml(siteConfig.phone)}</strong> if you have any urgent questions.
         </p>
-        <p style="margin:0;color:#6b6b64;font-size:14px;">— ${escapeHtml(siteConfig.businessName)}</p>
+        <p style="margin:0 0 6px;color:#6b6b64;font-size:13px;">Here's a summary of what you sent us</p>
+        <table style="width:100%;border-collapse:collapse;background:#f7f7f4;border-radius:12px;overflow:hidden;">
+          ${row("Tour", escapeHtml(data.interestedTour))}
+          ${row("Arrival Date", escapeHtml(data.arrivalDate || "Not specified"))}
+          ${row("Trip Length", data.numberOfDays ? `${data.numberOfDays} days` : "Not specified")}
+          ${row("Travellers", travellers)}
+          ${row("Phone / WhatsApp", escapeHtml(data.phone || "—"))}
+        </table>
+        <div style="padding:16px 0 0;">
+          <p style="margin:0 0 6px;color:#6b6b64;font-size:13px;">Your message</p>
+          <p style="margin:0;padding:12px;background:#f7f7f4;border-radius:12px;color:#171712;font-size:14px;line-height:1.6;white-space:pre-wrap;">${escapeHtml(
+            data.message
+          )}</p>
+        </div>
+        <p style="margin:20px 0 0;color:#6b6b64;font-size:14px;">— ${escapeHtml(siteConfig.businessName)}</p>
       </div>
     </div>
   </div>`;
 }
 
 export async function sendInquiryEmails(data: InquiryFormValues) {
-  const resend = getResendClient();
-  const fromAddress = process.env.RESEND_FROM_EMAIL || `Chamara Tours <onboarding@resend.dev>`;
+  const transporter = await getGmailTransporter();
+  const fromAddress = `${siteConfig.businessName} <${process.env.GMAIL_USER}>`;
 
   await Promise.all([
-    resend.emails.send({
+    transporter.sendMail({
       from: fromAddress,
       to: siteConfig.email,
       replyTo: data.email,
       subject: `New Inquiry: ${data.interestedTour} — ${data.fullName}`,
       html: businessNotificationHtml(data),
     }),
-    resend.emails.send({
+    transporter.sendMail({
       from: fromAddress,
       to: data.email,
       subject: `We've received your inquiry — ${siteConfig.businessName}`,
@@ -154,18 +177,18 @@ function reviewThankYouHtml(data: ReviewFormValues) {
 }
 
 export async function sendReviewEmails(data: ReviewFormValues) {
-  const resend = getResendClient();
-  const fromAddress = process.env.RESEND_FROM_EMAIL || `Chamara Tours <onboarding@resend.dev>`;
+  const transporter = await getGmailTransporter();
+  const fromAddress = `${siteConfig.businessName} <${process.env.GMAIL_USER}>`;
 
   await Promise.all([
-    resend.emails.send({
+    transporter.sendMail({
       from: fromAddress,
       to: siteConfig.email,
       replyTo: data.email,
       subject: `New Review Submitted — ${data.guestName} (${data.rating}/5)`,
       html: reviewNotificationHtml(data),
     }),
-    resend.emails.send({
+    transporter.sendMail({
       from: fromAddress,
       to: data.email,
       subject: `Thanks for your review — ${siteConfig.businessName}`,
