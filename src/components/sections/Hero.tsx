@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/site-config";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden">
+    <section className="relative flex h-[100svh] items-center overflow-hidden sm:h-auto sm:min-h-[100svh]">
       <video
         autoPlay
         loop
