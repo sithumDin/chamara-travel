@@ -14,6 +14,9 @@ async function getGmailTransporter() {
   return nodemailer.createTransport({
     service: "gmail",
     auth: { user, pass },
+    // Force IPv4 — avoids slow/failed connections on networks where IPv6
+    // is advertised but not actually routable to smtp.gmail.com.
+    family: 4,
   });
 }
 

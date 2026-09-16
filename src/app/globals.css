@@ -22,9 +22,6 @@
 :root {
   --background: var(--color-paper);
   --foreground: var(--color-ink);
-  /* Themed page frame — shows as side bands beside the content on wide screens */
-  --frame: var(--color-ink);
-  --frame-max: 100rem;
   color-scheme: light;
 }
 
@@ -34,20 +31,18 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--frame);
+  background: var(--background);
 }
 
 body {
-  background: var(--frame);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Centered white frame that holds the whole site on a themed background */
+/* Full-width page wrapper — fills the screen on every viewport size */
 .page-frame {
-  margin-inline: auto;
   width: 100%;
-  max-width: var(--frame-max);
   min-height: 100dvh;
   background: var(--color-paper);
 }

@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Script>
         ) : null}
       </head>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         {gtmId ? (
           <noscript>
             <iframe
