@@ -12,8 +12,8 @@ export function Hero() {
         muted
         playsInline
         preload="auto"
-        poster="/gallery/fishing-boats-beach-sunset.jpg"
-        aria-label="A traditional fishing boat on a Sri Lankan beach at sunset"
+        poster="/gallery/tall-cascading-waterfall-cliff.jpg"
+        aria-label="A cascading waterfall in Sri Lanka's hill country"
         className="absolute inset-0 size-full object-cover"
       >
         <source src="/videos/hero-sri-lanka-beach.mp4" type="video/mp4" />
