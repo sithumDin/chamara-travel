@@ -9,6 +9,7 @@ import { navLinks } from "@/data/site-config";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { MobileNav } from "@/components/layout/MobileNav";
+import { Logo } from "@/components/layout/Logo";
 import { cn } from "@/lib/utils";
 
 // `transparent` renders the header over a dark hero image on first paint
@@ -49,8 +50,8 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
         className={cn(
           "fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-[105rem] transition-colors duration-300",
           isSolid
-            ? "border-b border-border bg-paper/95 sm:backdrop-blur"
-            : "bg-white/10 sm:backdrop-blur-sm"
+            ? "border-b border-border bg-paper/95 lg:backdrop-blur"
+            : "bg-white/10 lg:backdrop-blur-sm"
         )}
       >
         <Container className="flex h-20 items-center justify-between">
@@ -68,15 +69,7 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
                 <ArrowLeft className="size-5" aria-hidden="true" />
               </button>
             ) : null}
-            <Link
-              href="/"
-              className={cn(
-                "text-xl font-semibold tracking-tight transition-colors",
-                isSolid ? "text-ink" : "text-white"
-              )}
-            >
-              chamara<span className={isSolid ? "text-muted" : "text-white/60"}>.</span>
-            </Link>
+            <Logo dark={isSolid} />
           </div>
 
           <nav

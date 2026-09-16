@@ -1,17 +1,29 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export function Logo({ className, dark }: { className?: string; dark?: boolean }) {
+// The source artwork is navy-on-transparent. `dark` means "rendered over a
+// light background, keep the navy" — omit it (or pass false) on any dark
+// surface (footer, mobile nav, transparent header over the hero) and the
+// logo is inverted to white via filter, since we only have one PNG.
+export function Logo({
+  className,
+  dark,
+  onClick,
+}: {
+  className?: string;
+  dark?: boolean;
+  onClick?: () => void;
+}) {
   return (
-    <Link
-      href="/"
-      className={cn(
-        "text-xl font-semibold tracking-tight",
-        dark ? "text-ink" : "text-white",
-        className
-      )}
-    >
-      chamara<span className={dark ? "text-muted" : "text-white/60"}>.</span>
+    <Link href="/" onClick={onClick} className={cn("block shrink-0", className)}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/brand/logo.png"
+        alt="Sri Lanka Tours with Chamara"
+        width={2172}
+        height={724}
+        className={cn("h-12 w-auto sm:h-14", !dark && "brightness-0 invert")}
+      />
     </Link>
   );
 }

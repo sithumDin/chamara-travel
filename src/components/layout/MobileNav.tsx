@@ -6,6 +6,7 @@ import { X, Compass } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks, siteConfig } from "@/data/site-config";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/layout/Logo";
 
 export function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
   useEffect(() => {
@@ -29,9 +30,7 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
           aria-label="Site menu"
         >
           <div className="flex items-center justify-between px-5 py-5 sm:px-8">
-            <Link href="/" className="text-xl font-semibold tracking-tight text-white" onClick={onClose}>
-              chamara<span className="text-white/60">.</span>
-            </Link>
+            <Logo onClick={onClose} />
             <button
               type="button"
               onClick={onClose}

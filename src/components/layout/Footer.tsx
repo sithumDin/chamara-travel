@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { siteConfig, navLinks, whatsappLink } from "@/data/site-config";
 import { Container } from "@/components/ui/Container";
 import { FacebookIcon, InstagramIcon, YoutubeIcon } from "@/components/layout/SocialIcons";
+import { Logo } from "@/components/layout/Logo";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -11,9 +12,7 @@ export function Footer() {
     <footer className="bg-ink text-white">
       <Container className="grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         <div className="lg:col-span-1">
-          <Link href="/" className="text-xl font-semibold tracking-tight text-white">
-            chamara<span className="text-white/50">.</span>
-          </Link>
+          <Logo />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">{siteConfig.tagline}</p>
           <div className="mt-6 flex items-center gap-3">
             <a

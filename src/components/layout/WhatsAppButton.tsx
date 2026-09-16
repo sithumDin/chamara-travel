@@ -56,7 +56,7 @@ export function WhatsAppButton() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
-            className="fixed bottom-24 right-5 z-40 flex w-[min(19rem,calc(100vw-2.5rem))] max-h-[min(26rem,calc(100vh-7rem))] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-2xl shadow-black/20 sm:bottom-28 sm:right-7"
+            className="fixed bottom-[calc(6rem+var(--cookie-banner-h,0px))] right-5 z-40 flex w-[min(19rem,calc(100vw-2.5rem))] max-h-[min(26rem,calc(100vh-7rem))] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-2xl shadow-black/20 sm:bottom-[calc(7rem+var(--cookie-banner-h,0px))] sm:right-7"
           >
             <div className="flex shrink-0 items-start justify-between gap-3 bg-[#25D366] px-4 py-3 text-white">
               <div>
@@ -131,7 +131,7 @@ export function WhatsAppButton() {
         onClick={() => setOpen((value) => !value)}
         aria-label={open ? "Close WhatsApp chat" : "Chat with us on WhatsApp"}
         aria-expanded={open}
-        className="fixed bottom-5 right-5 z-40 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-105 sm:bottom-7 sm:right-7"
+        className="fixed bottom-[calc(1.25rem+var(--cookie-banner-h,0px))] right-5 z-40 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-105 sm:bottom-[calc(1.75rem+var(--cookie-banner-h,0px))] sm:right-7"
       >
         {open ? (
           <X className="size-6" aria-hidden="true" />
