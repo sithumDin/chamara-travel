@@ -48,10 +48,11 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-[105rem] transition-colors duration-300",
-          isSolid
-            ? "border-b border-border bg-paper/95 lg:backdrop-blur"
-            : "bg-white/10 lg:backdrop-blur-sm"
+          // Below `sm` the header is always solid (phones never get the
+          // transparent-over-hero treatment) — the `!isSolid` branch only
+          // adds the transparent look back in at `sm` and up.
+          "fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-[105rem] border-b border-border bg-paper/95 transition-colors duration-300",
+          isSolid ? "lg:backdrop-blur" : "sm:border-0 sm:bg-white/10 lg:backdrop-blur-sm"
         )}
       >
         <Container className="flex h-20 items-center justify-between">
@@ -62,14 +63,14 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
                 onClick={handleBack}
                 aria-label="Go to home page"
                 className={cn(
-                  "-ml-2 flex size-9 items-center justify-center rounded-full transition-colors",
-                  isSolid ? "text-ink hover:bg-ink/5" : "text-white hover:bg-white/10"
+                  "-ml-2 flex size-9 items-center justify-center rounded-full text-ink transition-colors hover:bg-ink/5",
+                  !isSolid && "sm:text-white sm:hover:bg-white/10"
                 )}
               >
                 <ArrowLeft className="size-5" aria-hidden="true" />
               </button>
             ) : null}
-            <Logo dark={isSolid} />
+            <Logo dark={isSolid} invertFromSm={!isSolid} />
           </div>
 
           <nav
@@ -125,8 +126,8 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
             className={cn(
-              "rounded-full p-2.5 transition-colors lg:hidden",
-              isSolid ? "text-ink hover:bg-ink/5" : "text-white hover:bg-white/10"
+              "rounded-full p-2.5 text-ink transition-colors hover:bg-ink/5 lg:hidden",
+              !isSolid && "sm:text-white sm:hover:bg-white/10"
             )}
           >
             <Menu className="size-6" aria-hidden="true" />
