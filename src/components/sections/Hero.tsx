@@ -1,11 +1,11 @@
-import { Compass, Star, ChevronDown } from "lucide-react";
+import { Compass, Star } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
 
 export function Hero() {
   return (
-    <section className="relative flex h-[100svh] items-center overflow-hidden sm:h-auto sm:min-h-[100svh]">
+    <section className="relative flex h-[100dvh] items-center overflow-hidden sm:h-auto sm:min-h-[100dvh]">
       <video
         autoPlay
         loop
@@ -62,7 +62,7 @@ export function Hero() {
         className="absolute inset-x-0 bottom-8 z-10 mx-auto flex w-fit flex-col items-center gap-2 text-white/85 transition-colors hover:text-white"
       >
         <span className="flex size-11 items-center justify-center rounded-full border border-white/50 motion-safe:animate-bounce">
-          <ChevronDown className="size-5" aria-hidden="true" />
+          <Compass className="size-5" aria-hidden="true" />
         </span>
         <span className="text-xs font-semibold tracking-[0.22em]">SCROLL</span>
       </a>
