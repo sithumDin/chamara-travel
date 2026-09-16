@@ -1,7 +1,8 @@
+import nodemailer from "nodemailer";
 import { siteConfig } from "@/data/site-config";
 import type { InquiryFormValues, ReviewFormValues } from "./validation";
 
-async function getGmailTransporter() {
+function getGmailTransporter() {
   const user = process.env.GMAIL_USER;
   const pass = process.env.GMAIL_PASS;
   if (!user || !pass) {
@@ -9,14 +10,11 @@ async function getGmailTransporter() {
       "GMAIL_USER / GMAIL_PASS are not set. Add them to .env.local (see .env.example) to enable inquiry emails."
     );
   }
-  const nodemailerSpecifier = "nodemailer";
-  const { default: nodemailer } = await import(/* webpackIgnore: true */ nodemailerSpecifier);
   return nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: { user, pass },
-    // Force IPv4 — avoids slow/failed connections on networks where IPv6
-    // is advertised but not actually routable to smtp.gmail.com.
-    family: 4,
   });
 }
 
@@ -112,7 +110,7 @@ function guestThankYouHtml(data: InquiryFormValues) {
 }
 
 export async function sendInquiryEmails(data: InquiryFormValues) {
-  const transporter = await getGmailTransporter();
+  const transporter = getGmailTransporter();
   const fromAddress = `${siteConfig.businessName} <${process.env.GMAIL_USER}>`;
 
   await Promise.all([
@@ -180,7 +178,7 @@ function reviewThankYouHtml(data: ReviewFormValues) {
 }
 
 export async function sendReviewEmails(data: ReviewFormValues) {
-  const transporter = await getGmailTransporter();
+  const transporter = getGmailTransporter();
   const fromAddress = `${siteConfig.businessName} <${process.env.GMAIL_USER}>`;
 
   await Promise.all([
