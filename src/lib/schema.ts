@@ -18,6 +18,9 @@ export function travelAgencySchema() {
     telephone: siteConfig.phone,
     email: siteConfig.email,
     image: `${siteConfig.url}/opengraph-image`,
+    // Square brand mark used by Google for the search result / knowledge
+    // panel logo — min 112x112px per Google's logo guidelines.
+    logo: `${siteConfig.url}/brand/logo-mark.png`,
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",
