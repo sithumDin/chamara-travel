@@ -48,7 +48,7 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-[105rem] transition-colors duration-300",
+          "fixed inset-x-0 top-0 z-50 w-full transition-colors duration-300",
           isSolid
             ? "border-b border-border bg-paper/95 lg:backdrop-blur"
             : // No background/border at all on phones — the logo and menu
@@ -77,7 +77,7 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
 
           <nav
             aria-label="Primary"
-            className="hidden items-center gap-8 lg:flex"
+            className="hidden items-center gap-8 xl:flex"
             onMouseLeave={() => setHovered(null)}
           >
             {navLinks.slice(1).map((link) => {
@@ -116,7 +116,7 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
             })}
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-3 xl:flex">
             <Button href="/contact" variant="accent" size="md">
               <Compass className="size-4" aria-hidden="true" />
               Plan My Trip
@@ -128,7 +128,7 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
             className={cn(
-              "rounded-full p-2.5 transition-colors lg:hidden",
+              "rounded-full p-2.5 transition-colors xl:hidden",
               isSolid ? "text-ink hover:bg-ink/5" : "text-white hover:bg-white/10"
             )}
           >

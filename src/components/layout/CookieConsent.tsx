@@ -53,7 +53,7 @@ export function CookieConsent() {
       ref={bannerRef}
       role="dialog"
       aria-label="Cookie consent"
-      className="fixed inset-x-0 bottom-0 z-[80] mx-auto max-w-[105rem] border-t border-border bg-paper/98 px-5 py-5 backdrop-blur sm:px-8"
+      className="fixed inset-x-0 bottom-0 z-[80] border-t border-border bg-paper/98 px-5 py-5 backdrop-blur sm:px-8"
     >
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm leading-relaxed text-ink-soft">
