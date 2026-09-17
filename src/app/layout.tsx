@@ -24,12 +24,18 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.businessName}`,
   },
   description:
-    "Private driver-guided Sri Lanka tour packages with a licensed local guide. Custom itineraries, safe vehicles, fair pricing and 24/7 support — plan your Sri Lanka round trip today.",
+    "Private driver-guide tours across Sri Lanka, based in Unawatuna on the south coast. Airport transfers, Yala and Minneriya safaris, custom multi-day itineraries and day trips — 5.0 rated on TripAdvisor.",
   keywords: [
     "Sri Lanka tour packages",
-    "private driver guide Sri Lanka",
-    "Sri Lanka round trip",
+    "private driver Sri Lanka",
+    "Sri Lanka driver guide",
+    "Sri Lanka private tour",
+    "hire driver in Sri Lanka",
+    "Sri Lanka round tour",
     "custom Sri Lanka itinerary",
+    "Unawatuna tour guide",
+    "Sri Lanka airport transfer",
+    "Yala safari tour",
     "Sri Lanka safari tour",
   ],
   authors: [{ name: siteConfig.businessName }],
@@ -40,13 +46,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.businessName,
     title: `${siteConfig.businessName} | Private Sri Lanka Tour Packages`,
     description:
-      "Private driver-guided Sri Lanka tour packages with a licensed local guide. Custom itineraries, safe vehicles, fair pricing and 24/7 support.",
+      "Private driver-guide tours across Sri Lanka, based in Unawatuna. Airport transfers, safaris, custom itineraries and day trips — 5.0 rated on TripAdvisor.",
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.businessName} | Private Sri Lanka Tour Packages`,
     description:
-      "Private driver-guided Sri Lanka tour packages with a licensed local guide. Custom itineraries, safe vehicles, fair pricing and 24/7 support.",
+      "Private driver-guide tours across Sri Lanka, based in Unawatuna. Airport transfers, safaris, custom itineraries and day trips — 5.0 rated on TripAdvisor.",
   },
   robots: {
     index: true,

@@ -11,8 +11,12 @@ export const siteConfig = {
   businessName: "Sri Lanka Tours with Chamara",
   shortName: "Chamara Tours",
   tagline: "Your private driver-guide across Sri Lanka",
-  domain: "srilankatourswithchamara.com",
-  url: "https://srilankatourswithchamara.com",
+  // Vercel redirects the apex domain to www — this must match the domain
+  // that actually serves the site (200, no redirect), otherwise canonical
+  // tags/sitemap/JSON-LD point Google at a URL that immediately redirects
+  // elsewhere, which confuses and delays indexing.
+  domain: "www.srilankatourswithchamara.com",
+  url: "https://www.srilankatourswithchamara.com",
 
   phone: "+94 76 629 1918",
   phoneHref: "tel:+94766291918",
