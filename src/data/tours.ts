@@ -608,10 +608,10 @@ export const tours: Tour[] = [
     description:
       "Minneriya National Park is best known for 'The Gathering', when hundreds of wild elephants converge on the Minneriya reservoir during the dry season (typically August to October) — one of the great wildlife spectacles in Asia. Even outside peak season, resident herds, deer, water buffalo and abundant birdlife make for a rewarding jeep safari.",
     images: [
+      { src: "/gallery/woman-photographing-wild-elephant-safari.jpg", alt: "Traveller photographing a wild elephant on safari" },
       { src: "/gallery/elephant-crossing-forest-track.jpg", alt: "Wild elephant crossing a forest track" },
       { src: "/gallery/144-elephant-herd-river-bathing.jpg", alt: "Elephant herd bathing in the river at Minneriya" },
       { src: "/gallery/men-bathing-elephants-river.jpg", alt: "Elephants bathing in the river near the park" },
-      { src: "/gallery/woman-photographing-wild-elephant-safari.jpg", alt: "Traveller photographing a wild elephant on safari" },
       { src: "/gallery/079-family-elephant-under-tree.jpg", alt: "Family watching an elephant under a tree" },
       { src: "/gallery/085-family-elephant-lakeside-tree.jpg", alt: "Elephant beside the lake at Minneriya National Park" },
     ],

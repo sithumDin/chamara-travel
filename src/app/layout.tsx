@@ -52,6 +52,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: siteConfig.tracking.googleSiteVerification
+    ? { google: siteConfig.tracking.googleSiteVerification }
+    : undefined,
 };
 
 // Ties browser chrome (Arc space color, mobile Safari/Chrome UI) to the

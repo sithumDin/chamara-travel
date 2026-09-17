@@ -74,6 +74,9 @@ export const siteConfig = {
     googleAdsId: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "",
     googleAdsConversionLabelInquiry: process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL_INQUIRY ?? "",
     googleAdsConversionLabelWhatsapp: process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL_WHATSAPP ?? "",
+    // Google Search Console "HTML tag" verification method — the content
+    // value of <meta name="google-site-verification" content="...">.
+    googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "",
   },
 } as const;
 

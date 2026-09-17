@@ -11,6 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/gallery`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${siteConfig.url}/reviews`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${siteConfig.url}/contact`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteConfig.url}/privacy-policy`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${siteConfig.url}/terms`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${siteConfig.url}/refund-policy`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const tourPages: MetadataRoute.Sitemap = tours.map((tour) => ({
