@@ -7,6 +7,9 @@ import { siteConfig } from "@/data/site-config";
 export function Hero() {
   return (
     <section className="relative flex h-[100dvh] items-end overflow-hidden sm:h-auto sm:min-h-[100dvh] sm:items-center">
+      {/* Two separate <video> elements swapped via CSS instead of a single
+          <video> with media-queried <source>s — iOS Safari doesn't reliably
+          honor the `media` attribute on <source> inside <video>. */}
       <video
         autoPlay
         loop
@@ -15,9 +18,20 @@ export function Hero() {
         preload="auto"
         poster="/gallery/tall-cascading-waterfall-cliff.jpg"
         aria-label="A cascading waterfall in Sri Lanka's hill country"
-        className="absolute inset-0 size-full object-cover"
+        className="absolute inset-0 size-full object-cover sm:hidden"
       >
-        <source src="/videos/hero-sri-lanka-mobile.mp4" type="video/mp4" media="(max-width: 639px)" />
+        <source src="/videos/hero-sri-lanka-mobile.mp4" type="video/mp4" />
+      </video>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster="/gallery/tall-cascading-waterfall-cliff.jpg"
+        aria-label="A cascading waterfall in Sri Lanka's hill country"
+        className="absolute inset-0 hidden size-full object-cover sm:block"
+      >
         <source src="/videos/hero-sri-lanka-beach.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/65" />
