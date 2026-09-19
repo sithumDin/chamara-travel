@@ -211,12 +211,12 @@ export default async function TourDetailPage({
               {tour.mapImage ? (
                 <Reveal className="mt-12">
                   <h2 className="text-2xl font-medium tracking-tight text-ink">Route Map</h2>
-                  <div className="relative mt-4 aspect-[16/9] w-full overflow-hidden rounded-2xl">
+                  <div className="relative mt-4 aspect-[4/5] w-full max-w-xl overflow-hidden rounded-2xl">
                     <Image
                       src={tour.mapImage.src}
                       alt={tour.mapImage.alt}
                       fill
-                      sizes="(max-width: 1024px) 100vw, 700px"
+                      sizes="(max-width: 1024px) 100vw, 576px"
                       className="object-cover"
                     />
                   </div>

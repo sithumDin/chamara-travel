@@ -1,22 +1,49 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Review } from "@/types";
-import { getTourBySlug } from "@/data/tours";
 import { Reveal } from "@/components/ui/Reveal";
-import { cn } from "@/lib/utils";
+import { siteConfig } from "@/data/site-config";
 
-const sourceLabel: Record<Review["source"], string> = {
-  tripadvisor: "TripAdvisor",
-  google: "Google",
-  direct: "Direct Guest",
-};
+const TRIPADVISOR_GREEN = "#34e0a1";
 
-function reviewImage(review: Review) {
-  const tour = review.tourSlug ? getTourBySlug(review.tourSlug) : undefined;
-  return tour?.images[0] ?? { src: "/gallery/155-guide-couple-golden-hour-ridge-selfie.jpg", alt: "Guide and guests on tour in Sri Lanka" };
+function initials(name: string) {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase())
+    .join("");
+}
+
+function CircleRating({ rating }: { rating: number }) {
+  return (
+    <div className="flex items-center gap-1" aria-label={`${rating} out of 5`}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span
+          key={i}
+          className="size-3.5 rounded-full border"
+          style={
+            i < rating
+              ? { backgroundColor: TRIPADVISOR_GREEN, borderColor: TRIPADVISOR_GREEN }
+              : { borderColor: "var(--color-border, #d9d9d9)", backgroundColor: "transparent" }
+          }
+        />
+      ))}
+    </div>
+  );
+}
+
+function TripAdvisorBadge() {
+  return (
+    <span className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: TRIPADVISOR_GREEN }}>
+      <span className="flex size-4 items-center justify-center rounded-full" style={{ backgroundColor: TRIPADVISOR_GREEN }}>
+        <span className="size-1.5 rounded-full bg-white" />
+      </span>
+      Tripadvisor
+    </span>
+  );
 }
 
 export function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
@@ -37,43 +64,39 @@ export function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
         className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
         {reviews.map((review) => {
-          const image = reviewImage(review);
+          const href = review.source === "tripadvisor" ? review.link ?? siteConfig.tripAdvisor.url : review.link;
+          const Card = href ? "a" : "div";
           return (
-            <article
+            <Card
               key={review.id}
               data-review-card
-              className="relative aspect-[4/5] w-[85%] shrink-0 snap-center overflow-hidden rounded-3xl sm:w-[60%] lg:w-[42%]"
+              {...(href ? { href, target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="group flex w-[85%] shrink-0 snap-center flex-col rounded-2xl border border-border bg-paper p-6 shadow-sm transition hover:shadow-md sm:w-[60%] sm:p-7 lg:w-[32%]"
             >
-              <Image
-                src={image.src}
-                alt=""
-                fill
-                sizes="(max-width: 640px) 85vw, (max-width: 1024px) 60vw, 42vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20" />
-
-              <span className="eyebrow absolute right-5 top-5 rounded-full bg-white/15 px-3 py-1.5 text-white backdrop-blur">
-                {sourceLabel[review.source]}
-              </span>
-
-              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
-                <div className="mb-3 flex items-center gap-0.5" aria-hidden="true">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className={cn("size-4", i < review.rating ? "fill-white text-white" : "text-white/30")}
-                    />
-                  ))}
-                </div>
-                <p className="text-pretty text-lg font-medium leading-snug text-white sm:text-xl">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <p className="mt-4 text-sm text-white/70">
-                  {review.guestName} · {review.country}
-                </p>
+              <div className="flex items-center justify-between gap-3">
+                <CircleRating rating={review.rating} />
+                {review.source === "tripadvisor" ? <TripAdvisorBadge /> : null}
               </div>
-            </article>
+
+              {review.title ? (
+                <h3 className="mt-3 text-base font-semibold leading-snug text-ink">{review.title}</h3>
+              ) : null}
+
+              <p className="mt-2 line-clamp-6 text-pretty text-sm leading-relaxed text-muted">{review.text}</p>
+
+              <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-ink text-xs font-semibold text-white">
+                  {initials(review.guestName)}
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-medium text-ink">{review.guestName}</p>
+                  <p className="truncate text-xs text-muted">
+                    {review.contributions ? `${review.contributions} contribution${review.contributions === 1 ? "" : "s"}` : review.country}
+                    {review.tripType ? ` · ${review.tripType}` : ""}
+                  </p>
+                </div>
+              </div>
+            </Card>
           );
         })}
       </div>

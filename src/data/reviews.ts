@@ -1,79 +1,143 @@
 // ---------------------------------------------------------------------------
-// GUEST REVIEWS — clearly-labelled PLACEHOLDER content.
+// GUEST REVIEWS — manually curated real guest feedback.
 //
-// TripAdvisor does not offer a free public API, so real reviews cannot be
-// pulled in automatically. Two options, and they can run side by side:
+// TripAdvisor does not offer a free public API, so reviews are copied in
+// manually as they're collected. Copy guest text verbatim (trimmed to an
+// excerpt where the original is long), never paraphrase or invent.
 //
-//   1. Manually add real reviews here as you collect them (copy guest
-//      permission text verbatim, do not paraphrase).
-//   2. Paste the official TripAdvisor Widget Center embed script into
-//      /src/components/sections/TripAdvisorWidgetSlot.tsx and flip
-//      `features.showTripAdvisorWidget` to true in site-config.ts.
-//
-// DO NOT invent or leave fake-sounding reviews live on the real site —
-// replace every entry below with genuine guest feedback before launch.
+// Source page for all "tripadvisor" entries below:
+// https://www.tripadvisor.co.uk/Attraction_Review-g644047-d12338515-Reviews-Sri_Lanka_Tours_With_Chamara-Unawatuna_Galle_District_Southern_Province.html
 // ---------------------------------------------------------------------------
 
 import type { Review } from "@/types";
 
+const TRIPADVISOR_URL =
+  "https://www.tripadvisor.co.uk/Attraction_Review-g644047-d12338515-Reviews-Sri_Lanka_Tours_With_Chamara-Unawatuna_Galle_District_Southern_Province.html";
+
 export const reviews: Review[] = [
   {
-    id: "placeholder-1",
-    guestName: "PLACEHOLDER — Guest Name",
-    country: "United Kingdom",
+    id: "farwaz-h",
+    guestName: "Farwaz H",
+    country: "TripAdvisor Reviewer",
     rating: 5,
-    date: "2025-11-02",
-    text: "PLACEHOLDER REVIEW TEXT. Replace with a real guest review — e.g. 'Chamara was an incredible guide, flexible with our plans and full of local knowledge. The vehicle was spotless and always on time.'",
+    date: "2026-01-19",
+    title: "Recommend",
+    contributions: 3,
+    text: "This comes with a straight, wholehearted recommendation. From the moment the Sri Lanka tour began, everything felt well thought out and completely taken care of, leaving no room for worry.",
     source: "tripadvisor",
-    tourSlug: "ultimate-sri-lanka-round-trip",
+    link: TRIPADVISOR_URL,
   },
   {
-    id: "placeholder-2",
-    guestName: "PLACEHOLDER — Guest Name",
-    country: "Australia",
+    id: "ute-s",
+    guestName: "Ute S",
+    country: "TripAdvisor Reviewer",
     rating: 5,
-    date: "2025-10-18",
-    text: "PLACEHOLDER REVIEW TEXT. Replace with a real guest review — e.g. 'Best decision we made for our honeymoon. Everything was arranged perfectly and Chamara felt like a friend by the end of the trip.'",
-    source: "google",
-    tourSlug: "romantic-honeymoon-escape",
-  },
-  {
-    id: "placeholder-3",
-    guestName: "PLACEHOLDER — Guest Name",
-    country: "Germany",
-    rating: 5,
-    date: "2025-09-27",
-    text: "PLACEHOLDER REVIEW TEXT. Replace with a real guest review — e.g. 'We saw three leopards on our Yala safari! Chamara knew exactly where to look and the whole trip was seamless.'",
+    date: "2026-01-03",
+    title: "Travelling with Chamara was a pleasure",
+    contributions: 1,
+    text: "Travelling with Chamara was a pleasure! to travel in the airconditioned van was very comfortable. The driver handled the challenging drive to Kumbuk River Resort through Yala National Park exceptionally well! We felt very secure. Highly recommended!",
     source: "tripadvisor",
-    tourSlug: "yala-wildlife-safari-escape",
+    link: TRIPADVISOR_URL,
   },
   {
-    id: "placeholder-4",
-    guestName: "PLACEHOLDER — Guest Name",
-    country: "Canada",
+    id: "beata-k",
+    guestName: "Beata K",
+    country: "TripAdvisor Reviewer",
     rating: 5,
-    date: "2025-08-14",
-    text: "PLACEHOLDER REVIEW TEXT. Replace with a real guest review — e.g. 'Safe driver, clean car, and genuinely warm hospitality throughout. Highly recommend for families travelling with kids.'",
-    source: "direct",
-  },
-  {
-    id: "placeholder-5",
-    guestName: "PLACEHOLDER — Guest Name",
-    country: "Netherlands",
-    rating: 4,
-    date: "2025-07-30",
-    text: "PLACEHOLDER REVIEW TEXT. Replace with a real guest review — e.g. 'Great itinerary and pacing. Would have liked a bit more time in Ella but overall a fantastic trip.'",
-    source: "google",
-    tourSlug: "hill-country-tea-trails",
-  },
-  {
-    id: "placeholder-6",
-    guestName: "PLACEHOLDER — Guest Name",
-    country: "United States",
-    rating: 5,
-    date: "2025-06-09",
-    text: "PLACEHOLDER REVIEW TEXT. Replace with a real guest review — e.g. 'Chamara customized our trip after we changed our minds twice — nothing was too much trouble. Five stars all the way.'",
+    date: "2025-10-15",
+    title: "Girls trip!!! 🐒🌴🌊♥️",
+    contributions: 2,
+    tripType: "Friends",
+    text: "Amazing time with such helpful and professional driver! We spent 7 days together. Bussy time with lots of excellent experiences, beautiful views, flavors and food. Chamara is patient, warm and happy person.",
     source: "tripadvisor",
-    tourSlug: "cultural-triangle-explorer",
+    link: TRIPADVISOR_URL,
+  },
+  {
+    id: "coastal21777299492",
+    guestName: "Coastal21777299492",
+    country: "TripAdvisor Reviewer",
+    rating: 5,
+    date: "2025-10-12",
+    title: "Transfer Unawatuna to Colombo with Lakshan",
+    contributions: 2,
+    tripType: "Solo",
+    text: "Thank you so much to Lakshan for the transfer. Very courteous, professional & safe. He went above & beyond and even stopped at a super market for me to purchase some spices. Highly recommend.",
+    source: "tripadvisor",
+    link: TRIPADVISOR_URL,
+  },
+  {
+    id: "kossa1993",
+    guestName: "Kossa1993",
+    country: "TripAdvisor Reviewer",
+    rating: 5,
+    date: "2025-09-24",
+    title: "Safe, reliable and warm - highly recommended!",
+    contributions: 19,
+    tripType: "Couples",
+    text: "We spent 12 days with Chamara in Sri Lanka and we really liked it. Chamara is a very safe driver and an attentive guide. He took us reliably from place to place, pointed out highlights on the way and always gladly made a stop if necessary.",
+    source: "tripadvisor",
+    link: TRIPADVISOR_URL,
+  },
+  {
+    id: "wegibernstein",
+    guestName: "wegibernstein",
+    country: "Hamburg, Germany",
+    rating: 5,
+    date: "2025-09-22",
+    title: "Varied, sometimes deeper dive",
+    contributions: 36,
+    tripType: "Solo",
+    text: "Wonderful tour with many incredibly beautiful experiences, very varied and interesting. Mountain scenery, nature, animals, coastline, beach sea ... what more could you want.",
+    source: "tripadvisor",
+    link: TRIPADVISOR_URL,
+  },
+  {
+    id: "heidel-kaye-s",
+    guestName: "Heidel Kaye S",
+    country: "TripAdvisor Reviewer",
+    rating: 5,
+    date: "2025-09-22",
+    title: "Awesome Tour",
+    contributions: 1,
+    text: "The tour is very good and we saw the animals from Yala because our visit is on time. Our driver also is kind and communicates well with us.",
+    source: "tripadvisor",
+    link: TRIPADVISOR_URL,
+  },
+  {
+    id: "sophie",
+    guestName: "sophie",
+    country: "Hoorn, The Netherlands",
+    rating: 5,
+    date: "2025-09-10",
+    title: "Top driver!",
+    contributions: 1,
+    tripType: "Couples",
+    text: "Very nice driver who is happy to take you everywhere! He arrives on time and the communication runs super smooth.",
+    source: "tripadvisor",
+    link: TRIPADVISOR_URL,
+  },
+  {
+    id: "hira-k",
+    guestName: "Hira K",
+    country: "United Arab Emirates",
+    rating: 5,
+    date: "2025-08-30",
+    title: "SIMPLY AMAZING",
+    contributions: 6,
+    text: "I had the most amazing solo day trip in Ella with my guide Chamara. He is not just a guide, but also a wonderful photographer capturing all the best moments along the way. I felt completely safe and comfortable throughout the trip.",
+    source: "tripadvisor",
+    link: TRIPADVISOR_URL,
+  },
+  {
+    id: "compass42654354334",
+    guestName: "Compass42654354334",
+    country: "TripAdvisor Reviewer",
+    rating: 5,
+    date: "2025-07-12",
+    title: "Thank you Chamara for this wonderful trip",
+    contributions: 2,
+    text: "10 days of amazing tours. Chamara was an exceptional travel companion, took care of every detail and always made himself available. Sri Lanka has given us great emotions that we will cherish in our hearts.",
+    source: "tripadvisor",
+    link: TRIPADVISOR_URL,
   },
 ];

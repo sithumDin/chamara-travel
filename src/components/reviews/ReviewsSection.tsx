@@ -29,9 +29,13 @@ export function ReviewsSection({ showViewAll = true }: { showViewAll?: boolean }
             href={siteConfig.tripAdvisor.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-ink underline underline-offset-4"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold underline underline-offset-4"
+            style={{ color: "#34e0a1" }}
           >
-            Read all reviews on TripAdvisor
+            <span className="flex size-4 items-center justify-center rounded-full" style={{ backgroundColor: "#34e0a1" }}>
+              <span className="size-1.5 rounded-full bg-white" />
+            </span>
+            Read all reviews on Tripadvisor
           </a>
           {showViewAll ? (
             <Button href="/reviews" variant="outline" size="md" className="mt-2">

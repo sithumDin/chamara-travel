@@ -16,9 +16,9 @@ export function TourCard({ tour, priority = false }: { tour: Tour; priority?: bo
   return (
     <Link
       href={`/tours/${tour.slug}`}
-      className="group flex flex-col rounded-2xl focus-visible:outline-none"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-paper shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+      <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
         <Image
           src={cover.src}
           alt={cover.alt}
@@ -39,9 +39,7 @@ export function TourCard({ tour, priority = false }: { tour: Tour; priority?: bo
         {relatedPhotos.length > 0 ? (
           <div className="absolute inset-0 flex translate-y-2 flex-col justify-end p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <p className="line-clamp-3 text-sm leading-relaxed text-white/90">{tour.summary}</p>
-            <p className="mt-4 text-[10px] font-medium uppercase tracking-wider text-white/60">
-              From the gallery
-            </p>
+            <p className="mt-4 text-[10px] font-medium uppercase tracking-wider text-white/60">From the gallery</p>
             <div className="mt-2 flex gap-2">
               {relatedPhotos.map((photo) => (
                 <div
@@ -62,27 +60,43 @@ export function TourCard({ tour, priority = false }: { tour: Tour; priority?: bo
         ) : null}
       </div>
 
-      <div className="mt-4 flex items-start justify-between gap-3">
-        <h3 className="text-lg font-medium text-ink">{tour.title}</h3>
-        <p className="shrink-0 whitespace-nowrap text-lg font-medium text-clay">
-          from {formatUsd(tour.fromPriceUsd)}
-        </p>
-      </div>
+      <div className="flex grow flex-col p-5">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-lg font-medium text-ink">{tour.title}</h3>
+          <p className="shrink-0 whitespace-nowrap text-lg font-medium text-clay">
+            from {formatUsd(tour.fromPriceUsd)}
+          </p>
+        </div>
 
-      <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-muted">{tour.summary}</p>
+        <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-muted">{tour.summary}</p>
 
-      <div className="mt-4 flex items-center gap-4 border-t border-border pt-4 text-xs text-muted">
-        <span className="inline-flex items-center gap-1.5">
-          <Clock className="size-4" aria-hidden="true" />
-          {tour.durationLabel}
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <Users className="size-4" aria-hidden="true" />
-          {tour.groupSize}
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <Gauge className="size-4" aria-hidden="true" />
-          {difficultyLabel[tour.difficulty]}
+        <div className="mt-4 flex items-center gap-4 border-t border-border pt-4 text-xs text-muted">
+          <span className="inline-flex items-center gap-1.5">
+            <Clock className="size-4" aria-hidden="true" />
+            {tour.durationLabel}
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <Users className="size-4" aria-hidden="true" />
+            {tour.groupSize}
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <Gauge className="size-4" aria-hidden="true" />
+            {difficultyLabel[tour.difficulty]}
+          </span>
+        </div>
+
+        <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-transform duration-300 group-hover:translate-x-1">
+          View Details
+          <svg
+            className="size-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
         </span>
       </div>
     </Link>

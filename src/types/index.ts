@@ -66,6 +66,9 @@ export interface Review {
   source: ReviewSource;
   tourSlug?: string;
   link?: string;
+  title?: string;
+  contributions?: number;
+  tripType?: string;
 }
 
 export type GalleryCategory =

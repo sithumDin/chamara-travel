@@ -2,8 +2,10 @@
 // TOUR PACKAGES
 //
 // Content below is built from the real tour write-ups supplied for launch.
-// Photos are reused from /public/gallery. Map images still use picsum
-// placeholders — swap `mapImage` for real route maps when available.
+// Photos are reused from /public/gallery. Every tour has a real
+// illustrated `mapImage` under /public/maps — the Route Map section on
+// the tour page only renders when `mapImage` is set, so a new tour added
+// without one simply won't show that section until a map is supplied.
 //
 // PRICING: the `fromPriceUsd` and `priceTiers` numbers below are PLACEHOLDERS
 // pending the real rates. Update every value marked with `// price: placeholder`.
@@ -15,11 +17,6 @@
 // ---------------------------------------------------------------------------
 
 import type { Tour } from "@/types";
-
-const img = (seed: string, alt: string): { src: string; alt: string } => ({
-  src: `https://picsum.photos/seed/${seed}/1600/1067`,
-  alt,
-});
 
 export const tours: Tour[] = [
   {
@@ -70,7 +67,10 @@ export const tours: Tour[] = [
       { groupSize: "3 - 4 travellers", pricePerPersonUsd: 60 }, // price: placeholder
       { groupSize: "5 - 6 travellers", pricePerPersonUsd: 50 }, // price: placeholder
     ],
-    mapImage: img("lk-map-wilpattu", "Map of the Wilpattu safari route"),
+    mapImage: {
+      src: "/maps/wilpattu-safari-route-map.jpg",
+      alt: "Illustrated map of the Wilpattu National Park jeep safari route, including pick-up from Colombo, Negombo, Kandy and Habarana, and the in-park breakfast, morning game drive, lunch and afternoon game drive stops",
+    },
     highlights: [
       "Second-highest leopard density in Sri Lanka",
       "Far fewer visitors than Yala",
@@ -159,7 +159,10 @@ export const tours: Tour[] = [
       { groupSize: "3 - 4 travellers", pricePerPersonUsd: 55 }, // price: placeholder
       { groupSize: "5 - 6 travellers", pricePerPersonUsd: 45 }, // price: placeholder
     ],
-    mapImage: img("lk-map-southern-daytrip", "Map of the southern sightseeing day trip route"),
+    mapImage: {
+      src: "/maps/southern-sri-lanka-route-map.jpg",
+      alt: "Illustrated map of the Southern Sri Lanka sightseeing route: Galle Fort, the Madu River boat safari, Kosgoda turtle hatchery, the Galle lighthouse, Koggala stilt fishermen and the Rumassala Japanese Peace Pagoda",
+    },
     highlights: [
       "Galle Dutch Fort and lighthouse",
       "Madu River mangrove boat safari",
@@ -232,7 +235,10 @@ export const tours: Tour[] = [
       { groupSize: "3 - 4 travellers", pricePerPersonUsd: 620 }, // price: placeholder
       { groupSize: "5 - 8 travellers", pricePerPersonUsd: 540 }, // price: placeholder
     ],
-    mapImage: img("lk-map-8day", "Map of the 8-day Sri Lanka round trip route"),
+    mapImage: {
+      src: "/maps/8-day-sri-lanka-route-map.jpg",
+      alt: "Illustrated map of the 8-day Sri Lanka private tour route through Negombo, Sigiriya, Dambulla, Minneriya, Kandy, Nuwara Eliya, Ella, Yala, Mirissa and Galle",
+    },
     highlights: [
       "Sigiriya, Dambulla and Kandy",
       "Tea country and the Nine Arches Bridge",
@@ -303,7 +309,10 @@ export const tours: Tour[] = [
       { groupSize: "3 - 4 travellers", pricePerPersonUsd: 55 }, // price: placeholder
       { groupSize: "5 - 6 travellers", pricePerPersonUsd: 45 }, // price: placeholder
     ],
-    mapImage: img("lk-map-yala-daytrip", "Map of the Yala safari day trip route"),
+    mapImage: {
+      src: "/maps/yala-safari-route-map.jpg",
+      alt: "Illustrated map of the Yala National Park private jeep safari with pick-up drive times from Colombo, Negombo, Kandy, Nuwara Eliya, Ella, Mirissa and Tissamaharama",
+    },
     highlights: [
       "4-hour private jeep safari",
       "Choice of morning or afternoon safari",
@@ -411,7 +420,10 @@ export const tours: Tour[] = [
       { groupSize: "3 - 4 travellers", pricePerPersonUsd: 45 }, // price: placeholder
       { groupSize: "5 - 6 travellers", pricePerPersonUsd: 38 }, // price: placeholder
     ],
-    mapImage: img("lk-map-sigiriya-dambulla", "Map of the Sigiriya and Dambulla day tour route"),
+    mapImage: {
+      src: "/maps/sigiriya-dambulla-route-map.jpg",
+      alt: "Illustrated map showing the short drive between the Sigiriya rock fortress and the Dambulla cave temple in Sri Lanka's Cultural Triangle",
+    },
     highlights: [
       "Climb the 5th-century Sigiriya rock fortress",
       "See the famous Sigiriya frescoes and mirror wall",
@@ -469,7 +481,10 @@ export const tours: Tour[] = [
       { groupSize: "3 - 4 travellers", pricePerPersonUsd: 42 }, // price: placeholder
       { groupSize: "5 - 6 travellers", pricePerPersonUsd: 35 }, // price: placeholder
     ],
-    mapImage: img("lk-map-kandy", "Map of the Kandy cultural day tour route"),
+    mapImage: {
+      src: "/maps/kandy-cultural-route-map.jpg",
+      alt: "Illustrated map of the Kandy cultural day tour route from the spice garden to the Temple of the Sacred Tooth Relic and the Peradeniya Royal Botanical Gardens",
+    },
     highlights: [
       "Temple of the Sacred Tooth Relic",
       "Royal Botanical Gardens, Peradeniya",
@@ -536,7 +551,10 @@ export const tours: Tour[] = [
       { groupSize: "3 - 4 travellers", pricePerPersonUsd: 150 }, // price: placeholder
       { groupSize: "5 - 6 travellers", pricePerPersonUsd: 130 }, // price: placeholder
     ],
-    mapImage: img("lk-map-ella-nuwaraeliya", "Map of the Ella and Nuwara Eliya hill country tour route"),
+    mapImage: {
+      src: "/maps/ella-nuwara-eliya-route-map.jpg",
+      alt: "Illustrated map of the Ella and Nuwara Eliya hill country route via Ramboda Falls, Nuwara Eliya Lake, the Nine Arches Bridge and Little Adam's Peak",
+    },
     highlights: [
       "Working tea factory tour and tasting",
       "Ramboda Falls",
@@ -591,7 +609,10 @@ export const tours: Tour[] = [
       { groupSize: "3 - 4 travellers", pricePerPersonUsd: 45 }, // price: placeholder
       { groupSize: "5 - 6 travellers", pricePerPersonUsd: 40 }, // price: placeholder
     ],
-    mapImage: img("lk-map-down-south-whales", "Map of the down south and Mirissa whale watching route"),
+    mapImage: {
+      src: "/maps/down-south-whale-watching-route-map.jpg",
+      alt: "Illustrated map of the Down South and Mirissa whale watching route, showing Mirissa Harbour, the offshore whale watching area and Koggala/Ahangama",
+    },
     highlights: [
       "Real chance of blue and sperm whale sightings",
       "Spinner dolphin pods",
@@ -642,7 +663,10 @@ export const tours: Tour[] = [
       { groupSize: "3 - 4 travellers", pricePerPersonUsd: 48 }, // price: placeholder
       { groupSize: "5 - 6 travellers", pricePerPersonUsd: 40 }, // price: placeholder
     ],
-    mapImage: img("lk-map-minneriya", "Map of the Minneriya National Park safari route"),
+    mapImage: {
+      src: "/maps/minneriya-safari-route-map.jpg",
+      alt: "Illustrated map of the Minneriya National Park elephant safari route from Habarana, past Sigiriya and Dambulla, to the Minneriya reservoir",
+    },
     highlights: [
       "\"The Gathering\" — one of Asia's largest wild elephant herds (Aug - Oct)",
       "4WD jeep safari with an experienced tracker",
@@ -700,7 +724,10 @@ export const tours: Tour[] = [
       { groupSize: "3 - 4 travellers", pricePerPersonUsd: 60 }, // price: placeholder
       { groupSize: "5 - 6 travellers", pricePerPersonUsd: 50 }, // price: placeholder
     ],
-    mapImage: img("lk-map-sigiriya-dambulla-minneriya", "Map of the Sigiriya, Dambulla and Minneriya day tour route"),
+    mapImage: {
+      src: "/maps/sigiriya-dambulla-minneriya-route-map.jpg",
+      alt: "Illustrated map of the Sigiriya, Dambulla and Minneriya day tour route across Sri Lanka's Cultural Triangle",
+    },
     highlights: [
       "Climb the Sigiriya rock fortress",
       "UNESCO-listed Dambulla cave temple",
