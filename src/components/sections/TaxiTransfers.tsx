@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
+import { TransferSlideshow } from "@/components/sections/TransferSlideshow";
 import { transferRoutes } from "@/data/transfers";
 import { formatUsd } from "@/lib/utils";
 
@@ -69,6 +70,10 @@ export function TaxiTransfers() {
               {perk.label}
             </span>
           ))}
+        </Reveal>
+
+        <Reveal className="mt-8">
+          <TransferSlideshow />
         </Reveal>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

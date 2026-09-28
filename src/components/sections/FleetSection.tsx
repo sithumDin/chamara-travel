@@ -5,16 +5,24 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 
-// Representative vehicle photos (free-license, no attribution required).
-// Not our actual fleet — swap each `image` for a real photo of the vehicle
+// The sedan is a real photo of our vehicle (full-bleed, `photo: true`); the
+// rest are representative free-license cutouts — swap each for a real photo
 // when available.
-const fleet = [
+const fleet: {
+  icon: typeof Car;
+  name: string;
+  passengers: string;
+  image: string;
+  alt: string;
+  photo?: boolean;
+}[] = [
   {
     icon: Car,
     name: "Luxury Sedan",
     passengers: "1 - 4 passengers",
-    image: "/vehicles/luxury-sedan.jpg",
-    alt: "White luxury sedan, representative of our luxury sedan fleet vehicle",
+    image: "/vehicles/prius-sedan.jpg",
+    alt: "Our white Toyota Prius hybrid sedan parked on a tree-lined road",
+    photo: true,
   },
   {
     icon: Van,
@@ -66,7 +74,9 @@ export function FleetSection() {
                   alt={vehicle.alt}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 280px"
-                  className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                  className={`transition-transform duration-500 group-hover:scale-105 ${
+                    vehicle.photo ? "object-cover object-[center_75%]" : "object-contain p-4"
+                  }`}
                 />
                 <span
                   className={`absolute left-3 top-3 inline-flex size-9 items-center justify-center rounded-full bg-white/90 backdrop-blur-sm ${badgeTones[index % badgeTones.length].icon}`}
