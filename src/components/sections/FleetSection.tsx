@@ -5,9 +5,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 
-// The sedan is a real photo of our vehicle (full-bleed, `photo: true`); the
-// rest are representative free-license cutouts — swap each for a real photo
-// when available.
+// The sedan and Honda Fit are real photos of our vehicles (full-bleed,
+// `photo: true`); the rest are representative free-license cutouts — swap
+// each for a real photo when available.
 const fleet: {
   icon: typeof Car;
   name: string;
@@ -18,7 +18,7 @@ const fleet: {
 }[] = [
   {
     icon: Car,
-    name: "Luxury Sedan",
+    name: "Sedan",
     passengers: "1 - 4 passengers",
     image: "/vehicles/prius-sedan.jpg",
     alt: "Our white Toyota Prius hybrid sedan parked on a tree-lined road",
@@ -33,10 +33,11 @@ const fleet: {
   },
   {
     icon: CarFront,
-    name: "SUV / Crossover",
-    passengers: "4 - 7 passengers",
-    image: "/vehicles/suv-crossover.jpg",
-    alt: "White SUV, representative of our SUV/crossover fleet vehicle",
+    name: "Honda Fit",
+    passengers: "1 - 4 passengers",
+    image: "/vehicles/honda-fit.jpg",
+    alt: "Front view of our white Honda Fit parked in a garden driveway",
+    photo: true,
   },
   {
     icon: Bus,
@@ -62,7 +63,7 @@ export function FleetSection() {
         <SectionHeading
           eyebrow="The Fleet"
           title="A comfortable, well-maintained ride for any group size"
-          description="Cars, vans, SUVs and buses available depending on your group size — all air-conditioned, seatbelt-equipped, regularly serviced and fully insured for private hire."
+          description="Cars, vans and buses available depending on your group size — all air-conditioned, seatbelt-equipped, regularly serviced and fully insured for private hire."
         />
 
         <Reveal className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
