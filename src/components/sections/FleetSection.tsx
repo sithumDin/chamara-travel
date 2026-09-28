@@ -19,7 +19,7 @@ const fleet: {
   {
     icon: Car,
     name: "Sedan",
-    passengers: "1 - 4 passengers",
+    passengers: "1 - 3 passengers",
     image: "/vehicles/prius-sedan.jpg",
     alt: "Our white Toyota Prius hybrid sedan parked on a tree-lined road",
     photo: true,
@@ -34,7 +34,7 @@ const fleet: {
   {
     icon: CarFront,
     name: "Honda Fit",
-    passengers: "1 - 4 passengers",
+    passengers: "1 - 3 passengers",
     image: "/vehicles/honda-fit.jpg",
     alt: "Front view of our white Honda Fit parked in a garden driveway",
     photo: true,
