@@ -70,10 +70,10 @@ export const siteConfig = {
     cookieConsentEnabled: true,
   },
 
-  // Tracking IDs are read from env vars at runtime — see .env.example.
-  // Nothing here is a secret; these are safe to leave blank in dev.
+  // Tracking IDs are read from env vars — see .env.example. GTM uses the
+  // production container by default; the other IDs can remain blank.
   tracking: {
-    gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? "",
+    gtmId: process.env.NEXT_PUBLIC_GTM_ID || "GTM-WFCK77JG",
     ga4Id: process.env.NEXT_PUBLIC_GA4_ID ?? "",
     googleAdsId: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "",
     googleAdsConversionLabelInquiry: process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL_INQUIRY ?? "",

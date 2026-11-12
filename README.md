@@ -35,14 +35,15 @@ Copy `.env.example` to `.env.local` and fill in:
 |---|---|---|
 | `RESEND_API_KEY` | Inquiry form emails | Get one at resend.com. Without it, the form still validates and submits, but the API route returns a friendly error instead of sending email — this is expected in local dev. |
 | `RESEND_FROM_EMAIL` | Inquiry form emails | Must be a verified sender/domain on your Resend account. Leave blank in dev to use Resend's shared test sender. |
-| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager | e.g. `GTM-XXXXXXX` |
+| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager | Defaults to `GTM-WFCK77JG`; override to use another container |
 | `NEXT_PUBLIC_GA4_ID` | Google Analytics 4 | e.g. `G-XXXXXXXXXX` |
 | `NEXT_PUBLIC_GOOGLE_ADS_ID` | Google Ads conversions | e.g. `AW-XXXXXXXXX` |
 | `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL_INQUIRY` | Conversion tracking | Fired on successful inquiry submit |
 | `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL_WHATSAPP` | Conversion tracking | Fired on WhatsApp button click |
 
-None of these are required for the site to run and look correct locally — they only gate email
-sending and analytics/ads tracking.
+The site runs without these values. The default GTM container loads unless overridden; GA4 and
+Google Ads tracking are enabled only when their IDs are configured. Email sending requires its
+credentials.
 
 ## Editing content (no code changes needed)
 
